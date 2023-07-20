@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: center;
+  height: 109px;
+}
+
+.header__content-wrapper {
+  display: flex;
+  width: var(--max-width);
+}
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 3);
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  width: calc(100% / 3);
+}
+
+.header__buttons {
+  display: flex;
+  align-items: center;
+  width: calc(100% / 3);
+  background-color: fuchsia;
+}

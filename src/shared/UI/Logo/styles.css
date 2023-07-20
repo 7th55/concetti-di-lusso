@@ -1,0 +1,8 @@
+.logo {
+  position: relative;
+  left: -28px;
+  font-size: var(--font-size-seventh);
+  font-weight: var(--font-weight-third);
+  text-transform: uppercase;
+  color: var(--text-color-second);
+}

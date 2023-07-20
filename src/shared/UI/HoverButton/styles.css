@@ -1,0 +1,21 @@
+.header__menu-list {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  justify-content: space-around;
+}
+
+.hoverButton {
+  position: relative;
+}
+
+
+.hoverButton_hover {
+  position: absolute;
+  top: 0px;
+}
+
+.hoverButton_hover-big {
+  left: -1px;
+  width: 120px;
+}

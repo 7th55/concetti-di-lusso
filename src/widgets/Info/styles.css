@@ -9,7 +9,7 @@
 
 .info__content-wrapper {
   position: relative;
-  width: 1440px;
+  width: var(--max-width);
 }
 
 .info__content-list {
@@ -35,7 +35,7 @@
   top: 13px;
   left: 608px;
   color: var(--text-color-second);
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-fifth);
   font-weight: 600;
 }
 
@@ -79,7 +79,7 @@
   background-image: url('./assets/icons/location.svg');
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1430px) {
   .info__promotion {
     left: 200px;
   }

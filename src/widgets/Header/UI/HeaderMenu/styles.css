@@ -1,0 +1,36 @@
+.header__menu-list {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  justify-content: space-around;
+}
+
+.header__menu-item:nth-of-type(1) {
+  position: relative;
+  left: 8px;
+}
+
+.header__menu-item:nth-of-type(2) {
+  position: relative;
+  left: -4px;
+}
+
+.header__menu-item:nth-of-type(3) {
+  position: relative;
+  left: 3px;
+}
+
+.header__menu-item:nth-of-type(4) {
+  position: relative;
+  left: -9px;
+}
+
+.header__menu-item_hover {
+  position: absolute;
+  top: 0px;
+}
+
+.header__menu-item_hover-big {
+  left: -1px;
+  width: 120px;
+}

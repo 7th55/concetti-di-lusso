@@ -1,0 +1,15 @@
+.button {
+  position: relative;
+}
+
+.button__menu-button {
+  color: var(--text-color-third);
+  font-style: inherit;
+  font-size: var(--font-size-fifth);
+  font-weight: var(--font-weight-first);
+}
+
+.button__menu-button_hover {
+  color: var(--text-color-fourth);
+  font-weight: var(--font-weight-second);
+}

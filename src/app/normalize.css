@@ -4,7 +4,13 @@ p {
   margin: 0;
 }
 
-ul {
+ul,
+button {
   padding: 0;
   list-style: none;
+}
+
+button {
+  background-color: #ff00;
+  border-style: none;
 }

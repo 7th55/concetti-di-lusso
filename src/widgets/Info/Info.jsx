@@ -1,4 +1,4 @@
-import '/src/components/Info/styles.css';
+import './styles.css';
 
 export const Info = ({
   phone = '801-462-6210',
