@@ -4,10 +4,14 @@
 :root {
   /* Palette */
   --bg-color-first: #f6f6f6;
+
   --text-color-first: #232323;
   --text-color-second: #9e3040;
   --text-color-third: #686868;
   --text-color-fourth: #232323;
+
+  --button-color-first: #ffffff;
+  --button-color-second: #9E3040;
 
   /* Sizes */
   --max-width: 1440px;
@@ -30,6 +34,9 @@
 
   /* Media */
   --media-query: 1440px;
+
+  /* Global Values */
+  --view-global-padding: 40px
 }
 
 body,

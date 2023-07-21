@@ -10,7 +10,14 @@ button {
   list-style: none;
 }
 
-button {
+button,
+select {
+  font-family: inherit;
   background-color: #ff00;
   border-style: none;
+  border-width: 0;
+}
+
+select {
+  -webkit-appearance: none;
 }

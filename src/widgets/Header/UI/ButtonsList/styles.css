@@ -1,0 +1,65 @@
+.buttons-list {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+}
+
+.buttons-list__shopping-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  left: 9px;
+}
+
+.buttons-list__shopping-button {
+  display: flex;
+  position: relative;
+}
+
+.buttons-list__shopping-button:nth-of-type(2) {
+  left: 20px;
+}
+
+.buttons-list__shopping-button:nth-of-type(3) {
+  left: 40px;
+}
+
+.buttons-list__sign-in-button {
+  position: relative;
+  left: -28px;
+}
+/* Media Query */
+@media (max-width: 1430px) {
+  .buttons-list__shopping-buttons,
+  .buttons-list__shopping-button:nth-of-type(n),
+  .buttons-list__sign-in-button {
+    left: 0;
+  }
+  .buttons-list {
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  .buttons-list__shopping-buttons {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 840px) {
+}
+
+@media (max-width: 685px) {
+}
+
+@media (max-width: 500px) {
+}
+
+@media (max-width: 345px) {
+}
+
+@media (max-width: 310px) {
+}
+
+@media (max-width: 180px) {
+}

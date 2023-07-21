@@ -6,3 +6,27 @@
   text-transform: uppercase;
   color: var(--text-color-second);
 }
+
+@media (max-width: 1430px) {
+  .logo {
+    left: 0;
+  }
+}
+
+@media (max-width: 840px) {
+}
+
+@media (max-width: 685px) {
+}
+
+@media (max-width: 500px) {
+}
+
+@media (max-width: 345px) {
+}
+
+@media (max-width: 310px) {
+}
+
+@media (max-width: 180px) {
+}

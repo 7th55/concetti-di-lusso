@@ -34,9 +34,6 @@
   position: absolute;
   top: 13px;
   left: 608px;
-  color: var(--text-color-second);
-  font-size: var(--font-size-fifth);
-  font-weight: 600;
 }
 
 .info__phone {
@@ -82,9 +79,21 @@
 @media (max-width: 1430px) {
   .info__promotion {
     left: 200px;
+    display: none;
   }
   .info__email {
-    display: none;
+    flex-grow: 1;
+  }
+
+  .info__phone,
+  .info__email,
+  .info__location {
+    left: 0;
+  }
+
+  .info__content-list {
+    gap: 30px;
+    padding: 0 var(--view-global-padding);
   }
 }
 

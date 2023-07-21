@@ -1,10 +1,10 @@
+import { Promotion } from '../../shared/UI/Promotion';
 import './styles.css';
 
 export const Info = ({
   phone = '801-462-6210',
   email = 'Support@concetti-di-lusso.com',
   location = '8385 South Allen Street, Suite 111, Sandy UT 84070',
-  promotion = 'FREE SHIPPING! Orders $35+',
 }) => {
   const info = [
     {
@@ -35,7 +35,9 @@ export const Info = ({
             </li>
           ))}
         </ul>
-        <p className="info__promotion">{promotion}</p>
+        <div className='info__promotion'>
+        <Promotion />
+        </div>
       </div>
     </div>
   );
