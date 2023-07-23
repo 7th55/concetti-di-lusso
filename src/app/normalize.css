@@ -1,6 +1,7 @@
 body,
 ul,
-p {
+p,
+h3 {
   margin: 0;
 }
 

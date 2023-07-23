@@ -1,5 +1,6 @@
 /* PP 0.9995 */
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root {
   /* Palette */
@@ -9,14 +10,18 @@
   --text-color-second: #9e3040;
   --text-color-third: #686868;
   --text-color-fourth: #232323;
+  --text-color-fifth: #ffff;
 
   --button-color-first: #ffffff;
-  --button-color-second: #9E3040;
+  --button-color-second: #9e3040;
 
   /* Sizes */
   --max-width: 1440px;
 
   /* Fonts */
+  --font-first: 'Hind Siliguri', sans-serif;
+  --font-second: 'Open Sans', sans-serif;
+
   --font-size-first: 14px;
   --font-size-second: 15px;
   --font-size-third: 16px;
@@ -36,10 +41,10 @@
   --media-query: 1440px;
 
   /* Global Values */
-  --view-global-padding: 40px
+  --view-global-padding: 40px;
 }
 
 body,
 button {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-first);
 }

@@ -21,6 +21,9 @@ export const buttonStyle = (config) => {
     case 'signIn':
       buttonClass = 'button__sign-in-button';
       break;
+    case 'shopNow':
+      buttonClass = 'button__shop-now-button';
+      break;
     default:
       '';
   }
