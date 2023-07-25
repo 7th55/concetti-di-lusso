@@ -1,0 +1,1 @@
+export { advantagesData } from './data';

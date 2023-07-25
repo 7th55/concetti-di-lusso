@@ -5,6 +5,10 @@ h3 {
   margin: 0;
 }
 
+h3 {
+  font-size: inherit;
+}
+
 ul,
 button {
   padding: 0;
