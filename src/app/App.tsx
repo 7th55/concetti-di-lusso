@@ -1,5 +1,5 @@
-import { Info } from '/src/widgets/Info/index.js';
-import { Header } from '/src/widgets/Header/index.js';
+import { Info } from '/src/widgets/Info';
+import { Header } from '/src/widgets/Header';
 import { ShopNowBanner } from '/src/widgets/ShopNowBanner';
 import { Advantages } from '/src/widgets/Advantages';
 // Global Styles

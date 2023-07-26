@@ -1,4 +1,6 @@
-export const buttonStyle = (config) => {
+import { ButtonStylesReturnType, ButtonStylesType } from 'src/shared/types';
+
+export const buttonStylesClass: ButtonStylesType = (config) => {
   let { type, hover } = config;
   let buttonClass;
 
@@ -30,5 +32,5 @@ export const buttonStyle = (config) => {
 
   hover && (buttonClass = `${buttonClass} ${buttonClass}_hover`);
 
-  return buttonClass;
+  return buttonClass as ButtonStylesReturnType;
 };
