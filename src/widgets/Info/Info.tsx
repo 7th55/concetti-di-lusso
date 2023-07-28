@@ -1,4 +1,4 @@
-import { Promotion } from '../../shared/UI/Promotion';
+import { Promotion } from '/src/shared/UI/Promotion';
 import './styles.css';
 
 export const Info = ({
@@ -35,8 +35,8 @@ export const Info = ({
             </li>
           ))}
         </ul>
-        <div className='info__promotion'>
-        <Promotion />
+        <div className="info__promotion">
+          <Promotion />
         </div>
       </div>
     </div>

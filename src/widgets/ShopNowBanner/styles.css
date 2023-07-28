@@ -1,0 +1,73 @@
+.shopNowBanner {
+  display: flex;
+  justify-content: center;
+  height: 750px;
+}
+
+.shopNowBanner__content-wrapper {
+  position: relative;
+  width: var(--max-width);
+}
+
+.shopNowBanner__image-container {
+  height: 100%;
+}
+
+.shopNowBanner__content {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.shopNowBanner__header {
+  position: relative;
+  top: 214px;
+  left: 80px;
+}
+
+.shopNowBanner__header-text {
+  font-size: var(--font-size-tenth);
+  font-weight: var(--font-weight-second);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--text-color-fifth);
+}
+
+.shopNowBanner__text {
+  position: relative;
+  top: 226px;
+  left: 80px;
+
+  font-family: var(--font-second);
+  font-size: var(--font-size-sixth);
+  font-weight: var(--font-weight-first);
+  color: var(--text-color-fifth);
+}
+
+.shopNowBanner__shop-now {
+  position: relative;
+  top: 258px;
+  left: 81px;
+}
+
+@media (max-width: 1430px) {
+  .shopNowBanner {
+    height: 100%;
+  }
+
+  .shopNowBanner__image-container,
+  .shopNowBanner__image {
+    width: 100%;
+  }
+  .shopNowBanner__image-container {
+    position: relative;
+    height: 527px;
+    overflow: hidden;
+  }
+
+  .shopNowBanner__content {
+    position: absolute;
+    top: -100px;
+    left: -43px;
+  }
+}

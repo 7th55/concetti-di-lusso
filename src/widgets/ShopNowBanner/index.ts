@@ -1,0 +1,1 @@
+export { ShopNowBanner } from './ShopNowBanner';

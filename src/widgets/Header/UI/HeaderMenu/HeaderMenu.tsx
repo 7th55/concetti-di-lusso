@@ -4,6 +4,7 @@ import { Button } from '/src/shared/UI/Button';
 // Styles
 import './styles.css';
 import { HoverButton } from '/src/shared/UI/HoverButton';
+import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const HeaderMenu = ({
   items = ['Home', 'Towels', 'Robes', 'Bathroom Sets'],
@@ -18,12 +19,22 @@ export const HeaderMenu = ({
             {selectList !== index ? (
               <HoverButton
                 button={
-                  <Button buttonType={'menu'} hoverStyle={false}>
+                  <Button
+                    buttonStylesClassName={buttonStylesClass({
+                      type: 'menu',
+                      hover: false,
+                    })}
+                  >
                     {item}
                   </Button>
                 }
                 hoverButton={
-                  <Button buttonType={'menu'} hoverStyle={true}>
+                  <Button
+                    buttonStylesClassName={buttonStylesClass({
+                      type: 'menu',
+                      hover: true,
+                    })}
+                  >
                     {item}
                   </Button>
                 }
@@ -34,12 +45,22 @@ export const HeaderMenu = ({
                 options={[
                   <HoverButton
                     button={
-                      <Button buttonType={'select'} hoverStyle={false}>
+                      <Button
+                        buttonStylesClassName={buttonStylesClass({
+                          type: 'select',
+                          hover: false,
+                        })}
+                      >
                         {item}
                       </Button>
                     }
                     hoverButton={
-                      <Button buttonType={'select'} hoverStyle={true}>
+                      <Button
+                        buttonStylesClassName={buttonStylesClass({
+                          type: 'select',
+                          hover: true,
+                        })}
+                      >
                         {item}
                       </Button>
                     }

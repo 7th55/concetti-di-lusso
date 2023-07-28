@@ -38,7 +38,7 @@
   width: 49px;
   height: 49px;
   border-radius: 5px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.09));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   background-color: var(--button-color-first);
   background-image: url(./assets/icons/search.svg);
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@
   width: 49px;
   height: 49px;
   border-radius: 5px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.09));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   background-color: var(--button-color-first);
   background-image: url(./assets/icons/favorites.svg);
   background-repeat: no-repeat;
@@ -60,7 +60,7 @@
   width: 49px;
   height: 49px;
   border-radius: 5px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.09));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   background-color: var(--button-color-first);
   background-image: url(./assets/icons/shopping.svg);
   background-repeat: no-repeat;
@@ -82,6 +82,39 @@
   border-radius: 5px;
 }
 
+.button__shop-now-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 187px;
+  height: 49px;
+  font-size: var(--font-size-fifth);
+  font-weight: var(--font-weight-second);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--button-color-second);
+  background-color: var(--button-color-first);
+  border-radius: 5px;
+}
+.button__shop-now-button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 128px;
+  width: 32px;
+  height: 20px;
+  background-image: url(./assets/icons/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button__shop-now-text {
+  position: relative;
+  left: -21px;
+}
+
 /* Hover Styles */
 
 .button__select-button_hover {
@@ -100,4 +133,14 @@
   background-image: url(./assets/icons/arrow-hover.svg);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* Media Query */
+@media (max-width: 1430px) {
+  .button__select-button::after {
+    left: 52px;
+  }
+  .button__select-button_hover::after {
+    left: 52px;
+  }
 }
