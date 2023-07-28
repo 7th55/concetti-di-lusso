@@ -78,8 +78,7 @@
 
 @media (max-width: 1430px) {
   .info__promotion {
-    left: 200px;
-    display: none;
+    left: 41%;
   }
   .info__email {
     flex-grow: 1;

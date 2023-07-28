@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import './styles.css';
 
-export const Select = ({ options }) => {
+export const Select = ({ options }: { options: any }) => {
   return (
     <div className="select">
-      {options.map((optionsItem) => (
+      {options.map((optionsItem: any) => (
         <div className="select__options">{optionsItem}</div>
       ))}
     </div>

@@ -1,6 +1,7 @@
 import { Button } from '/src/shared/UI/Button';
 // Styles
 import './styles.css';
+import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const ShopNowBanner = () => {
   return (
@@ -8,7 +9,7 @@ export const ShopNowBanner = () => {
       <div className="shopNowBanner__content-wrapper">
         <div className="shopNowBanner__image-container">
           <img
-            className='shopNowBanner__image'
+            className="shopNowBanner__image"
             src="/src/widgets/ShopNowBanner/assets/img/towels.png"
             alt="Some Towels"
           />
@@ -23,7 +24,12 @@ export const ShopNowBanner = () => {
             <p>Over 50 Collections to Choose for !</p>
           </div>
           <div className="shopNowBanner__shop-now">
-            <Button buttonType={'shopNow'} hover={false}>
+            <Button
+              buttonStylesClassName={buttonStylesClass({
+                type: 'shopNow',
+                hover: false,
+              })}
+            >
               Shop Now
             </Button>
           </div>
