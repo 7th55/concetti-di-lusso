@@ -14,8 +14,14 @@
 
   --button-color-first: #ffffff;
   --button-color-second: #9e3040;
+  --button-color-third: #232323;
 
   --card-color-first: #ffffff;
+
+  --product-card-bg-color: #f3f5f6;
+
+  --product-card-price-color: #9e3050;
+  --product-card-old-price-color: #696969;
 
   /* Sizes */
   --max-width: 1440px;

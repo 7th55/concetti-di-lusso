@@ -1,4 +1,4 @@
-import { ButtonStylesReturnType, ButtonStylesType } from 'src/shared/types';
+import { ButtonStylesReturnType, ButtonStylesType } from '/src/shared/types';
 
 export const buttonStylesClass: ButtonStylesType = (config) => {
   let { type, hover } = config;
@@ -25,6 +25,9 @@ export const buttonStylesClass: ButtonStylesType = (config) => {
       break;
     case 'shopNow':
       buttonClass = 'button__shop-now-button';
+      break;
+    case 'addCart':
+      buttonClass = 'button__add-cart';
       break;
     default:
       '';
