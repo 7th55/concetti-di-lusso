@@ -1,11 +1,16 @@
 .shopNowBanner {
   display: flex;
   justify-content: center;
+  height: 750px;
 }
 
 .shopNowBanner__content-wrapper {
   position: relative;
   width: var(--max-width);
+}
+
+.shopNowBanner__image-container {
+  height: 100%;
 }
 
 .shopNowBanner__content {
@@ -46,6 +51,10 @@
 }
 
 @media (max-width: 1430px) {
+  .shopNowBanner {
+    height: 100%;
+  }
+
   .shopNowBanner__image-container,
   .shopNowBanner__image {
     width: 100%;
