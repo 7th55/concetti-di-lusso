@@ -1,0 +1,38 @@
+.exploreMoreProduct {
+  position: relative;
+  width: 548px;
+  height: 903px;
+  border-radius: 30px;
+  background-color: yellow;
+  background-image: url(./assets/img/expmprd.png);
+  background-repeat: no-repeat;
+}
+
+.exploreMoreProduct__header {
+  position: absolute;
+  top: 187px;
+  left: 103px;
+  text-align: center;
+  font-size: var(--font-size-ninth);
+  font-weight: var(--font-weight-second);
+  line-height: 1.2;
+  color: var(--text-color-fifth);
+}
+
+@media (max-width: 1430px) {
+  .exploreMoreProduct {
+    width: 100%;
+    background-size: cover;
+    background-position: 0 -643px;
+    border-radius: 0;
+  }
+
+  .exploreMoreProduct__header {
+    top: 5%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}

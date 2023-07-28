@@ -1,11 +1,12 @@
 body,
 ul,
-p,
-h3 {
+p {
   margin: 0;
 }
 
-h3 {
+h3,
+h4 {
+  margin: 0;
   font-size: inherit;
 }
 

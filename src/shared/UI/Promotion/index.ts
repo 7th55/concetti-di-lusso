@@ -1,1 +1,1 @@
-export { Promotion } from './Promotion.tsx';
+export { Promotion } from './Promotion';
