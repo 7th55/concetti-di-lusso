@@ -5,7 +5,7 @@ import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const ShopNowBanner = () => {
   return (
-    <div className="shopNowBanner">
+    <section className="shopNowBanner">
       <div className="shopNowBanner__content-wrapper">
         <div className="shopNowBanner__image-container">
           <img
@@ -35,6 +35,6 @@ export const ShopNowBanner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

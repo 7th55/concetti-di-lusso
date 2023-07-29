@@ -4,7 +4,7 @@ import { advantagesData } from './data';
 
 export const Advantages = () => {
   return (
-    <div className="advantages">
+    <section className="advantages">
       <div className="advantages__content-wrapper">
         <div className="advantages__list">
           {advantagesData.map((data) => (
@@ -22,6 +22,6 @@ export const Advantages = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

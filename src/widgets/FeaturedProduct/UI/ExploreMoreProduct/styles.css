@@ -23,12 +23,10 @@
   .exploreMoreProduct {
     width: 100%;
     background-size: cover;
-    background-position: 0 -643px;
-    border-radius: 0;
+    background-position: 40% 0;
   }
 
   .exploreMoreProduct__header {
-    top: 5%;
     left: 0;
     display: flex;
     justify-content: center;

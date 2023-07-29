@@ -29,6 +29,9 @@ export const buttonStylesClass: ButtonStylesType = (config) => {
     case 'addCart':
       buttonClass = 'button__add-cart';
       break;
+    case 'regular':
+      buttonClass = 'button__regular';
+      break;
     default:
       '';
   }
