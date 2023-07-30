@@ -1,12 +1,15 @@
 // Components
 import { ProductCard, productsData } from '/src/entites/ProductCard';
-import { ExploreMoreProduct } from './UI/ExploreMoreProduct/ExploreMoreProduct';
+import { ExploreMoreProduct } from './UI/ExploreMoreProduct';
 // Styles
 import './styles.css';
+import { Button } from '/src/shared/UI/Button';
+import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
+import { ShopNow } from './UI/ShopNow';
 
 export const FeaturedProduct = () => {
   return (
-    <div className="featuredProduct">
+    <section className="featuredProduct">
       <div className="featuredProduct__content-wrapper">
         <div className="featuredProduct__header">
           <div className="featuredProduct__header-content">
@@ -19,11 +22,27 @@ export const FeaturedProduct = () => {
           </div>
           <div className="featuredProduct__products">
             {productsData.map((product) => (
-              <div className='featuredProduct__product'><ProductCard {...product} /></div>
+              <div key={product.name} className="featuredProduct__product">
+                <ProductCard {...product} />
+              </div>
             ))}
           </div>
         </div>
+        <div className="featuredProduct__show-more-button">
+          <Button
+            buttonStylesClassName={buttonStylesClass({
+              type: 'regular',
+              hover: false,
+            })}
+          >
+            Show More
+          </Button>
+        </div>
+
+        <div className="featuredProduct__shop-now">
+          <ShopNow />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

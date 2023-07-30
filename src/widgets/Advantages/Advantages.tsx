@@ -4,11 +4,11 @@ import { advantagesData } from './data';
 
 export const Advantages = () => {
   return (
-    <div className="advantages">
+    <section className="advantages">
       <div className="advantages__content-wrapper">
         <div className="advantages__list">
           {advantagesData.map((data) => (
-            <div className="advantages__card">
+            <div key={data.header} className="advantages__card">
               <div className="advantages__card-image">
                 <img src={data.img.src} alt={data.img.alt} />
               </div>
@@ -22,6 +22,6 @@ export const Advantages = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

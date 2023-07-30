@@ -22,7 +22,7 @@ export const Info = ({
   ];
 
   return (
-    <div className="info">
+    <section className="info">
       <div className="info__content-wrapper">
         <ul className="info__content-list">
           {info.map((info) => (
@@ -39,6 +39,6 @@ export const Info = ({
           <Promotion />
         </div>
       </div>
-    </div>
+    </section>
   );
 };

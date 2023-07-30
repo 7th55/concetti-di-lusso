@@ -10,11 +10,15 @@ import '/src/app/global.css';
 export const App = () => {
   return (
     <>
-      <Info />
-      <Header />
-      <ShopNowBanner />
-      <Advantages />
-      <FeaturedProduct />
+      <header>
+        <Info />
+        <Header />
+      </header>
+      <main>
+        <ShopNowBanner />
+        <Advantages />
+        <FeaturedProduct />
+      </main>
     </>
   );
 };

@@ -6,7 +6,9 @@ export type ButtonType =
   | 'shopping'
   | 'signIn'
   | 'shopNow'
-  | 'addCart';
+  | 'shopNowBlack'
+  | 'addCart'
+  | 'regular';
 
 type ButtonClassesType =
   | 'button__menu-button'
@@ -16,7 +18,9 @@ type ButtonClassesType =
   | 'button__shopping-button'
   | 'button__sign-in-button'
   | 'button__shop-now-button'
-  | 'button__add-cart';
+  | 'button__shop-now-button_black'
+  | 'button__add-cart'
+  | 'button__regular';
 
 type HoverClassesType<T extends string> = `${T} ${T}_hover`;
 

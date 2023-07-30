@@ -57,6 +57,9 @@
 
   .shopNowBanner__image-container,
   .shopNowBanner__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
   .shopNowBanner__image-container {

@@ -10,7 +10,7 @@ export const ButtonsList = () => {
     <div className="buttons-list">
       <div className="buttons-list__shopping-buttons">
         {buttons.map((button) => (
-          <div className="buttons-list__shopping-button">
+          <div key={button} className="buttons-list__shopping-button">
             <Button
               buttonStylesClassName={buttonStylesClass({
                 type: button,

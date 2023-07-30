@@ -6,7 +6,7 @@ import './styles.css';
 
 export const Header = () => {
   return (
-    <header className="header">
+    <div className="header">
       <div className="header__content-wrapper">
         <div className="header__padding">
           <div className="header__logo">
@@ -20,6 +20,6 @@ export const Header = () => {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
