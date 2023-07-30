@@ -26,6 +26,9 @@ export const buttonStylesClass: ButtonStylesType = (config) => {
     case 'shopNow':
       buttonClass = 'button__shop-now-button';
       break;
+    case 'shopNowBlack':
+      buttonClass = 'button__shop-now-button_black';
+      break;
     case 'addCart':
       buttonClass = 'button__add-cart';
       break;

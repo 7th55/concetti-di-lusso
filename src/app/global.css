@@ -1,10 +1,11 @@
 /* PP 0.9995 */
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root {
   /* Palette */
   --bg-color-first: #f6f6f6;
+  --bg-color-second: #f3f5f6;
 
   --text-color-first: #232323;
   --text-color-second: #9e3040;
@@ -44,6 +45,7 @@
   --font-weight-first: 400;
   --font-weight-second: 500;
   --font-weight-third: 600;
+  --font-weight-fourth: 700;
 
   /* Media */
   --media-query: 1440px;

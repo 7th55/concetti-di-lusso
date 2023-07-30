@@ -6,6 +6,7 @@ export type ButtonType =
   | 'shopping'
   | 'signIn'
   | 'shopNow'
+  | 'shopNowBlack'
   | 'addCart'
   | 'regular';
 
@@ -17,6 +18,7 @@ type ButtonClassesType =
   | 'button__shopping-button'
   | 'button__sign-in-button'
   | 'button__shop-now-button'
+  | 'button__shop-now-button_black'
   | 'button__add-cart'
   | 'button__regular';
 

@@ -9,10 +9,17 @@ export const Button = ({
   buttonStylesClassName: ButtonStylesReturnType;
   children?: string;
 }) => {
+  const shopNow =
+    'button__shop-now-button' ||
+    'button__shop-now-button button__shop-now-button_hover';
+  const shopNowBlack =
+    'button__shop-now-button_black' ||
+    'button__shop-now-button_black button__shop-now-button_black_hover';
+
   const shopNowText =
-    buttonStylesClassName ===
-    ('button__shop-now-button' ||
-      'button__shop-now-button button__shop-now-button_hover')
+    buttonStylesClassName === shopNow
+      ? true
+      : buttonStylesClassName === shopNowBlack
       ? true
       : undefined;
 

@@ -97,6 +97,7 @@
   background-color: var(--button-color-first);
   border-radius: 5px;
 }
+
 .button__shop-now-button::after {
   content: '';
   display: block;
@@ -106,6 +107,35 @@
   width: 32px;
   height: 20px;
   background-image: url(./assets/icons/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button__shop-now-button_black {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 187px;
+  height: 49px;
+  font-size: var(--font-size-fifth);
+  font-weight: var(--font-weight-second);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-color-fifth);
+  background-color: var(--button-color-third);
+  border-radius: 5px;
+}
+
+.button__shop-now-button_black::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 128px;
+  width: 32px;
+  height: 20px;
+  background-image: url(./assets/icons/arrow-right-white.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
