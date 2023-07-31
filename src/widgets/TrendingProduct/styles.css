@@ -44,4 +44,5 @@
 .trendingProduct__show-more-button .button {
   position: relative;
   top: -21px;
+  left: 1px;
 }
