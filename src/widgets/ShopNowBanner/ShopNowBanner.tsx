@@ -33,8 +33,8 @@ export const ShopNowBanner = () => {
               Shop Now
             </Button>
           </div>
+          </div>
         </div>
-      </div>
     </section>
   );
 };

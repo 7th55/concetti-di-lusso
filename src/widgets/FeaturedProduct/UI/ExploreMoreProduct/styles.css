@@ -14,6 +14,7 @@
   left: 103px;
   text-align: center;
   font-size: var(--font-size-ninth);
+  letter-spacing: -0.5px;
   font-weight: var(--font-weight-second);
   line-height: 1.2;
   color: var(--text-color-fifth);
