@@ -5,6 +5,7 @@ import { ShopNowBanner } from '/src/widgets/ShopNowBanner';
 import { Advantages } from '/src/widgets/Advantages';
 import { FeaturedProduct } from '/src/widgets/FeaturedProduct';
 import { TrendingProduct } from '/src/widgets/TrendingProduct';
+import { OurTestimonials } from '/src/widgets/OurTestimonials';
 // Global Styles
 import '/src/app/normalize.css';
 import '/src/app/global.css';
@@ -21,6 +22,7 @@ export const App = () => {
         <Advantages />
         <FeaturedProduct />
         <TrendingProduct />
+        <OurTestimonials />
       </main>
     </>
   );
