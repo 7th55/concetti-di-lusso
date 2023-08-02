@@ -1,4 +1,5 @@
 .trendingProductCard {
+  height: 100%;
 }
 
 .trendingProductCard__image {
@@ -8,7 +9,7 @@
   justify-content: center;
   align-items: center;
   max-width: 410px;
-  height: 410px;
+  height: 59%;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -19,8 +20,7 @@
 }
 
 .trendingProductCard__content {
-  height: 100%;
-  min-height: 257px;
+  height: 37%;
   padding: 38px 18px 0 18px;
   margin: -7px 0 0 0;
   background-color: #fff;
@@ -42,4 +42,23 @@
   line-height: 2;
   white-space: break-spaces;
   color: var(--text-color-sixth);
+}
+
+@media (max-width: 1430px) {
+  .trendingProductCard__image {
+    max-width: none;
+    height: auto;
+  }
+  .trendingProductCard__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 264px;
+    overflow: hidden;
+  }
+  .trendingProductCard__description {
+    overflow: scroll;
+    height: 80%;
+    scroll-behavior: smooth;
+  }
 }

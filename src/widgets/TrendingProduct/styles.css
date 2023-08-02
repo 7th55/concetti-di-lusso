@@ -30,6 +30,7 @@
 .trendingProduct__content {
   display: flex;
   gap: 24px;
+  height: 698px;
 }
 
 .trendingProduct__product {
@@ -45,4 +46,12 @@
   position: relative;
   top: -21px;
   left: 1px;
+}
+
+@media (max-width: 1430px) {
+  .trendingProduct__content {
+    box-sizing: border-box;
+    height: initial;
+    padding: 0 var(--view-global-padding);
+  }
 }
