@@ -1,0 +1,1 @@
+export { testimonialsData } from './data';

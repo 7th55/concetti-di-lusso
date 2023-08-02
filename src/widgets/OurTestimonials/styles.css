@@ -1,0 +1,36 @@
+.ourTestimonials {
+  display: flex;
+  justify-content: center;
+}
+
+.ourTestimonials__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--max-width);
+}
+
+.ourTestimonials__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 85px;
+  font-size: var(--font-size-eigth);
+  font-weight: var(--font-weight-second);
+  letter-spacing: -0.5px;
+}
+
+.ourTestimonials__header-content {
+  position: relative;
+  top: -24px;
+  left: -1px;
+}
+
+.ourTestimonials__content {
+  width: 89%;
+}
+
+
+@media (max-width: 1430px) {
+}
