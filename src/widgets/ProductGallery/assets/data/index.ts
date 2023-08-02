@@ -1,0 +1,1 @@
+export { productGalleryData } from './data';
