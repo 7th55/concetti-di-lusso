@@ -1,12 +1,24 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 // Styles
 import './styles.css';
 
-const HideBackgroundComponent = ({ children, hover }) => (
-  <div style={{ opacity: hover && 0 }}>{children}</div>
-);
+const HideBackgroundComponent = ({
+  children,
+  hover,
+}: {
+  children: ReactElement;
+  hover: boolean;
+}) => <div style={{ opacity: hover ? 0 : undefined }}>{children}</div>;
 
-const HoverComponent = ({ children, hover, stringContent }) =>
+const HoverComponent = ({
+  children,
+  hover,
+  stringContent,
+}: {
+  children: ReactElement;
+  hover: boolean;
+  stringContent: boolean;
+}) =>
   hover && (
     <div
       className={`hoverButton_hover
@@ -17,7 +29,15 @@ const HoverComponent = ({ children, hover, stringContent }) =>
     </div>
   );
 
-const HoverButton = ({ button, hoverButton, buttonTextContent }) => {
+const HoverButton = ({
+  button,
+  hoverButton,
+  buttonTextContent,
+}: {
+  button: ReactElement;
+  hoverButton: ReactElement;
+  buttonTextContent: string;
+}) => {
   const [hover, setHover] = useState(false);
   const stringContent = buttonTextContent.length > 12;
 
