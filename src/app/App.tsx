@@ -6,6 +6,7 @@ import { Advantages } from '/src/widgets/Advantages';
 import { FeaturedProduct } from '/src/widgets/FeaturedProduct';
 import { TrendingProduct } from '/src/widgets/TrendingProduct';
 import { OurTestimonials } from '/src/widgets/OurTestimonials';
+import { ProductGallery } from '/src/widgets/ProductGallery';
 // Global Styles
 import '/src/app/normalize.css';
 import '/src/app/global.css';
@@ -23,6 +24,7 @@ export const App = () => {
         <FeaturedProduct />
         <TrendingProduct />
         <OurTestimonials />
+        <ProductGallery />
       </main>
     </>
   );
