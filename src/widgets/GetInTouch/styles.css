@@ -1,0 +1,68 @@
+.getInTouch {
+  display: flex;
+  justify-content: center;
+  height: 381px;
+}
+
+.getInTouch__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--max-width);
+}
+
+.getInTouch__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 161px;
+  font-size: var(--font-size-eigth);
+  font-weight: var(--font-weight-second);
+  letter-spacing: -0.5px;
+}
+
+.getInTouch__header-content {
+  position: relative;
+  top: 29px;
+  left: -1px;
+}
+
+.getInTouch__content {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 80px;
+}
+
+.getInTouch__text {
+  position: relative;
+  top: -8px;
+  font-family: var(--font-second);
+  font-size: var(--font-size-fourth);
+  line-height: 2;
+  text-align: center;
+  white-space: break-spaces;
+}
+
+.getInTouch__form {
+  position: relative;
+  top: 6px;
+  left: 7px;
+  display: flex;
+}
+
+.getInTouch__email {
+  width: 69.4%;
+  height: 45px;
+  border-radius: 5px;
+  border-color: rgba(158, 48, 64, 0.3);
+}
+
+.getInTouch__email::placeholder {
+  position: relative;
+  top: 2px;
+  left: 20px;
+  font-family: var(--font-second);
+  font-size: var(--font-size-fourth);
+  color: #656565;
+}
