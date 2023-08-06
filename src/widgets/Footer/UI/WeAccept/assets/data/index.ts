@@ -1,0 +1,1 @@
+export { weAcceptData } from './data';

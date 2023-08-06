@@ -27,3 +27,7 @@ select {
 select {
   -webkit-appearance: none;
 }
+
+a {
+  text-decoration: none;
+}
