@@ -8,6 +8,7 @@ import { TrendingProduct } from '/src/widgets/TrendingProduct';
 import { OurTestimonials } from '/src/widgets/OurTestimonials';
 import { ProductGallery } from '/src/widgets/ProductGallery';
 import { GetInTouch } from '/src/widgets/GetInTouch';
+import { Footer } from '/src/widgets/Footer';
 // Global Styles
 import '/src/app/normalize.css';
 import '/src/app/global.css';
@@ -28,6 +29,9 @@ export const App = () => {
         <ProductGallery />
         <GetInTouch />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

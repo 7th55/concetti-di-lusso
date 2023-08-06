@@ -1,0 +1,22 @@
+.footerQuickLinks {
+  position: relative;
+}
+
+.footerQuickLinks__title {
+  font-size: var(--font-size-seventh);
+  font-weight: var(--font-weight-third);
+}
+
+.footerQuickLinks__list {
+  position: relative;
+  top: 19px;
+  left: 24px;
+}
+.footerQuickLinks__list-item {
+  margin: 0 0 21px 0;
+}
+
+.footerQuickLinks__link {
+  font-family: var(--font-second);
+  font-size: var(--font-size-fourth);
+}
