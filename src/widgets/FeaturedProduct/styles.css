@@ -19,6 +19,7 @@
 
   font-size: var(--font-size-eigth);
   font-weight: var(--font-weight-second);
+  letter-spacing: -0.5px;
 }
 
 .featuredProduct__header-content {
