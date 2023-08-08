@@ -37,3 +37,22 @@
   left: 67px;
   width: calc(100% / 3);
 }
+
+@media (max-width: 1430px) {
+  .footer {
+    height: 390px;
+  }
+
+  .footer__we-accept,
+  .footer__contact-us {
+    left: 0;
+  }
+  .footer__content {
+    padding: 60px 0 0 0;
+  }
+
+  .footer__content-wrapper {
+    box-sizing: border-box;
+    padding: 0 var(--view-global-padding);
+  }
+}
