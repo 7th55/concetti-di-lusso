@@ -8,18 +8,23 @@ import './styles.css';
 export const SearchInput = () => {
   const [input, setInput] = useState(false);
   const [inputAnimation, setAnimation] = useState('');
+
+  // Анимации:
   // Фиксит блики
   const [leftPosition, setLeftPosition] = useState(0);
-  // Починить
-  const [animationEnd, setAnimationEnd] = useState(true);
-
+  // Отключает возможность прервать анимацию
+  const [animationEnd, setAnimationEnd] = useState({
+    open: true,
+    close: true,
+  });
+  
   const openCloseInputHandler = () => {
-    if (input === false && animationEnd) {
+    if (input === false && animationEnd.open && animationEnd.close) {
       setInput(true);
-      setAnimationEnd(false);
+      setAnimationEnd((an) => (an = { ...an, open: false }));
     }
-    if (input === true) {
-      setAnimationEnd(false);
+    if (input === true && animationEnd.open && animationEnd.close) {
+      setAnimationEnd((an) => (an = { ...an, close: false }));
       setAnimation('searchInput__input_close-animation');
     }
   };
@@ -39,14 +44,28 @@ export const SearchInput = () => {
           <input
             style={{ left: `${leftPosition}px` }}
             onAnimationStart={(e) => {
-              e.animationName === 'close' && setLeftPosition(3000);
+              e.animationName === 'close' && setLeftPosition(2000);
             }}
             onAnimationEnd={(e) => {
+              e.animationName === 'open' &&
+                setAnimationEnd(
+                  (an) =>
+                    (an = {
+                      ...an,
+                      open: true,
+                    })
+                );
               if (e.animationName === 'close') {
                 setInput(false);
                 setAnimation('');
                 setLeftPosition(0);
-                setAnimationEnd(true);
+                setAnimationEnd(
+                  (an) =>
+                    (an = {
+                      ...an,
+                      close: true,
+                    })
+                );
               }
             }}
             onAnimationIteration={(e) => console.log(e)}

@@ -31,12 +31,12 @@
 }
 
 .searchInput__input.searchInput__input_close-animation {
-  animation: 1s 1 close;
+  animation: 0.5s 1 close;
 }
 
 @keyframes open {
   from {
-    left: 3000px;
+    left: 2000px;
   }
 
   to {
@@ -50,6 +50,6 @@
   }
 
   to {
-    left: 3000px;
+    left: 2000px;
   }
 }
