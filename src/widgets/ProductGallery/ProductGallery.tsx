@@ -13,7 +13,7 @@ export const ProductGallery = () => {
         <div className="productGallery__content">
           <div className="productGallery__gallery">
             {productGalleryData.map((data) => (
-              <div className="productGallery__image">
+              <div key={data.img.src} className="productGallery__image">
                 <img src={data.img.src} alt={data.img.alt} />
               </div>
             ))}

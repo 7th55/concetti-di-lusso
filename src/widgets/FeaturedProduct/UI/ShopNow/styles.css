@@ -73,6 +73,10 @@
     top: 0;
   }
 
+  .shopNow__button button {
+    height: auto;
+  }
+
   .shopNow__button {
     display: flex;
     align-items: flex-start;

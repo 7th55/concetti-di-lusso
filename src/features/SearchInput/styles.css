@@ -1,0 +1,55 @@
+.searchInput {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput__button,
+.searchInput__button .button {
+  width: 100%;
+  height: 100%;
+}
+
+.searchInput__input {
+  position: relative;
+  left: 0;
+  width: 560px;
+  height: 40%;
+  border-radius: 20px;
+}
+
+.searchInput__input-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  left: -585px;
+  width: 584px;
+  overflow: hidden;
+}
+
+.searchInput__input {
+  animation: 0.5s 1 open;
+}
+
+.searchInput__input.searchInput__input_close-animation {
+  animation: 1s 1 close;
+}
+
+@keyframes open {
+  from {
+    left: 3000px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes close {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 3000px;
+  }
+}

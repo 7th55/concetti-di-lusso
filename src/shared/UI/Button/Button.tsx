@@ -24,10 +24,10 @@ export const Button = ({
       : undefined;
 
   return (
-    <button className="button">
+    <div className="button">
       <div className={buttonStylesClassName}>
         <div className={shopNowText && 'button__shop-now-text'}>{children}</div>
       </div>
-    </button>
+    </div>
   );
 };

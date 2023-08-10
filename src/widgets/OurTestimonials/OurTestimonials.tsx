@@ -14,7 +14,7 @@ export const OurTestimonials = () => {
         </div>
         <div className="ourTestimonials__content">
           {testimonialsData.map((data) => (
-            <TestimonialsCard {...data} />
+            <TestimonialsCard key={data.author} {...data} />
           ))}
         </div>
       </div>

@@ -15,7 +15,7 @@ export const TrendingProduct = () => {
         </div>
         <div className="trendingProduct__content">
           {trendingProductsData.map((product) => (
-            <div className="trendingProduct__product">
+            <div key={product.title} className="trendingProduct__product">
               <TrendingProductCard {...product} />
             </div>
           ))}
