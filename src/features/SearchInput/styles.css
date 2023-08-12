@@ -9,14 +9,6 @@
   height: 100%;
 }
 
-.searchInput__input {
-  position: relative;
-  left: 0;
-  width: 560px;
-  height: 40%;
-  border-radius: 20px;
-}
-
 .searchInput__input-wrapper {
   position: absolute;
   display: flex;
@@ -27,29 +19,9 @@
 }
 
 .searchInput__input {
-  animation: 0.5s 1 open;
-}
-
-.searchInput__input.searchInput__input_close-animation {
-  animation: 0.5s 1 close;
-}
-
-@keyframes open {
-  from {
-    left: 2000px;
-  }
-
-  to {
-    left: 0;
-  }
-}
-
-@keyframes close {
-  from {
-    left: 0;
-  }
-
-  to {
-    left: 2000px;
-  }
+  position: relative;
+  left: 0;
+  width: 560px;
+  height: 40%;
+  border-radius: 20px;
 }
