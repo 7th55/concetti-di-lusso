@@ -1,14 +1,11 @@
 // Components
 import { Info } from '/src/widgets/Info';
 import { Header } from '/src/widgets/Header';
-import { ShopNowBanner } from '/src/widgets/ShopNowBanner';
-import { Advantages } from '/src/widgets/Advantages';
-import { FeaturedProduct } from '/src/widgets/FeaturedProduct';
-import { TrendingProduct } from '/src/widgets/TrendingProduct';
-import { OurTestimonials } from '/src/widgets/OurTestimonials';
-import { ProductGallery } from '/src/widgets/ProductGallery';
-import { GetInTouch } from '/src/widgets/GetInTouch';
 import { Footer } from '/src/widgets/Footer';
+import { SearchProcess } from '/src/processes/SearchProcess';
+// Store
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 // Global Styles
 import '/src/app/normalize.css';
 import '/src/app/global.css';
@@ -16,22 +13,18 @@ import '/src/app/global.css';
 export const App = () => {
   return (
     <>
-      <header>
-        <Info />
-        <Header />
-      </header>
-      <main>
-        <ShopNowBanner />
-        <Advantages />
-        <FeaturedProduct />
-        <TrendingProduct />
-        <OurTestimonials />
-        <ProductGallery />
-        <GetInTouch />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Provider store={store}>
+        <header>
+          <Info />
+          <Header />
+        </header>
+        <main>
+          <SearchProcess />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </Provider>
     </>
   );
 };

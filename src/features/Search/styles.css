@@ -1,15 +1,15 @@
-.searchInput {
+.search {
   display: flex;
   align-items: center;
 }
 
-.searchInput__button,
-.searchInput__button .button {
+.search__button,
+.search__button .button {
   width: 100%;
   height: 100%;
 }
 
-.searchInput__input-wrapper {
+.search__input-wrapper {
   position: absolute;
   display: flex;
   justify-content: left;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.searchInput__input {
+.search__input {
   position: relative;
   left: 0;
   width: 560px;

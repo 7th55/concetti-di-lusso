@@ -1,18 +1,20 @@
 // Components
 import { Button } from '/src/shared/UI/Button';
 import { SearchInputAnimation } from './UI/SearchInputAnimation';
+// Hooks
+import { useSearchInput } from './lib';
 // Styles
 import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 import './styles.css';
-import { useSearchInput } from './lib';
+import { SearchInput } from './UI/SearchInput/SearchInput';
 
-export const SearchInput = () => {
+export const Search = () => {
   const [input, closeAnimation, openInput, closeInput, animationEndHandler] =
     useSearchInput();
 
   return (
-    <div className="searchInput">
-      <button className="searchInput__button" onClick={openInput}>
+    <div className="search">
+      <button className="search__button" onClick={openInput}>
         <Button
           buttonStylesClassName={buttonStylesClass({
             type: 'search',
@@ -21,13 +23,13 @@ export const SearchInput = () => {
         />
       </button>
       {input && (
-        <div className="searchInput__input-wrapper">
+        <div className="search__input-wrapper">
           <SearchInputAnimation
             inputAnimation={closeAnimation}
             animationEndHandler={animationEndHandler}
             closeInput={closeInput}
           >
-            <input className="searchInput__input" />
+            <SearchInput />
           </SearchInputAnimation>
         </div>
       )}

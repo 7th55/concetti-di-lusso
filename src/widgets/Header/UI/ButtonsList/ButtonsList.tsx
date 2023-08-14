@@ -1,5 +1,5 @@
 import { Button } from '/src/shared/UI/Button';
-import { SearchInput } from '/src/features/SearchInput';
+import { Search } from '/src/features/Search';
 // Styles
 import './styles.css';
 import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
@@ -13,7 +13,7 @@ export const ButtonsList = () => {
         {buttons.map((button) => (
           <div key={button} className="buttons-list__shopping-button">
             {button === 'search' ? (
-              <SearchInput />
+              <Search />
             ) : (
               <Button
                 buttonStylesClassName={buttonStylesClass({

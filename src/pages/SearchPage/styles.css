@@ -1,0 +1,7 @@
+.searchPage {
+  display: flex;
+  justify-content: center;
+}
+.searchPage__content {
+  width: var(--max-width);
+}
