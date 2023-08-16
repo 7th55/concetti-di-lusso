@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Towel One",
+      "price": "100.00",
+      "oldPrice": "200.00",
+      "img": { "src": "https://picsum.photos/id/73/300/300", "alt": "" }
+    },
+    {
+      "id": 2,
+      "name": "Towel Two",
+      "price": "100.00",
+      "oldPrice": "200.00",
+      "img": { "src": "https://picsum.photos/id/67/300/300", "alt": "" }
+    },
+    {
+      "id": 3,
+      "name": "Towel Three",
+      "price": "100.00",
+      "oldPrice": "200.00",
+      "img": { "src": "https://picsum.photos/id/70/300/300", "alt": "" }
+    }
+  ]
+}

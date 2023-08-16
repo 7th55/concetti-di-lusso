@@ -14,16 +14,18 @@ export const App = () => {
   return (
     <>
       <Provider store={store}>
-        <header>
-          <Info />
-          <Header />
-        </header>
-        <main>
-          <SearchProcess />
-        </main>
-        <footer>
-          <Footer />
-        </footer>
+        <div className="global__wrapper">
+          <header>
+            <Info />
+            <Header />
+          </header>
+          <main>
+            <SearchProcess />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </Provider>
     </>
   );

@@ -1,7 +1,28 @@
 .searchPage {
   display: flex;
   justify-content: center;
+  min-height: 800px;
 }
-.searchPage__content {
+.searchPage__content-wrapper {
+  box-sizing: border-box;
   width: var(--max-width);
+  padding: 10px var(--view-global-padding);
+}
+
+.searchPage__search-result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 1430px) {
+  .searchPage__content {
+    box-sizing: border-box;
+  }
+
+  .searchPage__product {
+    width: calc(97% / 3);
+    min-width: 307px;
+    height: 418px;
+  }
 }
