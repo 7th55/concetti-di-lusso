@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggle } from '../store/searchSlice';
 
 export const useSearchInput: () => [
   boolean,
@@ -7,6 +9,7 @@ export const useSearchInput: () => [
   () => void,
   (e: 'open' | 'close') => void
 ] = () => {
+  const dispatch = useDispatch();
   const [input, setInput] = useState(false);
 
   // Анимации:
@@ -26,6 +29,7 @@ export const useSearchInput: () => [
 
     if (open) {
       setInput(true);
+      dispatch(toggle());
       setAnimationEnd((an) => (an = { ...an, open: false }));
     }
     if (close) {
@@ -56,7 +60,10 @@ export const useSearchInput: () => [
     }
   };
 
-  const closeInput = () => setInput(false);
+  const closeInput = () => {
+    setInput(false);
+    dispatch(toggle());
+  };
 
   return [input, closeAnimation, openInput, closeInput, animationEndHandler];
 };

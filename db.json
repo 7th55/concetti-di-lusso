@@ -20,6 +20,48 @@
       "price": "100.00",
       "oldPrice": "200.00",
       "img": { "src": "https://picsum.photos/id/70/300/300", "alt": "" }
+    },
+    {
+      "id": 4,
+      "name": "Bathroome Set One",
+      "price": "300.00",
+      "oldPrice": "400.00",
+      "img": { "src": "https://picsum.photos/id/83/300/300", "alt": "" }
+    },
+    {
+      "id": 5,
+      "name": "Bathroome Set Two",
+      "price": "300.00",
+      "oldPrice": "500.00",
+      "img": { "src": "https://picsum.photos/id/117/300/300", "alt": "" }
+    },
+    {
+      "id": 6,
+      "name": "Bathroome Set Three",
+      "price": "300.00",
+      "oldPrice": "500.00",
+      "img": { "src": "https://picsum.photos/id/107/300/300", "alt": "" }
+    },
+    {
+      "id": 7,
+      "name": "Robes One",
+      "price": "250.00",
+      "oldPrice": "400.00",
+      "img": { "src": "https://picsum.photos/id/113/250/300", "alt": "" }
+    },
+    {
+      "id": 8,
+      "name": "Robes Two",
+      "price": "250.00",
+      "oldPrice": "350.00",
+      "img": { "src": "https://picsum.photos/id/127/250/300", "alt": "" }
+    },
+    {
+      "id": 9,
+      "name": "Robes Three",
+      "price": "250.00",
+      "oldPrice": "350.00",
+      "img": { "src": "https://picsum.photos/id/137/250/300", "alt": "" }
     }
   ]
 }

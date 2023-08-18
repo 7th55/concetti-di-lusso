@@ -2,9 +2,9 @@
 import { MainPage } from '/src/pages/MainPage';
 import { SearchPage } from '/src/pages/SearchPage';
 // Store
-import { searchInputValue } from '/src/features/Search/store/searchSlice';
+import { searchOpen } from '/src/features/Search';
 
 export const SearchProcess = () => {
-  const inputValue = searchInputValue();
-  return <div>{inputValue === '' ? <MainPage /> : <SearchPage />}</div>;
+  const searching = searchOpen() !== true;
+  return <div>{searching ? <MainPage /> : <SearchPage />}</div>;
 };
