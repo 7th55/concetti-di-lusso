@@ -1,24 +1,14 @@
 {
   "name": "concetti-di-lusso",
   "license": "UNLICENSED",
-  "private": "true",
-  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "start": "vite",
-    "server": "json-server --watch db.json --p 2244"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.9.5",
-    "json-server": "^0.17.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.1.2"
+    "start": "turbo start --no-daemon"
   },
   "devDependencies": {
-    "@types/react": "^18.2.16",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.4"
+    "turbo": "^1.10.12"
   }
 }
