@@ -27,5 +27,3 @@ export const searchOpen = () =>
 
 export const searchInputValue = () =>
   useSelector((state: RootState) => state.search.value);
-
-export const searchReducer = searchSlice.reducer;

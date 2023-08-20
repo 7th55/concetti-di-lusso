@@ -7,7 +7,7 @@ import './styles.css';
 import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const ProductCard = (props: ProductData) => {
-  const { img, name, price, oldPrice } = props;
+  const { img, name, description, price, oldPrice } = props;
 
   return (
     <div className="productCard">
@@ -15,17 +15,25 @@ export const ProductCard = (props: ProductData) => {
         <div className="productCard__image">
           <img src={img.src} alt={img.alt} />
         </div>
-        <div className="productCard__product-name">
+        <div
+          style={{ height: description && '2%' }}
+          className="productCard__product-name"
+        >
           <h4>{name}</h4>
         </div>
-        <div className='productCard__prices-and-button'>
+        {description && (
+          <div className="productCard__description">
+            <p>{description}</p>
+          </div>
+        )}
+        <div className="productCard__prices-and-button">
           <div className="productCard__prices">
             <span className="productCard__price">${price}</span>
-            <span className="productCard__old-price">
-              ${oldPrice && oldPrice}
-            </span>
+            {oldPrice && (
+              <span className="productCard__old-price">${oldPrice}</span>
+            )}
           </div>
-          <div className='productCard__add-button'>
+          <div className="productCard__add-button">
             <Button
               buttonStylesClassName={buttonStylesClass({
                 type: 'addCart',

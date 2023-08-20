@@ -3,65 +3,92 @@
     {
       "id": 1,
       "name": "Towel One",
+      "description": "Lorem Ipsum Towel One, Lorem Ipsum Towel Towel Lorem Lorem",
       "price": "100.00",
-      "oldPrice": "200.00",
-      "img": { "src": "https://picsum.photos/id/73/300/300", "alt": "" }
+      "img": {
+        "src": "https://www.realsimple.com/thmb/P4Ls3iYo_twodxrw7e4oKY6v5Dg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/rsp-primary-march-bath-towels-dburreson-d7f625638bb44a069163259eaa7ea216.jpg",
+        "alt": ""
+      }
     },
     {
       "id": 2,
       "name": "Towel Two",
       "price": "100.00",
       "oldPrice": "200.00",
-      "img": { "src": "https://picsum.photos/id/67/300/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/1028686222/photo/towels-stack-on-table-empty-space-background.jpg?s=612x612&w=0&k=20&c=OYaYTjq6L4z0snN9GnXqwiHzToB-UjubUZQYbxixCUo=",
+        "alt": ""
+      }
     },
     {
       "id": 3,
       "name": "Towel Three",
       "price": "100.00",
       "oldPrice": "200.00",
-      "img": { "src": "https://picsum.photos/id/70/300/300", "alt": "" }
+      "img": {
+        "src": "https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG93ZWx8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+        "alt": ""
+      }
     },
     {
       "id": 4,
       "name": "Bathroome Set One",
       "price": "300.00",
       "oldPrice": "400.00",
-      "img": { "src": "https://picsum.photos/id/83/300/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/105932225/photo/spa-supplies.jpg?s=612x612&w=0&k=20&c=64dCaDMeaFSD5c-cThiAUhWmPCGHhPrVfM336fyFpGY=",
+        "alt": ""
+      }
     },
     {
       "id": 5,
       "name": "Bathroome Set Two",
       "price": "300.00",
       "oldPrice": "500.00",
-      "img": { "src": "https://picsum.photos/id/117/300/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/176903540/photo/pink-bathrobes.jpg?s=612x612&w=0&k=20&c=LnGnV07jfkbgS2gEpmpuYfWgv8vlw75oqeNIFIG9yzQ=",
+        "alt": ""
+      }
     },
     {
       "id": 6,
       "name": "Bathroome Set Three",
       "price": "300.00",
       "oldPrice": "500.00",
-      "img": { "src": "https://picsum.photos/id/107/300/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/1366505069/photo/bathrobes-and-a-relaxing-whirlpool.jpg?s=612x612&w=0&k=20&c=IZSkolGTijIQ1qZ-xvxnd1qg7OqexgGFEqi51dyRLUI=",
+        "alt": ""
+      }
     },
     {
       "id": 7,
-      "name": "Robes One",
+      "name": "Robe One",
       "price": "250.00",
       "oldPrice": "400.00",
-      "img": { "src": "https://picsum.photos/id/113/250/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/1310902531/photo/blank-black-and-white-hotel-bathrobe-mockup-set-front-view.jpg?b=1&s=612x612&w=0&k=20&c=yaPq0hAuPfOn7a_46695rgnfdEtckSRXBKiAKjvwCIY=",
+        "alt": ""
+      }
     },
     {
       "id": 8,
-      "name": "Robes Two",
+      "name": "Robe Two",
       "price": "250.00",
       "oldPrice": "350.00",
-      "img": { "src": "https://picsum.photos/id/127/250/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/1314530179/photo/blank-white-hotel-bathrobe-mockup-front-and-back-view.jpg?s=612x612&w=0&k=20&c=v0w3FQc1d_JzjXwzrMaHjSffmYNCNyrD43_4-LiYxRc=",
+        "alt": ""
+      }
     },
     {
       "id": 9,
-      "name": "Robes Three",
+      "name": "Robe Three",
       "price": "250.00",
       "oldPrice": "350.00",
-      "img": { "src": "https://picsum.photos/id/137/250/300", "alt": "" }
+      "img": {
+        "src": "https://media.istockphoto.com/id/1159792750/photo/bathrobe.jpg?s=612x612&w=0&k=20&c=BGC7Hww5Hp0SBktxvsp-oPBLM7Ubv1WkCv6HtkiYn2k=",
+        "alt": ""
+      }
     }
   ]
 }

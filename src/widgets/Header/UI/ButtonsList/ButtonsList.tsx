@@ -1,8 +1,10 @@
+// Components
 import { Button } from '/src/shared/UI/Button';
 import { Search } from '/src/features/Search';
 // Styles
 import './styles.css';
 import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
+// Types
 import { ButtonType } from '/src/shared/types';
 
 export const ButtonsList = () => {

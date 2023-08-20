@@ -8,9 +8,12 @@ import { searchOpen } from '../features/Search';
 // Global Styles
 import '/src/app/normalize.css';
 import '/src/app/global.css';
+import React from 'react';
+import { SearchPage } from '../pages/SearchPage';
+import { MainPage } from '../pages/MainPage';
 
 export const App = () => {
-  const searching = searchOpen() !== true;
+  const searching = searchOpen();
   return (
     <>
       <div className="global__wrapper">
@@ -18,10 +21,12 @@ export const App = () => {
           <Info />
           <Header />
         </header>
-        <main>
-          <SearchProcess />
-        </main>
-        <footer>{searching && <Footer />}</footer>
+        <main>{searching ? <SearchPage /> : <MainPage />}</main>
+        {searching !== true && (
+          <footer>
+            <Footer />
+          </footer>
+        )}
       </div>
     </>
   );

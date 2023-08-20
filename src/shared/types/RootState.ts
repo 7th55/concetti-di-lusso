@@ -3,4 +3,9 @@ export type RootState = {
     search: boolean;
     value: string;
   };
+  searchAnimations: {
+    input: {
+      close: boolean;
+    };
+  };
 };

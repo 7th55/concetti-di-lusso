@@ -42,6 +42,10 @@
   line-height: 1.9;
 }
 
+.productCard__description {
+  height: 19%;
+}
+
 .productCard__prices-and-button {
   display: flex;
   justify-content: space-between;
