@@ -1,0 +1,33 @@
+.searchInputAnimation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.searchInputAnimation_open {
+  animation: 0.2s 1 open;
+}
+
+.searchInputAnimation_open.searchInputAnimation_close {
+  animation: 0.2s 1 close;
+}
+
+@keyframes open {
+  from {
+    left: 2000px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes close {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 2000px;
+  }
+}

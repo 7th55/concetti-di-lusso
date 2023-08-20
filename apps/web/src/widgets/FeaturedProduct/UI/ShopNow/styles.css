@@ -1,0 +1,86 @@
+.shopNow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  height: 100%;
+}
+
+.shopNow__content {
+  position: relative;
+  width: 40%;
+  height: 84%;
+  background-color: var(--bg-color-second);
+  border-radius: 30px;
+  padding: 0 29px;
+}
+
+.shopNow__header {
+  position: relative;
+  top: -26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: calc(100% / 3);
+  font-size: var(--font-size-eigth);
+  font-weight: var(--font-weight-fourth);
+  color: var(--text-color-second);
+}
+
+.shopNow__text {
+  position: relative;
+  top: -20px;
+  height: calc(100% / 3);
+  font-family: var(--font-second);
+  font-size: var(--font-size-fourth);
+  line-height: 2.2;
+}
+
+.shopNow__button {
+  position: relative;
+  top: 37px;
+  height: calc(100% / 3);
+}
+
+.shopNow__button button {
+  position: relative;
+  /* top: 37px; */
+}
+
+.shopNow__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+@media (max-width: 1430px) {
+  .shopNow__content {
+    min-width: 462px;
+  }
+
+  .shopNow__text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 220px;
+  }
+
+  .shopNow__button,
+  .shopNow__button button {
+    top: 0;
+  }
+
+  .shopNow__button button {
+    height: auto;
+  }
+
+  .shopNow__button {
+    display: flex;
+    align-items: flex-start;
+  }
+}

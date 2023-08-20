@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search__button,
+.search__button .button {
+  width: 100%;
+  height: 100%;
+}
+
+.search__input-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  left: -585px;
+  width: 584px;
+  overflow: hidden;
+}
+
+.search__input {
+  position: relative;
+  left: 0;
+  width: 560px;
+  height: 40%;
+  border-radius: 20px;
+}

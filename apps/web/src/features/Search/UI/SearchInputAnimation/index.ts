@@ -1,0 +1,1 @@
+export { SearchInputAnimation } from './SearchInputAnimation';
