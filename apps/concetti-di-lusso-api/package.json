@@ -1,0 +1,12 @@
+{
+  "name": "concetti-di-lusso-json-server",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "json-server --watch db.json --p 2244"
+  },
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
