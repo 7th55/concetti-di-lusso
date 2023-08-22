@@ -3,7 +3,7 @@
 ## Start
 
 ```bash
-yarn start
+yarn dev
 ```
 
 ## Preview
