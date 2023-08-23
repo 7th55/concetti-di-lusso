@@ -29,17 +29,16 @@
   background-color: white;
 }
 
-.product__image img {
-  width: 100%;
-  height: auto;
-}
-
 .productCard__product-name {
   position: relative;
   height: 28%;
   font-family: var(--font-second);
   font-size: var(--font-size-third);
   line-height: 1.9;
+}
+
+.productCard__product-name.productCard__product-with-description-name {
+  height: 2%;
 }
 
 .productCard__description {
@@ -95,7 +94,9 @@
 }
 
 .productCard__image img {
-  width: 100%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
 }
 
 @media (max-width: 1430px) {

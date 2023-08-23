@@ -18,9 +18,19 @@ export const ProductCard = (props: ProductData) => {
     <div className="productCard">
       <div className="productCard__content-wrapper">
         <div className="productCard__image">
-          <Image width={300} height={190} src={img.src} alt={img.alt} />
+          <Image
+            fill={true}
+            src={img.src}
+            alt={img.alt}
+            sizes="(max-width: 1430px) 100%"
+            priority={true}
+          />
         </div>
-        <div style={descriptionStyle} className="productCard__product-name">
+        <div
+          className={`productCard__product-name ${
+            description && 'productCard__product-with-description-name'
+          }`}
+        >
           <h4>{name}</h4>
         </div>
         {description && (
