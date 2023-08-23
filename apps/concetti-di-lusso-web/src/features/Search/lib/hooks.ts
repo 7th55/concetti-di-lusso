@@ -1,5 +1,5 @@
 // Hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
 import { toggle } from '/src/features/Search/store/searchSlice';
@@ -16,9 +16,11 @@ export const useSearchInput: () => [
   const router = useRouter();
   const pathname = router.pathname === '/search';
 
-  if (pathname) {
-    dispatch(toggle(true));
-  }
+  useEffect(() => {
+    if (pathname) {
+      dispatch(toggle(true));
+    }
+  }, [pathname]);
 
   const [input, setInput] = useState(pathname);
 

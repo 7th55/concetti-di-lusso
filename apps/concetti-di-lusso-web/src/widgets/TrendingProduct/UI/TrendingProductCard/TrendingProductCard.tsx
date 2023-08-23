@@ -10,7 +10,13 @@ export const TrendingProductCard = (props: TrendingProductData) => {
   return (
     <div className="trendingProductCard">
       <div className="trendingProductCard__image">
-        <Image src={img.src} alt={img.alt} />
+        <Image
+          src={img.src}
+          alt={img.alt}
+          priority={true}
+          fill={true}
+          sizes="(max-width: 1430px) 100%"
+        />
       </div>
       <div className="trendingProductCard__content">
         <div className="trendingProductCard__title">

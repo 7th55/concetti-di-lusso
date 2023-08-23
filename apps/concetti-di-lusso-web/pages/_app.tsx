@@ -1,3 +1,4 @@
+'use client';
 import type { AppProps } from 'next/app';
 // Redux
 import { Provider } from 'react-redux';
