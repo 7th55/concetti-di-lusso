@@ -18,7 +18,7 @@ export const SearchPage = () => {
   );
 
   return (
-    <section className="searchPage">
+    <section className="searchPage pageAnimation">
       <div className="searchPage__content-wrapper">
         <div className="searchPage__content">
           <div className="searchPage__search-result">
