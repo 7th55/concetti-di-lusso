@@ -71,3 +71,17 @@ main {
   justify-content: space-between;
   min-height: 100vh;
 }
+
+.pageAnimation {
+  opacity: 1;
+  animation: 0.2s 1 pageOpacity;
+}
+
+@keyframes pageOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

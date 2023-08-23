@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
-import { toggle } from '/src/features/Search/store/searchSlice';
+import { toggle, useSearchOpen } from '/src/features/Search/store/searchSlice';
 import { useRouter } from 'next/router';
 
 export const useSearchInput: () => [
@@ -13,6 +13,7 @@ export const useSearchInput: () => [
   (e: 'open' | 'close') => void
 ] = () => {
   const dispatch = useDispatch();
+
   const router = useRouter();
   const pathname = router.pathname === '/search';
 
@@ -36,8 +37,9 @@ export const useSearchInput: () => [
   const openInput: () => void = () => {
     const endOfAnimations = animationEnd.open && animationEnd.close;
 
-    const open = input === false && endOfAnimations;
-    const close = input === true && endOfAnimations;
+    // DobuleClick fix
+    const open = !pathname && input === false && endOfAnimations;
+    const close = pathname && input === true && endOfAnimations;
 
     if (open) {
       setInput(true);

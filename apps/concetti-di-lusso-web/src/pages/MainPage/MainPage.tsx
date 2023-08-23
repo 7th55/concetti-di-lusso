@@ -10,6 +10,7 @@ import { GetInTouch } from '/src/widgets/GetInTouch';
 export const MainPage = () => {
   return (
     <>
+    <div className='pageAnimation'>
       <ShopNowBanner />
       <Advantages />
       <FeaturedProduct />
@@ -17,6 +18,7 @@ export const MainPage = () => {
       <OurTestimonials />
       <ProductGallery />
       <GetInTouch />
+      </div>
     </>
   );
 };
