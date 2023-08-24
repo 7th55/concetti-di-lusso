@@ -45,7 +45,6 @@
 
 .shopNow__button button {
   position: relative;
-  /* top: 37px; */
 }
 
 .shopNow__image {
@@ -73,10 +72,6 @@
   .shopNow__button,
   .shopNow__button button {
     top: 0;
-  }
-
-  .shopNow__button button {
-    height: auto;
   }
 
   .shopNow__button {

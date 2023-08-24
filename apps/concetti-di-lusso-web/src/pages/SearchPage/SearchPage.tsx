@@ -10,28 +10,15 @@ import { ProductCard } from '/src/entites/ProductCard';
 import { ProductData } from '/src/entites/ProductCard';
 // Styles
 import './styles.css';
-import { useDispatch } from 'react-redux';
-import { animationRunPageAnimation } from '/src/shared/store/pageAnimationSlice';
 
 export const SearchPage = () => {
-  const dispatch = useDispatch();
   const searchValue = useSearchInputValue();
   const { data, isError, isLoading } = useGetSearchProductsQuery(
     stringForQuery(searchValue)
   );
 
   return (
-    <section
-      className="searchPage pageAnimation"
-      onAnimationStart={(e) => {
-        e.animationName === 'pageOpacity' &&
-          dispatch(animationRunPageAnimation(true));
-      }}
-      onAnimationEnd={(e) => {
-        e.animationName === 'pageOpacity' &&
-          dispatch(animationRunPageAnimation(false));
-      }}
-    >
+    <section className="searchPage">
       <div className="searchPage__content-wrapper">
         <div className="searchPage__content">
           <div className="searchPage__search-result">

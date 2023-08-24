@@ -6,7 +6,6 @@ import { inputAnimationRun } from '/src/features/Search';
 // Styles
 import './styles.css';
 import { useRouter } from 'next/router';
-
 export const SearchInputAnimation = ({
   children,
   inputAnimation,

@@ -1,16 +1,14 @@
 // Components
+import Link from 'next/link';
 import { Button } from '/src/shared/UI/Button';
 import { SearchInputAnimation } from './UI/SearchInputAnimation';
 import { SearchInput } from './UI/SearchInput/SearchInput';
 // Hooks
+import { usePageAnimationsPage } from '/src/shared/store/pageAnimationSlice';
 import { useRouter } from 'next/router';
-import { useSearchAnimationsInput } from './store/searchAnimationsSlice';
 import { useSearchInput } from './lib';
 // Styles
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 import './styles.css';
-import Link from 'next/link';
-import { usePageAnimationsPage } from '/src/shared/store/pageAnimationSlice';
 
 export const Search = () => {
   const [input, closeAnimation, openInput, closeInput, animationEndHandler] =
@@ -23,12 +21,11 @@ export const Search = () => {
   const linkPath = router.pathname === '/search' ? '/' : '/search';
   return (
     <div className="search">
-      <button
+      <div
         style={{
           pointerEvents: pageAnimationRun ? 'none' : 'initial',
         }}
         className="search__button"
-        onClick={openInput}
       >
         <Link
           style={{
@@ -36,14 +33,9 @@ export const Search = () => {
           }}
           href={linkPath}
         >
-          <Button
-            buttonStylesClassName={buttonStylesClass({
-              type: 'search',
-              hover: false,
-            })}
-          />
+          <Button onClickHandler={openInput} buttonStyle="search" />
         </Link>
-      </button>
+      </div>
       {input && (
         <div className="search__input-wrapper">
           <SearchInputAnimation

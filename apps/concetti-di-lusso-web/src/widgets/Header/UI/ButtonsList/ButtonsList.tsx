@@ -3,7 +3,6 @@ import { Button } from '/src/shared/UI/Button';
 import { Search } from '/src/features/Search';
 // Styles
 import './styles.css';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 // Types
 import { ButtonType } from '/src/shared/types';
 
@@ -14,28 +13,12 @@ export const ButtonsList = () => {
       <div className="buttons-list__shopping-buttons">
         {buttons.map((button) => (
           <div key={button} className="buttons-list__shopping-button">
-            {button === 'search' ? (
-              <Search />
-            ) : (
-              <Button
-                buttonStylesClassName={buttonStylesClass({
-                  type: button,
-                  hover: false,
-                })}
-              />
-            )}
+            {button === 'search' ? <Search /> : <Button buttonStyle={button} />}
           </div>
         ))}
       </div>
       <div className="buttons-list__sign-in-button">
-        <Button
-          buttonStylesClassName={buttonStylesClass({
-            type: 'signIn',
-            hover: false,
-          })}
-        >
-          Sign In
-        </Button>
+        <Button buttonStyle="signIn">Sign In</Button>
       </div>
     </div>
   );

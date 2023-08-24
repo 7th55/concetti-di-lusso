@@ -1,5 +1,5 @@
 // Hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
 import { searching } from '/src/features/Search/store/searchSlice';
@@ -15,15 +15,15 @@ export const useSearchInput: () => [
   const dispatch = useDispatch();
 
   const router = useRouter();
-  const pathname = router.pathname === '/search';
+  const searchingPage = router.pathname === '/search';
 
   useEffect(() => {
-    if (pathname) {
+    if (searchingPage) {
       dispatch(searching(true));
     }
-  }, [pathname, dispatch]);
+  }, [searchingPage, dispatch]);
 
-  const [input, setInput] = useState(pathname);
+  const [input, setInput] = useState(searchingPage);
 
   // Анимации:
   // Добавляет или удаляет close анимацию
@@ -40,8 +40,8 @@ export const useSearchInput: () => [
     const endOfAnimations = animationEnd.open && animationEnd.close;
 
     // DobuleClick fix
-    const open = !pathname && input === false && endOfAnimations;
-    const close = pathname && input === true && endOfAnimations;
+    const open = !searchingPage && input === false && endOfAnimations;
+    const close = searchingPage && input === true && endOfAnimations;
 
     if (open) {
       setInput(true);

@@ -30,14 +30,7 @@ export const ShopNowBanner = () => {
             <p>Over 50 Collections to Choose for !</p>
           </div>
           <div className="shopNowBanner__shop-now">
-            <Button
-              buttonStylesClassName={buttonStylesClass({
-                type: 'shopNow',
-                hover: false,
-              })}
-            >
-              Shop Now
-            </Button>
+            <Button buttonStyle="shopNow">Shop Now</Button>
           </div>
         </div>
       </div>

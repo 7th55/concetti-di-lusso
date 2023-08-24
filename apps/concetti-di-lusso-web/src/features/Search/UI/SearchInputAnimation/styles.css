@@ -8,9 +8,6 @@
   animation: 0.2s 1 open;
 }
 
-.searchInputAnimation_open.searchInputAnimation_close {
-  animation: 0.2s 1 close;
-}
 
 @keyframes open {
   from {
@@ -20,6 +17,10 @@
   to {
     left: 0;
   }
+}
+/* .searchInputAnimation_open  */
+.searchInputAnimation_close {
+  animation: 0.2s 1 close;
 }
 
 @keyframes close {

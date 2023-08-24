@@ -1,11 +1,10 @@
 // Components
 import { ProductCard, productsData } from '/src/entites/ProductCard';
 import { ExploreMoreProduct } from './UI/ExploreMoreProduct';
+import { ShopNow } from './UI/ShopNow';
 // Styles
 import './styles.css';
 import { Button } from '/src/shared/UI/Button';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
-import { ShopNow } from './UI/ShopNow';
 
 export const FeaturedProduct = () => {
   return (
@@ -29,14 +28,7 @@ export const FeaturedProduct = () => {
           </div>
         </div>
         <div className="featuredProduct__show-more-button">
-          <Button
-            buttonStylesClassName={buttonStylesClass({
-              type: 'regular',
-              hover: false,
-            })}
-          >
-            Show More
-          </Button>
+          <Button buttonStyle="regular">Show More</Button>
         </div>
 
         <div className="featuredProduct__shop-now">
