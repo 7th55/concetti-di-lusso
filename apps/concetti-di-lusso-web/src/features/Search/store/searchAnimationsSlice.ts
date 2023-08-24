@@ -6,16 +6,16 @@ import { RootState } from '/src/shared/types';
 export const searchAnimationsSlice = createSlice({
   name: 'searchAnimations',
   initialState: {
-    input: { close: false },
+    input: { animationRun: false },
   },
   reducers: {
-    toggleClose: (state) => {
-      state.input.close = !state.input.close;
+    inputAnimationRun: (state, actions) => {
+      state.input.animationRun = actions.payload;
     },
   },
 });
 
-export const { toggleClose } = searchAnimationsSlice.actions;
+export const { inputAnimationRun } = searchAnimationsSlice.actions;
 
 export const useSearchAnimationsInput = () =>
   useSelector((state: RootState) => state.searchAnimations.input);

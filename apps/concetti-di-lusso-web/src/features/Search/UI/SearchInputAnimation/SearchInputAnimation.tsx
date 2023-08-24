@@ -2,9 +2,10 @@
 import { useState } from 'react';
 // Store
 import { useDispatch } from 'react-redux';
-import { toggleClose } from '/src/features/Search';
+import { inputAnimationRun } from '/src/features/Search';
 // Styles
 import './styles.css';
+import { useRouter } from 'next/router';
 
 export const SearchInputAnimation = ({
   children,
@@ -13,7 +14,7 @@ export const SearchInputAnimation = ({
   closeInput,
 }: {
   children: React.ReactNode;
-  inputAnimation: 'searchInputAnimation__input_close-animation' | '' | string;
+  inputAnimation: 'searchInputAnimation_close' | '';
   animationEndHandler: (a: 'open' | 'close') => void;
   closeInput: () => void;
 }) => {
@@ -21,6 +22,8 @@ export const SearchInputAnimation = ({
   // Фиксит блики
   const [leftPosition, setLeftPosition] = useState(0);
 
+  const router = useRouter();
+  const linkPath = router.pathname === '/search' ? '/' : '/search';
   return (
     <div className="searchInputAnimation">
       <div
@@ -29,7 +32,7 @@ export const SearchInputAnimation = ({
         onAnimationStart={(e) => {
           e.animationName === 'close' && setLeftPosition(2000);
           // Согласование анимации закрытия поля с анимциями хедера и лого
-          e.animationName === 'close' && dispatch(toggleClose());
+          e.animationName === 'close' && dispatch(inputAnimationRun(true));
         }}
         onAnimationEnd={(e) => {
           animationEndHandler(e.animationName as 'open' | 'close');

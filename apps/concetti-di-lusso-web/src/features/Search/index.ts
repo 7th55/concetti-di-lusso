@@ -4,7 +4,7 @@ export { Search } from './Search';
 // Store
 export {
   searchSlice,
-  toggle,
+  searching,
   changeValue,
   useSearchOpen as searchOpen,
   useSearchInputValue as searchInputValue,
@@ -12,8 +12,8 @@ export {
 
 export {
   searchAnimationsSlice,
-  useSearchAnimationsInput as searchAnimationsInput,
-  toggleClose,
+  useSearchAnimationsInput,
+  inputAnimationRun,
 } from './store/searchAnimationsSlice';
 // Api
 export { searchApi } from './api/searchApi';

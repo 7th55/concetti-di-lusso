@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
-import { toggle, useSearchOpen } from '/src/features/Search/store/searchSlice';
+import { searching } from '/src/features/Search/store/searchSlice';
 import { useRouter } from 'next/router';
 
 export const useSearchInput: () => [
   boolean,
-  string,
+  'searchInputAnimation_close' | '',
   () => void,
   () => void,
   (e: 'open' | 'close') => void
@@ -19,15 +19,17 @@ export const useSearchInput: () => [
 
   useEffect(() => {
     if (pathname) {
-      dispatch(toggle(true));
+      dispatch(searching(true));
     }
-  }, [pathname]);
+  }, [pathname, dispatch]);
 
   const [input, setInput] = useState(pathname);
 
   // Анимации:
   // Добавляет или удаляет close анимацию
-  const [closeAnimation, setCloseAnimation] = useState('');
+  const [closeAnimation, setCloseAnimation] = useState<
+    'searchInputAnimation_close' | ''
+  >('');
   // Отключает возможность прервать анимацию
   const [animationEnd, setAnimationEnd] = useState({
     open: true,
@@ -43,7 +45,7 @@ export const useSearchInput: () => [
 
     if (open) {
       setInput(true);
-      dispatch(toggle(true));
+      dispatch(searching(true));
       setAnimationEnd((an) => (an = { ...an, open: false }));
     }
     if (close) {
@@ -76,7 +78,7 @@ export const useSearchInput: () => [
 
   const closeInput = () => {
     setInput(false);
-    dispatch(toggle(false));
+    dispatch(searching(false));
   };
 
   return [input, closeAnimation, openInput, closeInput, animationEndHandler];

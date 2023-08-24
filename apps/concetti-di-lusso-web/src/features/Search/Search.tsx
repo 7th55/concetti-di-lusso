@@ -10,29 +10,29 @@ import { useSearchInput } from './lib';
 import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 import './styles.css';
 import Link from 'next/link';
+import { usePageAnimationsPage } from '/src/shared/store/pageAnimationSlice';
 
 export const Search = () => {
   const [input, closeAnimation, openInput, closeInput, animationEndHandler] =
     useSearchInput();
 
   // Fix: Doubleclick Fix
-  const disableIfAnimationRun = useSearchAnimationsInput().close;
+  const pageAnimationRun = usePageAnimationsPage().animationRun;
 
   const router = useRouter();
   const linkPath = router.pathname === '/search' ? '/' : '/search';
   return (
     <div className="search">
       <button
-        disabled={disableIfAnimationRun}
         style={{
-          pointerEvents: disableIfAnimationRun ? 'none' : 'initial',
+          pointerEvents: pageAnimationRun ? 'none' : 'initial',
         }}
         className="search__button"
         onClick={openInput}
       >
         <Link
           style={{
-            pointerEvents: disableIfAnimationRun ? 'none' : 'initial',
+            pointerEvents: pageAnimationRun ? 'none' : 'initial',
           }}
           href={linkPath}
         >
