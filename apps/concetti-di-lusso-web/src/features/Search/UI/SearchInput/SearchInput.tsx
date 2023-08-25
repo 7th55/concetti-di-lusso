@@ -1,5 +1,7 @@
+// Hooks
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+// Store
 import { changeValue } from '/src/features/Search/store/searchSlice';
 
 export const SearchInput = () => {
@@ -14,6 +16,7 @@ export const SearchInput = () => {
 
   return (
     <input
+      id="searchInput"
       className="search__input"
       value={inputValue}
       onChange={(e) => {

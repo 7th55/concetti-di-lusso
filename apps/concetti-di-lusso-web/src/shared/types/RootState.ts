@@ -5,7 +5,12 @@ export type RootState = {
   };
   searchAnimations: {
     input: {
-      close: boolean;
+      animationRun: boolean;
+    };
+  };
+  pageAnimations: {
+    page: {
+      animationRun: boolean;
     };
   };
 };

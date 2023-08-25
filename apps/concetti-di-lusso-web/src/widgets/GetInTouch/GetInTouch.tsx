@@ -1,6 +1,7 @@
-import './styles.css';
+// Components
 import { Button } from '/src/shared/UI/Button';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
+// Styles
+import './styles.css';
 
 export const GetInTouch = () => {
   return (
@@ -21,17 +22,13 @@ export const GetInTouch = () => {
           </div>
           <div className="getInTouch__form">
             <input
+              id="getInTouchEmailInput"
               placeholder="Email Address"
               type="email"
               className="getInTouch__email"
             />
             <div className="getInTouch__subscribe-button">
-              <Button
-                buttonStylesClassName={buttonStylesClass({
-                  type: 'regular',
-                  hover: false,
-                })}
-              >
+              <Button buttonStyle="regular">
                 Subscribe
               </Button>
             </div>

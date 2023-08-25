@@ -22,17 +22,8 @@ type ButtonClassesType =
   | 'button__add-cart'
   | 'button__regular';
 
-type HoverClassesType<T extends string> = `${T} ${T}_hover`;
-
-type ButtonStylesConfigType = {
-  type: ButtonType;
-  hover: boolean;
-};
-
-export type ButtonStylesReturnType =
-  | ButtonClassesType
-  | HoverClassesType<ButtonClassesType>;
+export type ButtonStylesReturnType = ButtonClassesType;
 
 export type ButtonStylesType = (
-  styles: ButtonStylesConfigType
+  styles: ButtonType
 ) => ButtonStylesReturnType;

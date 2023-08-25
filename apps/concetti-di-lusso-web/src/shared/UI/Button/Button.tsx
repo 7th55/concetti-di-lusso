@@ -1,33 +1,35 @@
+// Types
+import { ButtonType } from '/src/shared/types';
 // Styles
 import './styles.css';
-import { ButtonStylesReturnType } from '/src/shared/types';
+import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const Button = ({
-  buttonStylesClassName,
+  onClickHandler,
+  buttonStyle,
+  buttonName,
   children,
 }: {
-  buttonStylesClassName: ButtonStylesReturnType;
+  onClickHandler?: () => void;
+  buttonStyle: ButtonType;
+  buttonName?: string;
   children?: string;
 }) => {
-  const shopNow =
-    'button__shop-now-button' ||
-    'button__shop-now-button button__shop-now-button_hover';
-  const shopNowBlack =
-    'button__shop-now-button_black' ||
-    'button__shop-now-button_black button__shop-now-button_black_hover';
+  const shopNow = buttonStyle === 'shopNow' || buttonStyle === 'shopNowBlack';
 
-  const shopNowText =
-    buttonStylesClassName === shopNow
-      ? true
-      : buttonStylesClassName === shopNowBlack
-      ? true
-      : undefined;
+  const buttonStylesClassName = buttonStylesClass(buttonStyle);
+
+  const shopNowText = shopNow ? true : undefined;
 
   return (
     <div className="button">
-      <div className={buttonStylesClassName}>
+      <button
+        name={buttonName}
+        className={buttonStylesClassName}
+        onClick={() => onClickHandler && onClickHandler()}
+      >
         <div className={shopNowText && 'button__shop-now-text'}>{children}</div>
-      </div>
+      </button>
     </div>
   );
 };

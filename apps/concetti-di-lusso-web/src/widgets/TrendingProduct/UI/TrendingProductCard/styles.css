@@ -53,6 +53,7 @@
   }
   .trendingProductCard__description {
     overflow: scroll;
+    overflow-x: hidden;
     height: 80%;
     scroll-behavior: smooth;
   }

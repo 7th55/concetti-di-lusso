@@ -1,13 +1,13 @@
 // Hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
-import { toggle, useSearchOpen } from '/src/features/Search/store/searchSlice';
+import { searching } from '/src/features/Search/store/searchSlice';
 import { useRouter } from 'next/router';
 
 export const useSearchInput: () => [
   boolean,
-  string,
+  'searchInputAnimation_close' | '',
   () => void,
   () => void,
   (e: 'open' | 'close') => void
@@ -15,19 +15,21 @@ export const useSearchInput: () => [
   const dispatch = useDispatch();
 
   const router = useRouter();
-  const pathname = router.pathname === '/search';
+  const searchingPage = router.pathname === '/search';
 
   useEffect(() => {
-    if (pathname) {
-      dispatch(toggle(true));
+    if (searchingPage) {
+      dispatch(searching(true));
     }
-  }, [pathname]);
+  }, [searchingPage, dispatch]);
 
-  const [input, setInput] = useState(pathname);
+  const [input, setInput] = useState(searchingPage);
 
   // Анимации:
   // Добавляет или удаляет close анимацию
-  const [closeAnimation, setCloseAnimation] = useState('');
+  const [closeAnimation, setCloseAnimation] = useState<
+    'searchInputAnimation_close' | ''
+  >('');
   // Отключает возможность прервать анимацию
   const [animationEnd, setAnimationEnd] = useState({
     open: true,
@@ -38,12 +40,12 @@ export const useSearchInput: () => [
     const endOfAnimations = animationEnd.open && animationEnd.close;
 
     // DobuleClick fix
-    const open = !pathname && input === false && endOfAnimations;
-    const close = pathname && input === true && endOfAnimations;
+    const open = !searchingPage && input === false && endOfAnimations;
+    const close = searchingPage && input === true && endOfAnimations;
 
     if (open) {
       setInput(true);
-      dispatch(toggle(true));
+      dispatch(searching(true));
       setAnimationEnd((an) => (an = { ...an, open: false }));
     }
     if (close) {
@@ -76,7 +78,7 @@ export const useSearchInput: () => [
 
   const closeInput = () => {
     setInput(false);
-    dispatch(toggle(false));
+    dispatch(searching(false));
   };
 
   return [input, closeAnimation, openInput, closeInput, animationEndHandler];

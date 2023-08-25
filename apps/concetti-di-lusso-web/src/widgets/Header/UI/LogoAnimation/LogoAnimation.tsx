@@ -1,7 +1,7 @@
 // Hooks
 import { useState } from 'react';
 // Store
-import { searchAnimationsInput, searchOpen } from '/src/features/Search';
+import { useSearchAnimationsInput, searchOpen } from '/src/features/Search';
 // Styles
 import './styles.css';
 
@@ -9,7 +9,7 @@ export const LogoAnimation = ({ children }: { children: React.ReactNode }) => {
   // Согласование с Search
   const searching = searchOpen();
   // Согласование с SearchAnimation
-  const searchAnimations = searchAnimationsInput().close;
+  const searchAnimations = useSearchAnimationsInput().animationRun;
 
   // Добавление анимации закрытия только после того
   // как анимация открытия была завершена

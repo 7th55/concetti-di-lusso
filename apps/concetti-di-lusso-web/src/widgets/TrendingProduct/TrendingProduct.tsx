@@ -1,8 +1,9 @@
-import './styles.css';
 import { trendingProductsData } from './assets/data';
+// Components
 import { TrendingProductCard } from './UI/TrendingProductCard';
 import { Button } from '/src/shared/UI/Button';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
+// Styles
+import './styles.css';
 
 export const TrendingProduct = () => {
   return (
@@ -21,14 +22,7 @@ export const TrendingProduct = () => {
           ))}
         </div>
         <div className="trendingProduct__show-more-button">
-          <Button
-            buttonStylesClassName={buttonStylesClass({
-              type: 'regular',
-              hover: false,
-            })}
-          >
-            Show More
-          </Button>
+          <Button buttonStyle="regular">Show More</Button>
         </div>
       </div>
     </div>

@@ -10,14 +10,14 @@ import { GetInTouch } from '/src/widgets/GetInTouch';
 export const MainPage = () => {
   return (
     <>
-    <div className='pageAnimation'>
-      <ShopNowBanner />
-      <Advantages />
-      <FeaturedProduct />
-      <TrendingProduct />
-      <OurTestimonials />
-      <ProductGallery />
-      <GetInTouch />
+      <div>
+        <ShopNowBanner />
+        <Advantages />
+        <FeaturedProduct />
+        <TrendingProduct />
+        <OurTestimonials />
+        <ProductGallery />
+        <GetInTouch />
       </div>
     </>
   );

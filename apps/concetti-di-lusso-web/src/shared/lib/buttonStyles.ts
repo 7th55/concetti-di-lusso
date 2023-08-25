@@ -1,7 +1,6 @@
 import { ButtonStylesReturnType, ButtonStylesType } from '/src/shared/types';
 
-export const buttonStylesClass: ButtonStylesType = (config) => {
-  let { type, hover } = config;
+export const buttonStylesClass: ButtonStylesType = (type) => {
   let buttonClass;
 
   switch (type) {
@@ -38,8 +37,6 @@ export const buttonStylesClass: ButtonStylesType = (config) => {
     default:
       '';
   }
-
-  hover && (buttonClass = `${buttonClass} ${buttonClass}_hover`);
 
   return buttonClass as ButtonStylesReturnType;
 };

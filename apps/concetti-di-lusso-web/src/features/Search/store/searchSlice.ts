@@ -10,12 +10,8 @@ export const searchSlice = createSlice({
     value: '',
   },
   reducers: {
-    toggle: (state, action) => {
-      if (action.payload) {
-        state.search = action.payload;
-      } else {
-        state.search = !state.search;
-      }
+    searching: (state, action) => {
+      state.search = action.payload;
     },
 
     changeValue: (state, action) => {
@@ -24,7 +20,7 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { toggle, changeValue } = searchSlice.actions;
+export const { searching, changeValue } = searchSlice.actions;
 
 export const useSearchOpen = () =>
   useSelector((state: RootState) => state.search.search);

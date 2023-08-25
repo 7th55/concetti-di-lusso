@@ -6,9 +6,9 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo dev --no-daemon"
+    "dev": "turbo dev"
   },
   "devDependencies": {
-    "turbo": "^1.10.12"
+    "turbo": "^1.10.13"
   }
 }

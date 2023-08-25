@@ -5,7 +5,6 @@ import { Button } from '/src/shared/UI/Button';
 import { ProductData } from './types/types';
 // Styles
 import './styles.css';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const ProductCard = (props: ProductData) => {
   const { img, name, description, price, oldPrice } = props;
@@ -46,14 +45,7 @@ export const ProductCard = (props: ProductData) => {
             )}
           </div>
           <div className="productCard__add-button">
-            <Button
-              buttonStylesClassName={buttonStylesClass({
-                type: 'addCart',
-                hover: false,
-              })}
-            >
-              Add Cart
-            </Button>
+            <Button buttonStyle="addCart">Add Cart</Button>
           </div>
         </div>
       </div>

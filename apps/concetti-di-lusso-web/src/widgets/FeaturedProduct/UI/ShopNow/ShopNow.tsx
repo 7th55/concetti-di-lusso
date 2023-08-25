@@ -5,7 +5,6 @@ import { Button } from '/src/shared/UI/Button';
 import shopNowImg from '/src/widgets/FeaturedProduct/UI/ShopNow/assets/img/shopNowImg.png';
 // Styles
 import './styles.css';
-import { buttonStylesClass } from '/src/shared/lib/buttonStyles';
 
 export const ShopNow = () => {
   return (
@@ -28,14 +27,7 @@ export const ShopNow = () => {
           </p>
         </div>
         <div className="shopNow__button">
-          <Button
-            buttonStylesClassName={buttonStylesClass({
-              type: 'shopNowBlack',
-              hover: false,
-            })}
-          >
-            Shop Now
-          </Button>
+          <Button buttonStyle="shopNowBlack">Shop Now</Button>
         </div>
       </div>
       <div className="shopNow__image">

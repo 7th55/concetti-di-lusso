@@ -2,9 +2,9 @@
 import { useDispatch } from 'react-redux';
 // Store
 import {
-  searchAnimationsInput,
+  useSearchAnimationsInput,
   searchOpen,
-  toggleClose,
+  inputAnimationRun,
 } from '/src/features/Search';
 // Styles
 import './styles.css';
@@ -14,7 +14,7 @@ export const MenuAnimation = ({ children }: { children: React.ReactNode }) => {
 
   // Согласование анимаций
   const searching = searchOpen();
-  const searchAnimationsEnd = searchAnimationsInput().close;
+  const searchAnimationsEnd = useSearchAnimationsInput().animationRun;
 
   const blurAnimation = searching ? 'menuAnimation_blur' : '';
   const closeAnimation = searchAnimationsEnd && 'menuAnimation_unblur';
@@ -24,7 +24,7 @@ export const MenuAnimation = ({ children }: { children: React.ReactNode }) => {
       className={`menuAnimation ${blurAnimation} ${closeAnimation}`}
       onAnimationEnd={(e) => {
         // Согласование анимации c SearchInputAnimation
-        e.animationName === 'unblur' && dispatch(toggleClose());
+        e.animationName === 'unblur' && dispatch(inputAnimationRun(false));
       }}
     >
       {children}
