@@ -6,13 +6,13 @@ import { HeaderMenu } from './UI/HeaderMenu';
 import { ButtonsList } from './UI/ButtonsList';
 // Styles
 import './styles.css';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
   const searching = useSearchOpen();
 
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
-  useLayoutEffect(() => {
+  useEffect(() => {
     const setResize = () => setWindowWidth(window.innerWidth);
     if (window !== undefined) {
       setWindowWidth(window.innerWidth);
@@ -23,8 +23,8 @@ export const Header = () => {
       window.removeEventListener('resize', setResize);
     };
   }, []);
-  
-// UI
+
+  // UI
   const moveLogo =
     windowWidth !== undefined && windowWidth <= 1250 && searching
       ? 'header__logo_moveUp'

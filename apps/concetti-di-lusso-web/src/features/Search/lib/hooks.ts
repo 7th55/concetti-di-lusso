@@ -1,17 +1,8 @@
 // Hooks
-import {
-  useEffect,
-  useInsertionEffect,
-  useLayoutEffect,
-  useState,
-  useTransition,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
-import {
-  searching,
-  useSearchOpen,
-} from '/src/features/Search/store/searchSlice';
+import { searching } from '/src/features/Search/store/searchSlice';
 import { useRouter } from 'next/router';
 
 export const useSearchInput: () => [boolean, () => void] = () => {
@@ -26,10 +17,7 @@ export const useSearchInput: () => [boolean, () => void] = () => {
     }
   }, [searchingPage, dispatch]);
 
-  const searchingValue = useSearchOpen() === false ? false : true;
-
   const [input, setInput] = useState(searchingPage);
-  console.log(input, 'input', searchingValue);
 
   const openInput: () => void = () => {
     const open = !input;
