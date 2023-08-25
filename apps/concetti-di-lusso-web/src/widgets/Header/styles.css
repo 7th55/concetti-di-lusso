@@ -22,6 +22,10 @@
   width: calc(100% / 3);
 }
 
+.header__menu_blur {
+  filter: blur(10px);
+}
+
 .header__buttons {
   display: flex;
   justify-content: center;
@@ -48,4 +52,9 @@
   .header__padding {
     padding: 0 var(--view-global-padding);
   }
+}
+
+.header__logo_moveUp {
+  position: relative;
+  top: -30px;
 }

@@ -1,1 +1,0 @@
-export { SearchInputAnimation } from './SearchInputAnimation';

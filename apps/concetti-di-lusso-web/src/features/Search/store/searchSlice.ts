@@ -2,6 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 // Types
 import { RootState } from '/src/shared/types';
+import { useRouter } from 'next/router';
+
+const searchState = () => {
+  const router = window.location;
+  const searchingPage = router.pathname === '/search';
+  return searchingPage;
+};
 
 export const searchSlice = createSlice({
   name: 'search',
