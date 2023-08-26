@@ -9,16 +9,14 @@ import { GetInTouch } from '/src/widgets/GetInTouch';
 
 export const MainPage = () => {
   return (
-    <>
-      <div>
-        <ShopNowBanner />
-        <Advantages />
-        <FeaturedProduct />
-        <TrendingProduct />
-        <OurTestimonials />
-        <ProductGallery />
-        <GetInTouch />
-      </div>
-    </>
+    <section>
+      <ShopNowBanner />
+      <Advantages />
+      <FeaturedProduct />
+      <TrendingProduct />
+      <OurTestimonials />
+      <ProductGallery />
+      <GetInTouch />
+    </section>
   );
 };

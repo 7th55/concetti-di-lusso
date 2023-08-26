@@ -3,11 +3,13 @@ import { Select } from '/src/shared/UI/Select';
 import { Button } from '/src/shared/UI/Button';
 // Styles
 import './styles.css';
+import Link from 'next/link';
 
 export const HeaderMenu = ({
   items = ['Home', 'Towels', 'Robes', 'Bathroom Sets'],
 }) => {
   const selectList = items.indexOf('Towels');
+  const paths = ['/', 'towels', 'robes', 'bathroomsets'];
 
   return (
     <>
@@ -15,17 +17,21 @@ export const HeaderMenu = ({
         {items.map((item, index) => (
           <div key={item} className="header__menu-item">
             {selectList !== index ? (
-              <Button buttonName={item} buttonStyle="menu">
-                {item}
-              </Button>
+              <Link href={item === 'Home' ? '/' : `/products/${paths[index]}`}>
+                <Button buttonName={item} buttonStyle="menu">
+                  {item}
+                </Button>
+              </Link>
             ) : (
-              <Select
-                options={[
-                  <Button key={item} buttonName={item} buttonStyle="select">
-                    {item}
-                  </Button>,
-                ]}
-              />
+              <Link href={`/products/${paths[index]}`}>
+                <Select
+                  options={[
+                    <Button key={item} buttonName={item} buttonStyle="select">
+                      {item}
+                    </Button>,
+                  ]}
+                />
+              </Link>
             )}
           </div>
         ))}

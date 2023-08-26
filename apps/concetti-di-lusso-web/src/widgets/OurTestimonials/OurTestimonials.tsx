@@ -5,7 +5,7 @@ import './styles.css';
 
 export const OurTestimonials = () => {
   return (
-    <div className="ourTestimonials">
+    <section className="ourTestimonials">
       <div className="ourTestimonials__content-wrapper">
         <div className="ourTestimonials__header">
           <div className="ourTestimonials__header-content">
@@ -18,6 +18,6 @@ export const OurTestimonials = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

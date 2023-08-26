@@ -1,6 +1,6 @@
 export type RootState = {
   search: {
-    search: boolean;
+    searching: boolean;
     value: string;
   };
   searchAnimations: {

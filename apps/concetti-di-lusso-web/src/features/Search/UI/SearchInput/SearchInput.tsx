@@ -8,6 +8,7 @@ export const SearchInput = () => {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
 
+  // Сброс значения поля
   useEffect(() => {
     return () => {
       dispatch(changeValue(''));

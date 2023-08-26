@@ -1,9 +1,8 @@
 // Hooks
-import { useGetSearchProductsQuery } from '/src/features/Search/api/searchApi';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 // Store
-import { useSearchInputValue } from '/src/features/Search/store/searchSlice';
-// Lib
-import { stringForQuery } from '/src/features/Search';
+import { searching } from '/src/features/Search/store/searchSlice';
 // Components
 import { ProductCard } from '/src/entites/ProductCard';
 // Types
@@ -11,11 +10,23 @@ import { ProductData } from '/src/entites/ProductCard';
 // Styles
 import './styles.css';
 
-export const SearchPage = () => {
-  const searchValue = useSearchInputValue();
-  const { data, isError, isLoading } = useGetSearchProductsQuery(
-    stringForQuery(searchValue)
-  );
+export const SearchPage = ({
+  data,
+  isError,
+  isLoading,
+}: {
+  data: ProductData[];
+  isError: boolean;
+  isLoading: boolean;
+}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(searching(true));
+    return () => {
+      dispatch(searching(false));
+    };
+  }, []);
 
   return (
     <section className="searchPage">
@@ -28,7 +39,7 @@ export const SearchPage = () => {
             ) : isLoading ? (
               <h1>Loading</h1>
             ) : (
-              data.map((product: ProductData) => (
+              data.map((product) => (
                 <div key={product.id} className="searchPage__product">
                   <ProductCard {...product} />
                 </div>

@@ -6,12 +6,12 @@ import { RootState } from '/src/shared/types';
 export const searchSlice = createSlice({
   name: 'search',
   initialState: {
-    search: false,
+    searching: false,
     value: '',
   },
   reducers: {
     searching: (state, action) => {
-      state.search = action.payload;
+      state.searching = action.payload;
     },
 
     changeValue: (state, action) => {
@@ -22,8 +22,8 @@ export const searchSlice = createSlice({
 
 export const { searching, changeValue } = searchSlice.actions;
 
-export const useSearchOpen = () =>
-  useSelector((state: RootState) => state.search.search);
+export const useSearchState = () =>
+  useSelector((state: RootState) => state.search.searching);
 
 export const useSearchInputValue = () =>
   useSelector((state: RootState) => state.search.value);
