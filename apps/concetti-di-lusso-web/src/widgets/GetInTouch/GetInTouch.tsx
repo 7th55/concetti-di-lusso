@@ -5,7 +5,7 @@ import './styles.css';
 
 export const GetInTouch = () => {
   return (
-    <div className="getInTouch">
+    <section className="getInTouch">
       <div className="getInTouch__content-wrapper">
         <div className="getInTouch__header">
           <div className="getInTouch__header-content">
@@ -28,13 +28,11 @@ export const GetInTouch = () => {
               className="getInTouch__email"
             />
             <div className="getInTouch__subscribe-button">
-              <Button buttonStyle="regular">
-                Subscribe
-              </Button>
+              <Button buttonStyle="regular">Subscribe</Button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

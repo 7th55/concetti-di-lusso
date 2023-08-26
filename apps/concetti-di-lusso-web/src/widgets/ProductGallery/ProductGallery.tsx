@@ -7,7 +7,7 @@ import './styles.css';
 
 export const ProductGallery = () => {
   return (
-    <div className="productGallery">
+    <section className="productGallery">
       <div className="productGallery__content-wrapper">
         <div className="productGallery__header">
           <div className="productGallery__header-content">
@@ -24,6 +24,6 @@ export const ProductGallery = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

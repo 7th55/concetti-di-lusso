@@ -7,7 +7,7 @@ import './styles.css';
 
 export const TrendingProduct = () => {
   return (
-    <div className="trendingProduct">
+    <section className="trendingProduct">
       <div className="trendingProduct__content-wrapper">
         <div className="trendingProduct__header">
           <div className="trendingProduct__header-content">
@@ -25,6 +25,6 @@ export const TrendingProduct = () => {
           <Button buttonStyle="regular">Show More</Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

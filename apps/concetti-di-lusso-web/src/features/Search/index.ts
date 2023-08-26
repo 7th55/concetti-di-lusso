@@ -6,7 +6,7 @@ export {
   searchSlice,
   searching,
   changeValue,
-  useSearchOpen,
+  useSearchState,
   useSearchInputValue,
 } from './store/searchSlice';
 
