@@ -1,0 +1,1 @@
+export { stringForQuery } from './functions';

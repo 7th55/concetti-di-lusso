@@ -3,14 +3,7 @@ export type RootState = {
     searching: boolean;
     value: string;
   };
-  searchAnimations: {
-    input: {
-      animationRun: boolean;
-    };
-  };
-  pageAnimations: {
-    page: {
-      animationRun: boolean;
-    };
+  cart: {
+    items: Array<string>;
   };
 };
