@@ -1,3 +1,5 @@
+// Components
+import { LinearProgress } from '@mui/material';
 import { ProductCard, ProductData } from '/src/entites/ProductCard';
 // Styles
 import './styles.css';
@@ -20,7 +22,7 @@ export const ProductsPage = ({
             {isError ? (
               <h1>Error</h1>
             ) : isLoading ? (
-              <h1>Loading</h1>
+              <LinearProgress sx={{ color: 'primary.main', width: '100%' }} />
             ) : (
               data.map((product) => (
                 <div key={product.id} className="productPage__product">

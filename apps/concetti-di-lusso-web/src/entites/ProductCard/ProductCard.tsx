@@ -1,17 +1,17 @@
 // Components
 import Image from 'next/image';
 import { Button } from '/src/shared/UI/Button';
+// Hooks
+import { useDispatch } from 'react-redux';
 // Types
 import { ProductData } from './types/types';
 // Styles
 import './styles.css';
+import { addItemToCart } from '/src/features/Cart/store/store/CartSlice';
 
 export const ProductCard = (props: ProductData) => {
+  const dispatch = useDispatch();
   const { img, name, description, price, oldPrice } = props;
-
-  const descriptionStyle = {
-    height: description && '2%',
-  };
 
   return (
     <div className="productCard">
@@ -45,7 +45,12 @@ export const ProductCard = (props: ProductData) => {
             )}
           </div>
           <div className="productCard__add-button">
-            <Button buttonStyle="addCart">Add Cart</Button>
+            <Button
+              onClickHandler={() => dispatch(addItemToCart({ name, price }))}
+              buttonStyle="addCart"
+            >
+              Add Cart
+            </Button>
           </div>
         </div>
       </div>

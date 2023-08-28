@@ -10,6 +10,7 @@ import './styles/global.css';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const searching = useSearchState();
+
   return (
     <div className="global__wrapper">
       <header>
@@ -17,11 +18,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Header />
       </header>
       <main>{children}</main>
-      {searching !== true && (
-        <footer>
-          <Footer />
-        </footer>
-      )}
     </div>
   );
 }

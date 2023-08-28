@@ -3,14 +3,14 @@ export type RootState = {
     searching: boolean;
     value: string;
   };
-  searchAnimations: {
-    input: {
-      animationRun: boolean;
-    };
+  cart: {
+    items: Array<ProductFromCart>;
+    totalPrice: number;
   };
-  pageAnimations: {
-    page: {
-      animationRun: boolean;
-    };
-  };
+};
+
+export type ProductFromCart = {
+  name: string;
+  count: number;
+  price: number;
 };

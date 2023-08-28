@@ -4,4 +4,6 @@ export type {
   ButtonType,
 } from './stylesType';
 export type { ImgPropsType } from './types';
-export type { RootState } from './RootState';
+
+// Store
+export type { RootState, ProductFromCart } from './RootState';

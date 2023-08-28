@@ -1,9 +1,9 @@
 // Components
+import Link from 'next/link';
 import { Select } from '/src/shared/UI/Select';
 import { Button } from '/src/shared/UI/Button';
 // Styles
 import './styles.css';
-import Link from 'next/link';
 
 export const HeaderMenu = ({
   items = ['Home', 'Towels', 'Robes', 'Bathroom Sets'],

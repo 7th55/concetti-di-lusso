@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 // Store
 import { searching } from '/src/features/Search/store/searchSlice';
 // Components
+import { LinearProgress } from '@mui/material';
 import { ProductCard } from '/src/entites/ProductCard';
 // Types
 import { ProductData } from '/src/entites/ProductCard';
@@ -37,7 +38,7 @@ export const SearchPage = ({
             {isError ? (
               <h1>Error</h1>
             ) : isLoading ? (
-              <h1>Loading</h1>
+              <LinearProgress sx={{ color: 'primary.main', width: '100%' }} />
             ) : (
               data.map((product) => (
                 <div key={product.id} className="searchPage__product">
@@ -45,6 +46,8 @@ export const SearchPage = ({
                 </div>
               ))
             )}
+
+            <div className="searchPage__product"></div>
           </div>
         </div>
       </div>
