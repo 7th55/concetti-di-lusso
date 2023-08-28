@@ -4,6 +4,11 @@ export type RootState = {
     value: string;
   };
   cart: {
-    items: Array<string>;
+    items: Array<ProductFromCart>;
   };
+};
+
+export type ProductFromCart = {
+  name: string;
+  count: number;
 };

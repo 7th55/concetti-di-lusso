@@ -2,10 +2,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 // Types
 import { RootState } from '/src/shared/types';
+import { ProductFromCart } from '/src/shared/types/RootState';
 
 type CartInitialState = {
-  items: Array<string>;
+  items: Array<ProductFromCart>;
 };
+
 
 const initialState: CartInitialState = {
   items: [],
@@ -16,7 +18,17 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<string>) => {
-      state.items.push(action.payload);
+      const index = state.items.findIndex((i) => i.name === action.payload);
+      const increaseCount = index !== -1;
+
+      if (increaseCount) {
+        state.items[index] = {
+          name: state.items[index].name,
+          count: state.items[index].count + 1,
+        };
+      } else {
+        state.items = [...state.items, { name: action.payload, count: 1 }];
+      }
     },
     removeItemToCart: (state, action) => {
       state.items = state.items.filter((item) => item !== action.payload);
