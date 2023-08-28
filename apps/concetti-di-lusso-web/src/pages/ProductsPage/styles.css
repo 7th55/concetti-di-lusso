@@ -1,7 +1,7 @@
 .productPage {
   display: flex;
   justify-content: center;
-  min-height: 800px;
+  min-height: 100%;
 }
 .productPage__content-wrapper {
   box-sizing: border-box;

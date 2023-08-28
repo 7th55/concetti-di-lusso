@@ -18,11 +18,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Header />
       </header>
       <main>{children}</main>
-      {searching !== true && (
-        <footer>
-          <Footer />
-        </footer>
-      )}
     </div>
   );
 }

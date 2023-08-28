@@ -53,11 +53,11 @@ export const Cart = () => {
   const query = productNames.map(searchByNameFormatter).join('');
 
   const { data, isLoading, isError } = useGetProductsByNameQuery(query);
-
+// Создать styled компоненты
   return (
     <section>
       <Container maxWidth={false} sx={{ maxWidth: '1488px' }}>
-        <Stack spacing={2}>
+        <Stack spacing={2} sx={{ boxSizing: 'border-box', mb: 2 }}>
           {cartState.items.length !== 0 && (
             <Box
               sx={{
@@ -84,7 +84,7 @@ export const Cart = () => {
                 borderRadius: '10px',
               }}
             >
-              <Typography variant="h4">Add Products</Typography>
+              <Typography variant="h4">Add Products to Cart</Typography>
             </Box>
           )}
 
