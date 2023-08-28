@@ -46,7 +46,7 @@ export const ProductCard = (props: ProductData) => {
           </div>
           <div className="productCard__add-button">
             <Button
-              onClickHandler={() => dispatch(addItemToCart(name))}
+              onClickHandler={() => dispatch(addItemToCart({ name, price }))}
               buttonStyle="addCart"
             >
               Add Cart

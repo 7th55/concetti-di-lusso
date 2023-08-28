@@ -5,10 +5,12 @@ export type RootState = {
   };
   cart: {
     items: Array<ProductFromCart>;
+    totalPrice: number;
   };
 };
 
 export type ProductFromCart = {
   name: string;
   count: number;
+  price: number;
 };
