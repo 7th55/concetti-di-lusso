@@ -1,10 +1,11 @@
 import type { AppProps } from 'next/app';
 // Redux
 import { Provider } from 'react-redux';
-import { store } from '/src/app/store/store';
+import { persistor, store } from '/src/app/store/store';
 // Components
 import Layout from './layout';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const theme = createTheme({
   palette: {
@@ -20,11 +21,13 @@ const theme = createTheme({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <PersistGate loading={'ANIME'} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 }

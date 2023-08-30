@@ -1,3 +1,15 @@
+import storage from 'redux-persist/lib/storage';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+//
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 // Slices
@@ -7,10 +19,21 @@ import { productsApi } from '/src/pages/ProductsPage/store/productApi';
 import { cartSlice } from '/src/features/Cart/store/store/CartSlice';
 import { cartApi } from '/src/features/Cart/api/CartApi';
 
+const cartPersisConfig = {
+  key: 'carts',
+  version: 1,
+  storage,
+};
+
+const persistedCartReducer = persistReducer(
+  cartPersisConfig,
+  cartSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
     [searchSlice.name]: searchSlice.reducer,
-    [cartSlice.name]: cartSlice.reducer,
+    [cartSlice.name]: persistedCartReducer,
     // Api
     // Searching
     [searchApi.reducerPath]: searchApi.reducer,
@@ -20,11 +43,13 @@ export const store = configureStore({
     [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      searchApi.middleware,
-      productsApi.middleware,
-      cartApi.middleware
-    ),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(searchApi.middleware, productsApi.middleware, cartApi.middleware),
 });
+
+export let persistor = persistStore(store);
 
 setupListeners(store.dispatch);
