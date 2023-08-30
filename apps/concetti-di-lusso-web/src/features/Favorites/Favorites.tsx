@@ -4,15 +4,17 @@ import { useGetProductsByNameQuery } from './api/FavoritesApi';
 // Components
 import Image from 'next/image';
 import {
-  Box,
-  Button,
+  Card,
+  SimpleGrid,
   Container,
-  LinearProgress,
-  Stack,
-  Typography,
-} from '@mui/material';
+  Center,
+  Text,
+  Button,
+  Title,
+  Group,
+  Box,
+} from '@mantine/core';
 // Icons
-import ClearTwoTone from '@mui/icons-material/ClearTwoTone';
 // Types
 import { ProductData } from '/src/entites/ProductCard';
 import { removeFromFavorites, useFavorites } from './store/FavoritesSlice';
@@ -43,58 +45,35 @@ export const Favorites = () => {
   const { data, isLoading, isError } = useGetProductsByNameQuery(query);
   // TODO:Создать styled компоненты
   return (
-    <section>
-      <Container maxWidth={false} sx={{ maxWidth: '1488px' }}>
-        <Stack spacing={2} sx={{ boxSizing: 'border-box', mb: 2 }}>
-          {favoritesState.items.length === 0 && (
-            <Box
-              sx={{
-                boxSizing: 'border-box',
-                padding: 2,
-                width: '100%',
-                backgroundColor: 'secondary.main',
-                borderRadius: '10px',
-              }}
-            >
-              <Typography variant="h4">Add Favorite Products</Typography>
-            </Box>
-          )}
+    <Container size={1440}>
+      {favoritesState.items.length === 0 && (
+        <Title order={2}>Add Favorite Products</Title>
+      )}
 
-          {isLoading ? (
-            <Box sx={{ width: '100%' }}>
-              <LinearProgress sx={{ color: 'primary.main', width: '100%' }} />
-            </Box>
-          ) : isError ? (
-            <Box sx={{ width: '100%' }}>
-              <Typography>Error</Typography>
-            </Box>
-          ) : (
-            data.map((product: ProductData, index: number) => {
-              // const count = getCount(product);
-              // const totalPriceOfProducts = getPrice(product);
-              const priceOfProduct = product.price;
-              return (
-                <Box
-                  key={product + ' ' + index}
-                  sx={{
-                    boxSizing: 'border-box',
-                    display: 'flex',
-                    gap: 2,
-                    width: '100%',
-                    backgroundColor: 'secondary.main',
-                    boxShadow: 2,
-                    borderRadius: '10px',
-                    overflow: 'hidden',
-                  }}
-                >
+      {isLoading ? (
+        <Box sx={{ width: '100%' }}>Loading</Box>
+      ) : isError ? (
+        <Box sx={{ width: '100%' }}>
+          <Text>Error</Text>
+        </Box>
+      ) : (
+        <SimpleGrid cols={4}>
+          {data.map((product: ProductData, index: number) => {
+            const priceOfProduct = product.price;
+            return (
+              <Card
+                key={product + ' ' + index}
+                shadow="sm"
+                padding="lg"
+                radius="md"
+                withBorder
+              >
+                <Card.Section>
                   <Box
                     sx={{
-                      width: 1 / 4,
-                      height: 1 / 4,
-                      minWidth: 300,
-                      minHeight: 300,
                       position: 'relative',
-                      overflow: 'hidden',
+                      width: '100%',
+                      height: 250,
                     }}
                   >
                     <Image
@@ -105,46 +84,26 @@ export const Favorites = () => {
                       priority={true}
                     />
                   </Box>
-
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      width: 1,
-                    }}
-                  >
-                    <Typography variant="h6" component="h3">
-                      {product.name}
-                    </Typography>
-                    <Typography variant="h6" component="p">
-                      Price: {priceOfProduct};
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'right',
-                      alignItems: 'start',
-                      width: 1 / 3,
-                    }}
-                  >
-                    <Button
-                      color="error"
-                      variant="contained"
-                      onClick={() => {
-                        dispatch(removeFromFavorites({ name: product.name }));
-                      }}
-                    >
-                      <ClearTwoTone sx={{ color: 'white' }} />
-                    </Button>
-                  </Box>
-                </Box>
-              );
-            })
-          )}
-        </Stack>
-      </Container>
-    </section>
+                </Card.Section>
+                <Group>
+                  <Title order={3}>{product.name}</Title>
+                </Group>
+                <Text variant="h6" component="p">
+                  Price: {priceOfProduct};
+                </Text>
+                <Button
+                  color="red"
+                  onClick={() => {
+                    dispatch(removeFromFavorites({ name: product.name }));
+                  }}
+                >
+                  Delete
+                </Button>
+              </Card>
+            );
+          })}
+        </SimpleGrid>
+      )}
+    </Container>
   );
 };
