@@ -7,10 +7,15 @@ export type RootState = {
     items: Array<ProductFromCart>;
     totalPrice: number;
   };
+  favorites: FavoritesProducts;
 };
 
 export type ProductFromCart = {
   name: string;
   count: number;
   price: number;
+};
+
+export type FavoritesProducts = {
+  items: Array<{ name: string }>;
 };

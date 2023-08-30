@@ -1,17 +1,22 @@
 // Components
 import Image from 'next/image';
+import { Button as ButtonMUI } from '@mui/material';
 import { Button } from '/src/shared/UI/Button';
+// Icons
+import FavoriteIcon from '@mui/icons-material/Favorite';
 // Hooks
 import { useDispatch } from 'react-redux';
+// Store
+import { addItemToCart } from '/src/features/Cart/store/store/CartSlice';
+import { addToFavorites } from '/src/features/Favorites/store/FavoritesSlice';
 // Types
 import { ProductData } from './types/types';
 // Styles
 import './styles.css';
-import { addItemToCart } from '/src/features/Cart/store/store/CartSlice';
 
 export const ProductCard = (props: ProductData) => {
   const dispatch = useDispatch();
-  const { img, name, description, price, oldPrice } = props;
+  const { img, name, description, price, oldPrice, favoriteButton } = props;
 
   return (
     <div className="productCard">
@@ -51,6 +56,15 @@ export const ProductCard = (props: ProductData) => {
             >
               Add Cart
             </Button>
+            {favoriteButton && (
+              <ButtonMUI
+                onClick={() => dispatch(addToFavorites({ name }))}
+                variant="contained"
+                sx={{ position: 'absolute', top: -30, right: -20 }}
+              >
+                <FavoriteIcon />
+              </ButtonMUI>
+            )}
           </div>
         </div>
       </div>

@@ -9,16 +9,23 @@ import { useCart } from '/src/features/Cart/store/store/CartSlice';
 import './styles.css';
 // Types
 import { ButtonType } from '/src/shared/types';
+import { useFavorites } from '/src/features/Favorites/store/FavoritesSlice';
 
 export const ButtonsList = () => {
   const buttons: ButtonType[] = ['search', 'favorites', 'shopping'];
   const linkPaths = ['', '/favorites', '/cart'];
 
   const cart = useCart();
-  const badgeState = cart.items.reduce(
+  const favorites = useFavorites();
+
+  const badgeCart = cart.items.reduce(
     (badgeContent, i) => badgeContent + i.count,
     0
   );
+  const badgeFavorites = favorites.items.length;
+  const exhaustiveCheck = (a: any): never => {
+    throw Error(':c Exhaustiveness ');
+  };
   return (
     <div className="buttons-list">
       <div className="buttons-list__shopping-buttons">
@@ -28,14 +35,18 @@ export const ButtonsList = () => {
               <Search />
             ) : button === 'shopping' ? (
               <Link href={linkPaths[index]}>
-                <Badge badgeContent={badgeState} color="primary">
+                <Badge badgeContent={badgeCart} color="primary">
+                  <Button buttonStyle={button} />
+                </Badge>
+              </Link>
+            ) : button === 'favorites' ? (
+              <Link href={linkPaths[index]}>
+                <Badge badgeContent={badgeFavorites} color="primary">
                   <Button buttonStyle={button} />
                 </Badge>
               </Link>
             ) : (
-              <Link href={linkPaths[index]}>
-                <Button buttonStyle={button} />
-              </Link>
+              exhaustiveCheck(button)
             )}
           </div>
         ))}
