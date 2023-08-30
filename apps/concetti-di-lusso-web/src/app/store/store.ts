@@ -54,7 +54,7 @@ export const store = configureStore({
     [searchApi.reducerPath]: searchApi.reducer,
     // Cart
     [cartApi.reducerPath]: cartApi.reducer,
-    // Favorites 
+    // Favorites
     [favoritesApi.reducerPath]: favoritesApi.reducer,
     // Products
     [productsApi.reducerPath]: productsApi.reducer,
@@ -64,7 +64,11 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(searchApi.middleware, productsApi.middleware, cartApi.middleware),
+    })
+      .concat(searchApi.middleware)
+      .concat(cartApi.middleware)
+      .concat(favoritesApi.middleware)
+      .concat(productsApi.middleware),
 });
 
 export let persistor = persistStore(store);

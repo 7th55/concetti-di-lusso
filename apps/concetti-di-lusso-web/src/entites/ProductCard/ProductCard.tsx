@@ -1,9 +1,8 @@
 // Components
 import Image from 'next/image';
-import { Button as ButtonMUI } from '@mui/material';
+import { Button as ButtonMantine } from '@mantine/core';
 import { Button } from '/src/shared/UI/Button';
 // Icons
-import FavoriteIcon from '@mui/icons-material/Favorite';
 // Hooks
 import { useDispatch } from 'react-redux';
 // Store
@@ -57,13 +56,12 @@ export const ProductCard = (props: ProductData) => {
               Add Cart
             </Button>
             {favoriteButton && (
-              <ButtonMUI
+              <ButtonMantine
                 onClick={() => dispatch(addToFavorites({ name }))}
-                variant="contained"
                 sx={{ position: 'absolute', top: -30, right: -20 }}
               >
-                <FavoriteIcon />
-              </ButtonMUI>
+                Add Favorite
+              </ButtonMantine>
             )}
           </div>
         </div>

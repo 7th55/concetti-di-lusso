@@ -10,17 +10,17 @@ import { useGetProductsByNameQuery } from './api/CartApi';
 // Components
 import Image from 'next/image';
 import {
-  Box,
-  Button,
+  Card,
+  SimpleGrid,
   Container,
-  LinearProgress,
-  Stack,
-  Typography,
-} from '@mui/material';
+  Center,
+  Text,
+  Button,
+  Title,
+  Group,
+  Box,
+} from '@mantine/core';
 // Icons
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import ClearTwoTone from '@mui/icons-material/ClearTwoTone';
 // Types
 import { ProductData } from '/src/entites/ProductCard';
 import { ProductFromCart } from '/src/shared/types';
@@ -53,157 +53,114 @@ export const Cart = () => {
   const query = productNames.map(searchByNameFormatter).join('');
 
   const { data, isLoading, isError } = useGetProductsByNameQuery(query);
-// Создать styled компоненты
   return (
     <section>
-      <Container maxWidth={false} sx={{ maxWidth: '1488px' }}>
-        <Stack spacing={2} sx={{ boxSizing: 'border-box', mb: 2 }}>
+      <Container size={1440}>
           {cartState.items.length !== 0 && (
-            <Box
-              sx={{
-                boxSizing: 'border-box',
-                padding: 2,
-                width: '100%',
-                backgroundColor: 'secondary.main',
-                borderRadius: '10px',
-              }}
-            >
-              <Typography variant="h4">
-                Total Price Of Products: {cartState.totalPrice}
-              </Typography>
-            </Box>
+            <Title order={2}>
+              Total Price Of Products: {cartState.totalPrice}
+            </Title>
           )}
+        {cartState.items.length === 0 && (
+          <Box
+            sx={{
+              boxSizing: 'border-box',
+              padding: 2,
+              width: '100%',
+              backgroundColor: 'secondary.main',
+              borderRadius: '10px',
+            }}
+          >
+            <Title order={2}>Add Products to Cart</Title>
+          </Box>
+        )}
 
-          {cartState.items.length === 0 && (
-            <Box
-              sx={{
-                boxSizing: 'border-box',
-                padding: 2,
-                width: '100%',
-                backgroundColor: 'secondary.main',
-                borderRadius: '10px',
-              }}
-            >
-              <Typography variant="h4">Add Products to Cart</Typography>
-            </Box>
-          )}
-
-          {isLoading ? (
-            <Box sx={{ width: '100%' }}>
-              <LinearProgress sx={{ color: 'primary.main', width: '100%' }} />
-            </Box>
-          ) : isError ? (
-            <Box sx={{ width: '100%' }}>
-              <Typography>Error</Typography>
-            </Box>
-          ) : (
-            data.map((product: ProductData, index: number) => {
+        {isLoading ? (
+          <Box sx={{ width: '100%' }}>Loading</Box>
+        ) : isError ? (
+          <Box sx={{ width: '100%' }}>
+            <Text>Error</Text>
+          </Box>
+        ) : (
+          <SimpleGrid cols={4}>
+            {data.map((product: ProductData, index: number) => {
               const count = getCount(product);
               const totalPriceOfProducts = getPrice(product);
               const priceOfProduct = product.price;
               return (
-                <Box
+                <Card
                   key={product + ' ' + index}
-                  sx={{
-                    boxSizing: 'border-box',
-                    display: 'flex',
-                    gap: 2,
-                    width: '100%',
-                    backgroundColor: 'secondary.main',
-                    boxShadow: 2,
-                    borderRadius: '10px',
-                    overflow: 'hidden',
-                  }}
+                  shadow="sm"
+                  padding="lg"
+                  radius="md"
+                  withBorder
                 >
-                  <Box
-                    sx={{
-                      width: 1 / 4,
-                      height: 1 / 4,
-                      minWidth: 300,
-                      minHeight: 300,
-                      position: 'relative',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <Image
-                      fill={true}
-                      src={product.img.src}
-                      alt={product.img.alt}
-                      sizes="(max-width: 1430px) 100%"
-                      priority={true}
-                    />
-                  </Box>
-
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      width: 1,
-                    }}
-                  >
-                    <Typography variant="h6" component="h3">
-                      {product.name}
-                    </Typography>
-                    <Typography variant="h6" component="p">
-                      Price: {priceOfProduct};
-                      <br />
-                      Quantity: {count};
-                      <br />
-                      Total Price Of Product: {totalPriceOfProducts}
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'right',
-                      alignItems: 'start',
-                      width: 1 / 3,
-                    }}
-                  >
-                    <Button
-                      color="success"
-                      variant="contained"
-                      onClick={() => {
-                        dispatch(
-                          addItemToCart({
-                            name: product.name,
-                            price: product.price,
-                          })
-                        );
+                  <Card.Section>
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        width: '100%',
+                        height: 250,
                       }}
                     >
-                      <AddIcon />
-                    </Button>
-                    <Button
-                      color="warning"
-                      variant="contained"
-                      onClick={() => {
-                        dispatch(
-                          removeItemFromCart({
-                            name: product.name,
-                            price: product.price,
-                          })
-                        );
-                      }}
-                    >
-                      <RemoveIcon />
-                    </Button>
-                    <Button
-                      color="error"
-                      variant="contained"
-                      onClick={() => {
-                        dispatch(deleteItemFromCart({ name: product.name }));
-                      }}
-                    >
-                      <ClearTwoTone sx={{ color: 'white' }} />
-                    </Button>
-                  </Box>
-                </Box>
+                      <Image
+                        fill={true}
+                        src={product.img.src}
+                        alt={product.img.alt}
+                        sizes="(max-width: 1430px) 100%"
+                        priority={true}
+                      />
+                    </Box>
+                  </Card.Section>
+                  <Group>
+                    <Title order={3}>{product.name}</Title>
+                  </Group>
+                  <Text variant="h6" component="p">
+                    Price: {priceOfProduct};
+                    <br />
+                    Quantity: {count};
+                    <br />
+                    Total Price Of Product: {totalPriceOfProducts}
+                  </Text>
+                  <Button
+                    color="green"
+                    onClick={() => {
+                      dispatch(
+                        addItemToCart({
+                          name: product.name,
+                          price: product.price,
+                        })
+                      );
+                    }}
+                  >
+                    Add
+                  </Button>
+                  <Button
+                    color="orange"
+                    onClick={() => {
+                      dispatch(
+                        removeItemFromCart({
+                          name: product.name,
+                          price: product.price,
+                        })
+                      );
+                    }}
+                  >
+                    Remove
+                  </Button>
+                  <Button
+                    color="red"
+                    onClick={() => {
+                      dispatch(deleteItemFromCart({ name: product.name }));
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </Card>
               );
-            })
-          )}
-        </Stack>
+            })}
+          </SimpleGrid>
+        )}
       </Container>
     </section>
   );

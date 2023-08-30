@@ -1,0 +1,1 @@
+export { RightBadge } from './RightBadge';
