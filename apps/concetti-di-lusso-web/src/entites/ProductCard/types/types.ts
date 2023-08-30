@@ -6,6 +6,7 @@ export type ProductData = {
   description?: string;
   price: number;
   oldPrice?: number;
+  favoriteButton?: boolean;
   img: {
     src: StaticImageData;
     alt: string;

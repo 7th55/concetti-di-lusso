@@ -26,7 +26,7 @@ export const ProductsPage = ({
             ) : (
               data.map((product) => (
                 <div key={product.id} className="productPage__product">
-                  <ProductCard {...product} />
+                  <ProductCard favoriteButton {...product} />
                 </div>
               ))
             )}
