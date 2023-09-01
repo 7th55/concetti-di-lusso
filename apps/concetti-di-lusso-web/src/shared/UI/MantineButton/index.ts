@@ -1,0 +1,1 @@
+export { MantineButton } from './MantineButton';
