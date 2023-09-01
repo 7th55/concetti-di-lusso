@@ -5,7 +5,7 @@ import {
   deleteItemFromCart,
   removeItemFromCart,
   useCart,
-} from './store/store/CartSlice';
+} from './store/cartSlice';
 import { useGetProductsByNameQuery } from './api/CartApi';
 // Components
 import Image from 'next/image';
@@ -56,11 +56,11 @@ export const Cart = () => {
   return (
     <section>
       <Container size={1440}>
-          {cartState.items.length !== 0 && (
-            <Title order={2}>
-              Total Price Of Products: {cartState.totalPrice}
-            </Title>
-          )}
+        {cartState.items.length !== 0 && (
+          <Title order={2}>
+            Total Price Of Products: {cartState.totalPrice}
+          </Title>
+        )}
         {cartState.items.length === 0 && (
           <Box
             sx={{

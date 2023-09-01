@@ -1,17 +1,22 @@
 // Components
 import Link from 'next/link';
+import { Auth } from '/src/features/Auth';
 import { Badge } from '/src/shared/UI/Badge';
 import { Button } from '/src/shared/UI/Button';
 import { Search } from '/src/features/Search';
 // Hooks
-import { useCart } from '/src/features/Cart/store/store/CartSlice';
+import { useCart } from '/src/features/Cart/store/cartSlice';
 // Styles
 import './styles.css';
 // Types
 import { ButtonType } from '/src/shared/types';
-import { useFavorites } from '/src/features/Favorites/store/FavoritesSlice';
+import { useFavorites } from '/src/features/Favorites/store/favoritesSlice';
+import { useDisclosure } from '@mantine/hooks';
+import { Modal } from '@mantine/core';
 
 export const ButtonsList = () => {
+  const [opened, { open, close }] = useDisclosure(false);
+
   const buttons: ButtonType[] = ['search', 'favorites', 'shopping'];
   const linkPaths = ['', '/favorites', '/cart'];
 
@@ -50,7 +55,18 @@ export const ButtonsList = () => {
         ))}
       </div>
       <div className="buttons-list__sign-in-button">
-        <Button buttonStyle="signIn">Sign In</Button>
+        <Button onClickHandler={open} buttonStyle="signIn">
+          Sign In
+        </Button>
+        <Modal
+          size="lg"
+          opened={opened}
+          onClose={close}
+          title="Authentication"
+          centered
+        >
+          <Auth />
+        </Modal>
       </div>
     </div>
   );

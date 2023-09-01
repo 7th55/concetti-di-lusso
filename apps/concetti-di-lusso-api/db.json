@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$Yd59CGCAIChCzw29qYn4gel88nFlUh9sOXO7UdW0LqeOxPWxpqpqu",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,

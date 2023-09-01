@@ -16,7 +16,7 @@ import {
 // Icons
 // Types
 import { ProductData } from '/src/entites/ProductCard';
-import { removeFromFavorites, useFavorites } from './store/FavoritesSlice';
+import { removeFromFavorites, useFavorites } from './store/favoritesSlice';
 
 const searchByNameFormatter = (
   product: string,
