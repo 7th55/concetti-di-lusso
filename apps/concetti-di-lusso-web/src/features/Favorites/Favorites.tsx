@@ -7,7 +7,6 @@ import {
   Card,
   SimpleGrid,
   Container,
-  Center,
   Text,
   Button,
   Title,

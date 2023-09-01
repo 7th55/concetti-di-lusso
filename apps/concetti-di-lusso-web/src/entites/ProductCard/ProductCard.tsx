@@ -12,6 +12,7 @@ import { addToFavorites } from '/src/features/Favorites/store/FavoritesSlice';
 import { ProductData } from './types/types';
 // Styles
 import './styles.css';
+import { MantineButton } from '/src/shared/UI/MantineButton';
 
 export const ProductCard = (props: ProductData) => {
   const dispatch = useDispatch();
@@ -49,12 +50,18 @@ export const ProductCard = (props: ProductData) => {
             )}
           </div>
           <div className="productCard__add-button">
-            <Button
+            {/* <Button
               onClickHandler={() => dispatch(addItemToCart({ name, price }))}
               buttonStyle="addCart"
             >
               Add Cart
-            </Button>
+            </Button> */}
+            <MantineButton
+              onClickHandler={() => dispatch(addItemToCart({ name, price }))}
+              variant="addCart"
+            >
+              Add Cart
+            </MantineButton>
             {favoriteButton && (
               <ButtonMantine
                 onClick={() => dispatch(addToFavorites({ name }))}

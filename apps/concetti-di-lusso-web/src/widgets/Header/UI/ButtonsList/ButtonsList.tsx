@@ -1,6 +1,6 @@
 // Components
 import Link from 'next/link';
-import { Badge } from '@mantine/core';
+import { Badge } from '/src/shared/UI/Badge';
 import { Button } from '/src/shared/UI/Button';
 import { Search } from '/src/features/Search';
 // Hooks
@@ -10,7 +10,6 @@ import './styles.css';
 // Types
 import { ButtonType } from '/src/shared/types';
 import { useFavorites } from '/src/features/Favorites/store/FavoritesSlice';
-import { RightBadge } from '/src/shared/UI/RightBadge';
 
 export const ButtonsList = () => {
   const buttons: ButtonType[] = ['search', 'favorites', 'shopping'];
@@ -36,14 +35,12 @@ export const ButtonsList = () => {
               <Search />
             ) : button === 'shopping' ? (
               <Link href={linkPaths[index]}>
-                {badgeCart !== 0 && <RightBadge content={badgeCart} />}
+                <Badge content={badgeCart} />
                 <Button buttonStyle={button} />
               </Link>
             ) : button === 'favorites' ? (
               <Link href={linkPaths[index]}>
-                {badgeFavorites !== 0 && (
-                  <RightBadge content={badgeFavorites} />
-                )}
+                <Badge content={badgeFavorites} />
                 <Button buttonStyle={button} />
               </Link>
             ) : (
