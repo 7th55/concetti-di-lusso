@@ -1,4 +1,13 @@
 export type RootState = {
+  auth: {
+    user:
+      | {
+          email: string;
+          id: number;
+        }
+      | undefined;
+    token: string | undefined;
+  };
   search: {
     searching: boolean;
     value: string;

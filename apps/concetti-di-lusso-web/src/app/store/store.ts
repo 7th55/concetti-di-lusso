@@ -16,10 +16,12 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { searchSlice } from '/src/features/Search';
 import { searchApi } from '/src/features/Search';
 import { productsApi } from '/src/pages/ProductsPage/store/productApi';
-import { cartSlice } from '/src/features/Cart/store/store/CartSlice';
+import { cartSlice } from '/src/features/Cart/store/cartSlice';
 import { cartApi } from '/src/features/Cart/api/CartApi';
-import { favoritesSlice } from '/src/features/Favorites/store/FavoritesSlice';
+import { favoritesSlice } from '/src/features/Favorites/store/favoritesSlice';
 import { favoritesApi } from '/src/features/Favorites/api/FavoritesApi';
+import { authApi } from '/src/features/Auth/api/authApi';
+import { authSlice } from '/src/features/Auth/store/authSlice';
 
 const cartPersisConfig = {
   key: 'carts',
@@ -45,11 +47,17 @@ const persistedFavoritesReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
+    // State
     [searchSlice.name]: searchSlice.reducer,
     // Local Storage
     [cartSlice.name]: persistedCartReducer,
     [favoritesSlice.name]: persistedFavoritesReducer,
+    // Auth
+    [authSlice.name]: authSlice.reducer,
+
     // Api
+    // Auth
+    [authApi.reducerPath]: authApi.reducer,
     // Searching
     [searchApi.reducerPath]: searchApi.reducer,
     // Cart
@@ -65,6 +73,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     })
+      .concat(authApi.middleware)
       .concat(searchApi.middleware)
       .concat(cartApi.middleware)
       .concat(favoritesApi.middleware)

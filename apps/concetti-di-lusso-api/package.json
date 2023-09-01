@@ -4,9 +4,10 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev": "json-server --watch db.json --routes routes.json --p 2244"
+    "dev": "json-server-auth --watch db.json --routes routes.json --p 2244"
   },
   "dependencies": {
-    "json-server": "^0.17.3"
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0"
   }
 }

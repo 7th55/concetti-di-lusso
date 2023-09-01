@@ -6,8 +6,8 @@ import { Button } from '/src/shared/UI/Button';
 // Hooks
 import { useDispatch } from 'react-redux';
 // Store
-import { addItemToCart } from '/src/features/Cart/store/store/CartSlice';
-import { addToFavorites } from '/src/features/Favorites/store/FavoritesSlice';
+import { addItemToCart } from '../../features/Cart/store/cartSlice';
+import { addToFavorites } from '../../features/Favorites/store/favoritesSlice';
 // Types
 import { ProductData } from './types/types';
 // Styles

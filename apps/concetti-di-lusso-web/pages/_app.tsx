@@ -11,50 +11,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-  // // Вынести в хук
-  // const ref = useRef(new Set<any>());
-  // useEffect(() => {
-  //   let pressed = ref.current;
-  //   function runOnKeys(func: any, ...codes: Array<string>) {
-  //     const keyDownHandler = (e: KeyboardEvent) => {
-  //       e.code === 'ControlLeft' || (e.code === 'KeyJ' && e.preventDefault());
-
-  //       pressed.add(e.code);
-
-  //       const order = Array.from(pressed.keys());
-
-  //       if (order[0] === codes[0]) {
-  //         if (!pressed.has(codes[1])) {
-  //           return;
-  //         }
-  //       } else {
-  //         return;
-  //       }
-
-  //       func();
-  //       document.removeEventListener('keydown', keyDownHandler);
-  //       document.removeEventListener('keyup', keyUpHandler);
-  //     };
-
-  //     const keyUpHandler = (e: KeyboardEvent) => {
-  //       e.preventDefault();
-  //       pressed.delete(e.code);
-  //     };
-
-  //     document.addEventListener('keydown', keyDownHandler);
-  //     document.addEventListener('keyup', keyUpHandler);
-  //   }
-
-  //   const switchTheme = () =>
-  //     colorScheme === 'light'
-  //       ? setColorScheme('dark')
-  //       : setColorScheme('light');
-
-  //   runOnKeys(switchTheme, 'ControlLeft', 'KeyJ');
-  // }, [colorScheme]);
-
-  //
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
