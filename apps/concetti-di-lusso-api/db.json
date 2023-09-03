@@ -1,4 +1,55 @@
 {
+  "usersCarts": [
+    {
+      "store": {},
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "store": {
+        "cart": {
+          "items": [
+            {
+              "name": "Robe Three",
+              "count": 8,
+              "price": 2000
+            },
+            {
+              "name": "Robe Two",
+              "count": 5,
+              "price": 1250
+            },
+            {
+              "name": "Towel Three",
+              "count": 3,
+              "price": 300
+            }
+          ],
+          "totalPrice": 3550,
+          "_persist": {
+            "version": 1,
+            "rehydrated": true
+          }
+        },
+        "favorites": {
+          "items": [
+            {
+              "name": "Robe Two"
+            },
+            {
+              "name": "Robe Three"
+            }
+          ],
+          "_persist": {
+            "version": 1,
+            "rehydrated": true
+          }
+        }
+      },
+      "userId": 1,
+      "id": 2
+    }
+  ],
   "users": [
     {
       "email": "olivier@mail.com",

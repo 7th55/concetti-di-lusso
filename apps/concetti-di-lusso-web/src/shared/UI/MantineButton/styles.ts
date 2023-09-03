@@ -37,9 +37,35 @@ export const useStyles = createStyles((theme) => {
           ? `1px solid ${theme.colors.raisinBlack[9]}`
           : `1px solid ${theme.colors.cultured[9]}`,
       },
-      [`@media (max-width: 1440px)`]: {
+      [`@media (max-width: 1430px)`]: {
         width: '100%',
       },
+    },
+    signIn: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '126px',
+      height: '3.063rem',
+      fontSize: '18px',
+      fontWeight: 500,
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      color: theme.colors.cultured[0],
+      backgroundColor: theme.colors.primaryColor,
+      borderRadius: '5px',
+      '&:hover': {
+        color: theme.colors.cultured[9],
+        backgroundColor: theme.colors.maroon[8]
+      },
+      '&:active': {
+        color: theme.colors.maroon[9],
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        border: `1px solid ${theme.colors.maroon[9]}`,
+      },
+      // [`@media (max-width: 1440px)`]: {
+      //   width: '100%',
+      // },
     },
   };
 });

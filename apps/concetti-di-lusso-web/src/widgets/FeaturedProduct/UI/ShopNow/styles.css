@@ -23,6 +23,7 @@
   flex-direction: column;
   justify-content: flex-end;
   height: calc(100% / 3);
+  white-space: pre;
   font-size: var(--font-size-eigth);
   font-weight: var(--font-weight-fourth);
   color: var(--text-color-second);
@@ -51,7 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 65%;
+  /* width: 65%; */
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
@@ -62,10 +63,15 @@
     min-width: 462px;
   }
 
+  .shopNow__header {
+    white-space: initial;
+  }
+
   .shopNow__text {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; */
+    overflow-y: scroll;
     height: 220px;
   }
 

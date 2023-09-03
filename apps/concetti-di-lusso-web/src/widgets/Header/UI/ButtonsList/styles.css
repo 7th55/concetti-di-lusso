@@ -27,6 +27,7 @@
 
 .buttons-list__sign-in-button {
   position: relative;
+  /* width: 137px; */
   left: -28px;
 }
 /* Media Query */
