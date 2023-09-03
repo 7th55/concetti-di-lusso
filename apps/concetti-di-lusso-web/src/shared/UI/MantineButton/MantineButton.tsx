@@ -17,6 +17,9 @@ export const MantineButton = ({
     case 'addCart':
       buttonClass = classes.addCart;
       break;
+    case 'signIn':
+      buttonClass = classes.signIn;
+      break;
   }
 
   return (

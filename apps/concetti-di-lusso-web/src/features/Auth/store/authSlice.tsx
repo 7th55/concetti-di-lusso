@@ -4,13 +4,19 @@ import { useSelector } from 'react-redux';
 import { RootState } from '/src/shared/types';
 
 export type AuthState = {
-  user: string | undefined;
-  token: string | undefined;
+  user: {
+    email: string | null;
+    id: number | null;
+    accessToken: string | null;
+  };
 };
 
 const initialState: AuthState = {
-  user: undefined,
-  token: undefined,
+  user: {
+    email: null,
+    id: null,
+    accessToken: null,
+  },
 };
 
 export const authSlice = createSlice({
@@ -18,12 +24,9 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     authorized: (state, action: PayloadAction<AuthState>) => {
-      const { user, token } = action.payload;
+      const { user } = action.payload;
       state.user = user;
-      state.token = token;
-      console.log(current(state));
     },
-
   },
 });
 
