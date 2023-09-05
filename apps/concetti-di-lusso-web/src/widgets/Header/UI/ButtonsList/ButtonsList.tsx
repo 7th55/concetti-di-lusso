@@ -4,7 +4,7 @@ import { Auth } from '/src/features/Auth';
 import { Badge } from '/src/shared/UI/Badge';
 import { Button } from '/src/shared/UI/Button';
 import { Search } from '/src/features/Search';
-import { Menu, Button as MantineButton, Box, Container } from '@mantine/core';
+import { Menu, Button as MantineButton, Box, Title } from '@mantine/core';
 import { MantineButton as SignInButton } from '/src/shared/UI/MantineButton';
 // Hooks
 import {
@@ -19,9 +19,15 @@ import './styles.css';
 import { ButtonType } from '/src/shared/types';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { UserInfo } from '/src/entities/UserInfo';
+
+const exhaustiveCheck = (a: any): never => {
+  throw Error(':c Exhaustiveness ');
+};
 
 export const ButtonsList = () => {
-  const [opened, setOpened] = useState(false);
+  const [openedAuth, setOpenedAuth] = useState(false);
+  const [openedInfo, setOpenedInfo] = useState(false);
 
   const buttons: ButtonType[] = ['search', 'favorites', 'shopping'];
   const linkPaths = ['', '/favorites', '/cart'];
@@ -29,6 +35,7 @@ export const ButtonsList = () => {
   const dispatch = useDispatch();
   const cart = useCart();
   const favorites = useFavorites();
+  const userInfo = useAuth();
 
   // UI
   const badgeCart = cart.items.reduce(
@@ -36,13 +43,11 @@ export const ButtonsList = () => {
     0
   );
   const badgeFavorites = favorites.items.length;
-  const exhaustiveCheck = (a: any): never => {
-    throw Error(':c Exhaustiveness ');
-  };
   const isAuthorized = useAuth().user.accessToken !== null;
 
   useEffect(() => {
-    isAuthorized && setOpened(false);
+    isAuthorized && setOpenedAuth(false);
+    !isAuthorized && setOpenedInfo(false);
   }, [isAuthorized]);
 
   return (
@@ -71,12 +76,13 @@ export const ButtonsList = () => {
       <div className="buttons-list__sign-in-button">
         <Box sx={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
           <SignInButton
-            onClickHandler={() => setOpened(!opened)}
+            onClickHandler={() => setOpenedAuth(!openedAuth)}
             variant="signIn"
           >
             Sign In
           </SignInButton>
         </Box>
+
         {isAuthorized && (
           <>
             <MantineButton
@@ -111,20 +117,19 @@ export const ButtonsList = () => {
                 width: 62,
               }}
               radius="xs"
+              onClick={() => {
+                setOpenedInfo(!openedInfo);
+              }}
             >
               Info
             </MantineButton>
           </>
         )}
-
         <Box sx={{ position: 'absolute', top: 55, left: -178 }}>
-          <Menu position="bottom-end" opened={opened}>
-            <Menu.Dropdown>
-              <Menu.Item>
-                <Auth />
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
+          <Auth opened={openedAuth} />
+        </Box>
+        <Box sx={{ position: 'absolute', top: 55, left: -213 }}>
+          <UserInfo email={userInfo.user.email} opened={openedInfo} />
         </Box>
       </div>
     </div>

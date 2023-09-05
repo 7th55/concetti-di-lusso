@@ -22,7 +22,7 @@ import {
 } from '@mantine/core';
 // Icons
 // Types
-import { ProductData } from '/src/entites/ProductCard';
+import { ProductCard, ProductData } from '/src/entities/ProductCard';
 import { ProductFromCart } from '/src/shared/types';
 
 const searchByNameFormatter = (
@@ -85,78 +85,106 @@ export const Cart = () => {
           <SimpleGrid cols={4}>
             {data.map((product: ProductData, index: number) => {
               const count = getCount(product);
-              const totalPriceOfProducts = getPrice(product);
+              const totalPriceOfProduct = getPrice(product);
               const priceOfProduct = product.price;
               return (
-                <Card
-                  key={product + ' ' + index}
-                  shadow="sm"
-                  padding="lg"
-                  radius="md"
-                  withBorder
-                >
-                  <Card.Section>
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        width: '100%',
-                        height: 250,
-                      }}
-                    >
-                      <Image
-                        fill={true}
-                        src={product.img.src}
-                        alt={product.img.alt}
-                        sizes="(max-width: 1430px) 100%"
-                        priority={true}
-                      />
-                    </Box>
-                  </Card.Section>
-                  <Group>
-                    <Title order={3}>{product.name}</Title>
-                  </Group>
-                  <Text variant="h6" component="p">
-                    Price: {priceOfProduct};
-                    <br />
-                    Quantity: {count};
-                    <br />
-                    Total Price Of Product: {totalPriceOfProducts}
-                  </Text>
-                  <Button
-                    color="green"
-                    onClick={() => {
-                      dispatch(
-                        addItemToCart({
-                          name: product.name,
-                          price: product.price,
-                        })
-                      );
-                    }}
-                  >
-                    Add
-                  </Button>
-                  <Button
-                    color="orange"
-                    onClick={() => {
-                      dispatch(
-                        removeItemFromCart({
-                          name: product.name,
-                          price: product.price,
-                        })
-                      );
-                    }}
-                  >
-                    Remove
-                  </Button>
-                  <Button
-                    color="red"
-                    onClick={() => {
-                      dispatch(deleteItemFromCart({ name: product.name }));
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </Card>
+                <ProductCard
+                  key={product.id}
+                  variant="cartCard"
+                  increaseHandler={(name, price) =>
+                    dispatch(
+                      addItemToCart({
+                        name: name,
+                        price: price,
+                      })
+                    )
+                  }
+                  decreaseHandler={(name, price) =>
+                    dispatch(
+                      removeItemFromCart({
+                        name: name,
+                        price: price,
+                      })
+                    )
+                  }
+                  deleteFromCartHandler={(name) =>
+                    dispatch(deleteItemFromCart({ name: name }))
+                  }
+                  count={count}
+                  totalPriceOfProduct={totalPriceOfProduct}
+                  {...product}
+                />
+                //     <Card
+                //       key={product + ' ' + index}
+                //       shadow="sm"
+                //       padding="lg"
+                //       radius="md"
+                //       withBorder
+                //     >
+                //       <Card.Section>
+                //         <Box
+                //           sx={{
+                //             position: 'relative',
+                //             width: '100%',
+                //             height: 250,
+                //           }}
+                //         >
+                //           <Image
+                //             fill={true}
+                //             src={product.img.src}
+                //             alt={product.img.alt}
+                //             sizes="(max-width: 1430px) 100%"
+                //             priority={true}
+                //           />
+                //         </Box>
+                //       </Card.Section>
+                //       <Group>
+                //         <Title order={3}>{product.name}</Title>
+                //       </Group>
+                //       <Text variant="h6" component="p">
+                //         Price: {priceOfProduct};
+                //         <br />
+                //         Quantity: {count};
+                //         <br />
+                //         Total Price Of Product: {totalPriceOfProducts}
+                //       </Text>
+                //       <Button
+                //         color="green"
+                //         onClick={() => {
+                //           dispatch(
+                //             addItemToCart({
+                //               name: product.name,
+                //               price: product.price,
+                //             })
+                //           );
+                //         }}
+                //       >
+                //         Add
+                //       </Button>
+                //       <Button
+                //         color="orange"
+                //         onClick={() => {
+                //           dispatch(
+                //             removeItemFromCart({
+                //               name: product.name,
+                //               price: product.price,
+                //             })
+                //           );
+                //         }}
+                //       >
+                //         Remove
+                //       </Button>
+                //       <Button
+                //         color="red"
+                //         onClick={() => {
+                //           dispatch(deleteItemFromCart({ name: product.name }));
+                //         }}
+                //       >
+                //         Delete
+                //       </Button>
+                //     </Card>
+                //   );
+                // }
               );
             })}
           </SimpleGrid>

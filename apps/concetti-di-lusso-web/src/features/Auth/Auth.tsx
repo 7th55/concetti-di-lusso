@@ -1,5 +1,5 @@
 // Components
-import { Button, PasswordInput, TextInput } from '@mantine/core';
+import { Button, Menu, PasswordInput, TextInput } from '@mantine/core';
 // Hooks
 import { useForm } from '@mantine/form';
 import { useProtectedMutation, useSignInMutation } from './api/authApi';
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 // Store
 import { authorized, useAuth } from './store/authSlice';
 
-export const Auth = () => {
+export const Auth = ({ opened }: { opened: boolean }) => {
   // Api
   const [signIn, { isLoading, error: signInError }] = useSignInMutation();
   const [attemptAccess, { data, error, isLoading: isLoadingProtected }] =
@@ -76,29 +76,38 @@ export const Auth = () => {
     auth.user.accessToken === null ? undefined : 'authorized';
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <TextInput
-        placeholder="E-mail"
-        {...form.getInputProps('email')}
-        sx={{ height: 40 }}
-      />
-      <PasswordInput {...form.getInputProps('password')} sx={{ height: 42 }} />
-      <Button
-        color={authorizedUser && 'blue'}
-        sx={{ width: 88 }}
-        type="submit"
-        mt="md"
-      >
-        {authorizedUser ? 'Log Out' : 'Sign In'}
-      </Button>
+    <Menu position="bottom-end" opened={opened}>
+      <Menu.Dropdown>
+        <Menu.Item>
+          <form onSubmit={onSubmitHandler}>
+            <TextInput
+              placeholder="E-mail"
+              {...form.getInputProps('email')}
+              sx={{ height: 40 }}
+            />
+            <PasswordInput
+              {...form.getInputProps('password')}
+              sx={{ height: 42 }}
+            />
+            <Button
+              color={authorizedUser && 'blue'}
+              sx={{ width: 88 }}
+              type="submit"
+              mt="md"
+            >
+              {authorizedUser ? 'Log Out' : 'Sign In'}
+            </Button>
 
-      <Button
-        color={data !== undefined ? 'green' : 'dark'}
-        onClick={onClickHandler}
-        sx={{ width: 185 }}
-      >
-        {`Attempt: ${data === undefined ? 'Unauthorized' : 'Authorized'}`}
-      </Button>
-    </form>
+            <Button
+              color={data !== undefined ? 'green' : 'dark'}
+              onClick={onClickHandler}
+              sx={{ width: 185 }}
+            >
+              {`Attempt: ${data === undefined ? 'Unauthorized' : 'Authorized'}`}
+            </Button>
+          </form>
+        </Menu.Item>
+      </Menu.Dropdown>
+    </Menu>
   );
 };

@@ -1,7 +1,10 @@
 // Components
-import { ProductCard, ProductData } from '/src/entites/ProductCard';
+import { ProductCard, ProductData } from '/src/entities/ProductCard';
 // Styles
 import './styles.css';
+import { addItemToCart } from '/src/features/Cart/store/cartSlice';
+import { useDispatch } from 'react-redux';
+import { addToFavorites } from '/src/features/Favorites/store/favoritesSlice';
 
 export const ProductsPage = ({
   data,
@@ -12,6 +15,7 @@ export const ProductsPage = ({
   isError: boolean;
   isLoading: boolean;
 }) => {
+  const dispatch = useDispatch();
   return (
     <section className="productPage">
       <div className="productPage__content-wrapper">
@@ -25,7 +29,17 @@ export const ProductsPage = ({
             ) : (
               data.map((product) => (
                 <div key={product.id} className="productPage__product">
-                  <ProductCard favoriteButton {...product} />
+                  <ProductCard
+                    addToCartHandler={(name, price) =>
+                      dispatch(addItemToCart({ name, price }))
+                    }
+                    addToFavoritesHandler={(name) =>
+                      dispatch(addToFavorites({ name }))
+                    }
+                    variant="shoppingCard"
+                    favoriteButton
+                    {...product}
+                  />
                 </div>
               ))
             )}

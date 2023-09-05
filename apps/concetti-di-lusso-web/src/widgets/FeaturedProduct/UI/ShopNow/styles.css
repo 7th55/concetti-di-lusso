@@ -9,7 +9,7 @@
 
 .shopNow__content {
   position: relative;
-  width: 40%;
+  /* width: 40%; */
   height: 84%;
   background-color: var(--bg-color-second);
   border-radius: 30px;

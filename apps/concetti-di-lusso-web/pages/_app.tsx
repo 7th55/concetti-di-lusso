@@ -1,3 +1,4 @@
+import { Hind_Siliguri } from 'next/font/google';
 import type { AppProps } from 'next/app';
 import { ColorScheme, MantineProvider } from '@mantine/core';
 // Redux
@@ -6,8 +7,7 @@ import { persistor, store } from '/src/app/store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 // Components
 import Layout from './layout';
-// TODO: Вынести в хук
-import { useEffect, useRef, useState } from 'react';
+// Hooks
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <MantineProvider
           withCSSVariables
           withGlobalStyles
-          withNormalizeCSS
+          // withNormalizeCSS
           theme={{
             colorScheme,
             colors: {
@@ -51,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 '#a7a7a7',
                 '#919191',
                 '#7b7b7b',
-                '#656565',
+                '#696969',
                 '#4f4f4f',
                 '#393939',
                 '#232323',
