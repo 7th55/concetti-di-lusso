@@ -1,8 +1,9 @@
 // Components
 import Image from 'next/image';
-import { Button as ButtonMantine } from '@mantine/core';
-import { Button } from '/src/shared/UI/Button';
+import { ActionIcon, Button as ButtonMantine } from '@mantine/core';
 // Icons
+import { Heart } from 'tabler-icons-react';
+
 // Hooks
 import { useDispatch } from 'react-redux';
 // Store
@@ -50,12 +51,6 @@ export const ProductCard = (props: ProductData) => {
             )}
           </div>
           <div className="productCard__add-button">
-            {/* <Button
-              onClickHandler={() => dispatch(addItemToCart({ name, price }))}
-              buttonStyle="addCart"
-            >
-              Add Cart
-            </Button> */}
             <MantineButton
               onClickHandler={() => dispatch(addItemToCart({ name, price }))}
               variant="addCart"
@@ -63,12 +58,18 @@ export const ProductCard = (props: ProductData) => {
               Add Cart
             </MantineButton>
             {favoriteButton && (
-              <ButtonMantine
+              <ActionIcon
+                variant="filled"
+                color="maroon"
                 onClick={() => dispatch(addToFavorites({ name }))}
-                sx={{ position: 'absolute', top: -30, right: -20 }}
+                sx={{
+                  position: 'absolute',
+                  top: -15,
+                  right: -15,
+                }}
               >
-                Add Favorite
-              </ButtonMantine>
+                <Heart width={50} height={50} />
+              </ActionIcon>
             )}
           </div>
         </div>
