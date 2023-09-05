@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 // Store
 import { searching } from '/src/features/Search/store/searchSlice';
 // Components
-import { ProductCard } from '/src/entites/ProductCard';
+import { ProductCard } from '/src/entities/ProductCard';
 // Types
-import { ProductData } from '/src/entites/ProductCard';
+import { ProductData } from '/src/entities/ProductCard';
 // Styles
 import './styles.css';
 
@@ -41,7 +41,11 @@ export const SearchPage = ({
             ) : (
               data.map((product) => (
                 <div key={product.id} className="searchPage__product">
-                  <ProductCard favoriteButton {...product} />
+                  <ProductCard
+                    variant="shoppingCard"
+                    favoriteButton
+                    {...product}
+                  />
                 </div>
               ))
             )}

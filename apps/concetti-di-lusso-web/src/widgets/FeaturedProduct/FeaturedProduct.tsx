@@ -1,5 +1,5 @@
 // Components
-import { ProductCard, productsData } from '/src/entites/ProductCard';
+import { ProductCard, productsData } from '/src/entities/ProductCard';
 import { ExploreMoreProduct } from './UI/ExploreMoreProduct';
 import { ShopNow } from './UI/ShopNow';
 // Styles

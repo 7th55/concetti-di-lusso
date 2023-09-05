@@ -51,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 '#a7a7a7',
                 '#919191',
                 '#7b7b7b',
-                '#656565',
+                '#696969',
                 '#4f4f4f',
                 '#393939',
                 '#232323',

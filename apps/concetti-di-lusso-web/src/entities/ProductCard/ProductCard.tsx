@@ -1,79 +1,160 @@
 // Components
-import Image from 'next/image';
-import { ActionIcon, Button as ButtonMantine } from '@mantine/core';
-// Icons
-import { Heart } from 'tabler-icons-react';
-
-// Hooks
-import { useDispatch } from 'react-redux';
-// Store
-import { addItemToCart } from '../../features/Cart/store/cartSlice';
-import { addToFavorites } from '../../features/Favorites/store/favoritesSlice';
+import { ActionIcon, Button, Flex } from '@mantine/core';
+import {
+  Buttons,
+  Card,
+  Content,
+  FavoriteButton,
+  Image,
+  Price,
+  Prices,
+} from './UI';
+import { MantineButton } from '/src/shared/UI/MantineButton';
 // Types
 import { ProductData } from './types/types';
-// Styles
-import './styles.css';
-import { MantineButton } from '/src/shared/UI/MantineButton';
+import { Minus, Plus, ShoppingCartOff, HeartOff } from 'tabler-icons-react';
 
-export const ProductCard = (props: ProductData) => {
-  const dispatch = useDispatch();
-  const { img, name, description, price, oldPrice, favoriteButton } = props;
+export type CardVariants = 'shoppingCard' | 'favoritesCard' | 'cartCard';
+
+export const ProductCard = (
+  props: ProductData & {
+    variant: CardVariants;
+    count?: number | string;
+    totalPriceOfProduct?: number | string;
+    addToCartHandler?: (name: string, price: number) => void;
+    addToFavoritesHandler?: (name: string) => void;
+    removeFromFavoritesHandler?: (name: string) => void;
+    increaseHandler?: (name: string, price: number) => void;
+    decreaseHandler?: (name: string, price: number) => void;
+    deleteFromCartHandler?: (name: string) => void;
+  }
+) => {
+  const {
+    variant,
+    // Handlers
+    addToCartHandler,
+    addToFavoritesHandler,
+    removeFromFavoritesHandler,
+    increaseHandler,
+    decreaseHandler,
+    deleteFromCartHandler,
+    // Data
+    img,
+    name,
+    description,
+    count,
+    totalPriceOfProduct,
+    price,
+    oldPrice,
+    // UI
+    favoriteButton,
+  } = props;
 
   return (
-    <div className="productCard">
-      <div className="productCard__content-wrapper">
-        <div className="productCard__image">
-          <Image
-            fill={true}
-            src={img.src}
-            alt={img.alt}
-            sizes="(max-width: 1430px) 100%"
-            priority={true}
-          />
-        </div>
-        <div
-          className={`productCard__product-name ${
-            description && 'productCard__product-with-description-name'
-          }`}
+    <Card>
+      <Image src={img.src} alt={img.alt} />
+      <Flex mt={18} h="40%" direction="column" justify="space-between">
+        <Content
+          variant={variant}
+          title={name}
+          description={description}
+          count={count}
+          totalPriceOfProduct={totalPriceOfProduct}
+        />
+        <Flex
+          w="100%"
+          justify="space-between"
+          align="center"
+          sx={{ position: 'relative' }}
         >
-          <h4>{name}</h4>
-        </div>
-        {description && (
-          <div className="productCard__description">
-            <p>{description}</p>
-          </div>
-        )}
-        <div className="productCard__prices-and-button">
-          <div className="productCard__prices">
-            <span className="productCard__price">${price}</span>
-            {oldPrice && (
-              <span className="productCard__old-price">${oldPrice}</span>
-            )}
-          </div>
-          <div className="productCard__add-button">
-            <MantineButton
-              onClickHandler={() => dispatch(addItemToCart({ name, price }))}
-              variant="addCart"
-            >
-              Add Cart
-            </MantineButton>
-            {favoriteButton && (
+          <Prices
+            variant={variant}
+            price={
+              <Price
+                value={'$' + price.toString()}
+                variant="price"
+                size="1.5rem"
+              />
+            }
+            oldPrice={
+              oldPrice && (
+                <Price
+                  value={'$' + oldPrice.toString()}
+                  variant="oldPrice"
+                  size="1rem"
+                />
+              )
+            }
+          />
+          <Buttons
+            addToCart={
+              <MantineButton
+                onClickHandler={() =>
+                  addToCartHandler && addToCartHandler(name, price)
+                }
+                variant="addCart"
+              >
+                Add Cart
+              </MantineButton>
+            }
+            addToFavorites={
+              favoriteButton && (
+                <FavoriteButton
+                  onClickHandler={() =>
+                    addToFavoritesHandler && addToFavoritesHandler(name)
+                  }
+                />
+              )
+            }
+            removeFromFavorites={
               <ActionIcon
                 variant="filled"
-                color="maroon"
-                onClick={() => dispatch(addToFavorites({ name }))}
-                sx={{
-                  position: 'absolute',
-                  top: -15,
-                  right: -15,
+                color="red"
+                onClick={() => {
+                  removeFromFavoritesHandler &&
+                    removeFromFavoritesHandler(name);
                 }}
               >
-                <Heart width={50} height={50} />
+                <HeartOff size={48} strokeWidth={2} />
               </ActionIcon>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+            }
+            increase={
+              <ActionIcon
+                variant="outline"
+                color="green"
+                onClick={() => {
+                  increaseHandler && increaseHandler(name, price);
+                }}
+              >
+                <Plus size={48} strokeWidth={2} />
+              </ActionIcon>
+            }
+            decrease={
+              <ActionIcon
+                variant="outline"
+                color="orange"
+                onClick={() => {
+                  decreaseHandler && decreaseHandler(name, price);
+                }}
+              >
+                <Minus size={48} strokeWidth={2} />
+              </ActionIcon>
+            }
+            deleteFromCart={
+              <ActionIcon
+                variant="filled"
+                color="red"
+                onClick={() => {
+                  deleteFromCartHandler && deleteFromCartHandler(name);
+                }}
+              >
+                <ShoppingCartOff size={48} strokeWidth={2} />
+              </ActionIcon>
+            }
+            variants={variant}
+          />
+        </Flex>
+      </Flex>
+    </Card>
   );
 };

@@ -1,22 +1,15 @@
 // Hooks
-import { useDispatch } from 'react-redux';
 import { useGetProductsByNameQuery } from './api/FavoritesApi';
 // Components
-import Image from 'next/image';
-import {
-  Card,
-  SimpleGrid,
-  Container,
-  Text,
-  Button,
-  Title,
-  Group,
-  Box,
-} from '@mantine/core';
-// Icons
+import { SimpleGrid, Container, Text, Title, Box } from '@mantine/core';
+import { ProductCard, ProductData } from '/src/entities/ProductCard';
 // Types
-import { ProductData } from '/src/entites/ProductCard';
-import { removeFromFavorites, useFavorites } from './store/favoritesSlice';
+import {
+  addToFavorites,
+  removeFromFavorites,
+  useFavorites,
+} from './store/favoritesSlice';
+import { useDispatch } from 'react-redux';
 
 const searchByNameFormatter = (
   product: string,
@@ -40,9 +33,8 @@ export const Favorites = () => {
   const productNames = products.map(getNames);
 
   const query = productNames.map(searchByNameFormatter).join('');
-
   const { data, isLoading, isError } = useGetProductsByNameQuery(query);
-  // TODO:Создать styled компоненты
+
   return (
     <Container size={1440}>
       {favoritesState.items.length === 0 && (
@@ -58,47 +50,15 @@ export const Favorites = () => {
       ) : (
         <SimpleGrid cols={4}>
           {data.map((product: ProductData, index: number) => {
-            const priceOfProduct = product.price;
             return (
-              <Card
-                key={product + ' ' + index}
-                shadow="sm"
-                padding="lg"
-                radius="md"
-                withBorder
-              >
-                <Card.Section>
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      width: '100%',
-                      height: 250,
-                    }}
-                  >
-                    <Image
-                      fill={true}
-                      src={product.img.src}
-                      alt={product.img.alt}
-                      sizes="(max-width: 1430px) 100%"
-                      priority={true}
-                    />
-                  </Box>
-                </Card.Section>
-                <Group>
-                  <Title order={3}>{product.name}</Title>
-                </Group>
-                <Text variant="h6" component="p">
-                  Price: {priceOfProduct};
-                </Text>
-                <Button
-                  color="red"
-                  onClick={() => {
-                    dispatch(removeFromFavorites({ name: product.name }));
-                  }}
-                >
-                  Delete
-                </Button>
-              </Card>
+              <ProductCard
+                variant="favoritesCard"
+                key={product.id}
+                removeFromFavoritesHandler={(name) =>
+                  dispatch(removeFromFavorites({ name: name }))
+                }
+                {...product}
+              />
             );
           })}
         </SimpleGrid>

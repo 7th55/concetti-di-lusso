@@ -1,8 +1,8 @@
 // Product Images
-import firstProductImg from '/src/entites/ProductCard/assets/img/cdl-a-lux.png';
-import secondProductImg from '/src/entites/ProductCard/assets/img/cdl-cppy-org.png';
-import thirdProductImg from '/src/entites/ProductCard/assets/img/cdl-shwl-spa-r.png';
-import fourthProductImg from '/src/entites/ProductCard/assets/img/cdl-sp-rb-tw.png';
+import firstProductImg from '/src/entities/ProductCard/assets/img/cdl-a-lux.png';
+import secondProductImg from '/src/entities/ProductCard/assets/img/cdl-cppy-org.png';
+import thirdProductImg from '/src/entities/ProductCard/assets/img/cdl-shwl-spa-r.png';
+import fourthProductImg from '/src/entities/ProductCard/assets/img/cdl-sp-rb-tw.png';
 
 export const productsData = [
   {

@@ -19,7 +19,7 @@ import './styles.css';
 import { ButtonType } from '/src/shared/types';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { UserInfo } from '/src/entites/UserInfo';
+import { UserInfo } from '/src/entities/UserInfo';
 
 const exhaustiveCheck = (a: any): never => {
   throw Error(':c Exhaustiveness ');
