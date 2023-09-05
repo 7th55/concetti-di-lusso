@@ -49,10 +49,11 @@
   top: 6px;
   left: 7px;
   display: flex;
+  align-items: center;
 }
 
 .getInTouch__email {
-  width: 69.4%;
+  width: 70.4%;
   height: 45px;
   border-radius: 5px;
   border-color: rgba(158, 48, 64, 0.3);
