@@ -1,4 +1,5 @@
 import storage from 'redux-persist/lib/storage';
+import sessionStorage from 'redux-persist/lib/storage/session';
 import {
   persistStore,
   persistReducer,
@@ -35,6 +36,12 @@ const favoritesPersisConfig = {
   storage,
 };
 
+const authPersisConfig = {
+  key: 'auth',
+  version: 1,
+  storage: sessionStorage,
+};
+
 const persistedCartReducer = persistReducer(
   cartPersisConfig,
   cartSlice.reducer
@@ -45,6 +52,11 @@ const persistedFavoritesReducer = persistReducer(
   favoritesSlice.reducer
 );
 
+const persistedAuthReducer = persistReducer(
+  authPersisConfig,
+  authSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
     // State
@@ -53,7 +65,7 @@ export const store = configureStore({
     [cartSlice.name]: persistedCartReducer,
     [favoritesSlice.name]: persistedFavoritesReducer,
     // Auth
-    [authSlice.name]: authSlice.reducer,
+    [authSlice.name]: persistedAuthReducer,
 
     // Api
     // Auth

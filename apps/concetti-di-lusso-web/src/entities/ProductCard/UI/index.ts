@@ -5,3 +5,4 @@ export { Price } from './Price';
 export { Prices } from './Prices';
 export { Buttons } from './Buttons';
 export { FavoriteButton } from './FavoriteButton';
+export { Button } from './Button';
