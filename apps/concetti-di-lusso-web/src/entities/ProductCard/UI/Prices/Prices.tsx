@@ -1,14 +1,14 @@
+// Components
 import { Box, Flex, MediaQuery } from '@mantine/core';
-import { CardVariants } from '../../ProductCard';
+// Types
+import { CardVariants } from '/src/entities/ProductCard/types';
 
 export const Prices = ({
   price,
   oldPrice,
-  variant,
 }: {
   price: React.ReactNode;
   oldPrice?: React.ReactNode;
-  variant: CardVariants;
 }) => {
   return (
     <MediaQuery

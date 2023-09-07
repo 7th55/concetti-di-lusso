@@ -1,1 +1,1 @@
-export type { ProductData } from './types';
+export type { ProductData, ProductCardProps, CardVariants } from './types';
