@@ -23,6 +23,7 @@ import { favoritesSlice } from '/src/features/Favorites/store/favoritesSlice';
 import { favoritesApi } from '/src/features/Favorites/api/FavoritesApi';
 import { authApi } from '/src/features/Auth/api/authApi';
 import { authSlice } from '/src/features/Auth/store/authSlice';
+import { buyApi } from '/src/features/Buy/api/buyApi';
 
 const cartPersisConfig = {
   key: 'carts',
@@ -70,6 +71,8 @@ export const store = configureStore({
     // Api
     // Auth
     [authApi.reducerPath]: authApi.reducer,
+    // Buy
+    [buyApi.reducerPath]: buyApi.reducer,
     // Searching
     [searchApi.reducerPath]: searchApi.reducer,
     // Cart
@@ -86,6 +89,7 @@ export const store = configureStore({
       },
     })
       .concat(authApi.middleware)
+      .concat(buyApi.middleware)
       .concat(searchApi.middleware)
       .concat(cartApi.middleware)
       .concat(favoritesApi.middleware)
