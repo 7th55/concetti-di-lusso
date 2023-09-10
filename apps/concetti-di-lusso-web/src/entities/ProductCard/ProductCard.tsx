@@ -116,7 +116,10 @@ export const ProductCard = (props: ProductData & ProductCardProps) => {
           sx={{ position: 'relative' }}
         >
           <Prices {...pricesProps} />
-          <Buttons variants={variant} {...buttonsProps} />
+
+          {variant !== 'orderCard' && (
+            <Buttons variants={variant} {...buttonsProps} />
+          )}
         </Flex>
       </Flex>
     </Card>

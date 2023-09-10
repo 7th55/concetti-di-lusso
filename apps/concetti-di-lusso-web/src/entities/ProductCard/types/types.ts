@@ -5,7 +5,7 @@ export type ProductData = {
   name: string;
   description?: string;
   price: number;
-  oldPrice?: number;
+  oldPrice?: number | false;
   favoriteButton?: boolean;
   img: {
     src: StaticImageData;
@@ -13,7 +13,7 @@ export type ProductData = {
   };
 };
 
-export type CardVariants = 'shoppingCard' | 'favoritesCard' | 'cartCard';
+export type CardVariants = 'shoppingCard' | 'favoritesCard' | 'cartCard' | 'orderCard';
 export type ProductCardProps = {
   variant: CardVariants;
   count?: number | string;

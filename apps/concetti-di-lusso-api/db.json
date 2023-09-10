@@ -59,12 +59,8 @@
   ],
   "orders": [
     {
-      "products": [
-        "hello"
-      ]
-    },
-    {
       "id": 1,
+      "email": "olivier@mail.com",
       "orders": []
     }
   ],

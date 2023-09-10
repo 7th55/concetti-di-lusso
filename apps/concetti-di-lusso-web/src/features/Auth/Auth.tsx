@@ -78,7 +78,7 @@ export const Auth = ({ opened }: { opened: boolean }) => {
   return (
     <Menu position="bottom-end" opened={opened}>
       <Menu.Dropdown>
-        <Menu.Item>
+        <Menu.Item component="div">
           <form onSubmit={onSubmitHandler}>
             <TextInput
               placeholder="E-mail"

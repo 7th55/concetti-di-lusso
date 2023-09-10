@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // Store
 import { searching } from '/src/features/Search/store/searchSlice';
+import { addItemToCart } from '/src/features/Cart/store/cartSlice';
+import { addToFavorites } from '/src/features/Favorites/store/favoritesSlice';
 // Components
 import { ProductCard } from '/src/entities/ProductCard';
 // Types
@@ -42,6 +44,12 @@ export const SearchPage = ({
               data.map((product) => (
                 <div key={product.id} className="searchPage__product">
                   <ProductCard
+                    addToCartHandler={(name, price) =>
+                      dispatch(addItemToCart({ name, price }))
+                    }
+                    addToFavoritesHandler={(name) =>
+                      dispatch(addToFavorites({ name }))
+                    }
                     variant="shoppingCard"
                     favoriteButton
                     {...product}

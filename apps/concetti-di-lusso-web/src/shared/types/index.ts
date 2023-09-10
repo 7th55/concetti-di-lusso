@@ -3,7 +3,7 @@ export type {
   ButtonStylesReturnType,
   ButtonType,
 } from './stylesType';
-export type { ImgPropsType } from './types';
+export type { ImgPropsType, ProductData } from './types';
 
 // Store
 export type { RootState, ProductFromCart } from './RootState';

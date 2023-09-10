@@ -1,5 +1,5 @@
 // Components
-import { useGetProductsQuery } from '/src/pages/ProductsPage/store/productApi';
+import { useGetProductsQuery } from '../../../src/pages/ProductsPage/api/productApi';
 import { ProductsPage } from '/src/pages/ProductsPage';
 
 export default function Page() {

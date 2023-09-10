@@ -1,3 +1,4 @@
+// Browser Storages
 import storage from 'redux-persist/lib/storage';
 import sessionStorage from 'redux-persist/lib/storage/session';
 import {
@@ -15,15 +16,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 // Slices
 import { searchSlice } from '/src/features/Search';
-import { searchApi } from '/src/features/Search';
-import { productsApi } from '/src/pages/ProductsPage/store/productApi';
 import { cartSlice } from '/src/features/Cart/store/cartSlice';
-import { cartApi } from '/src/features/Cart/api/CartApi';
 import { favoritesSlice } from '/src/features/Favorites/store/favoritesSlice';
-import { favoritesApi } from '/src/features/Favorites/api/FavoritesApi';
-import { authApi } from '/src/features/Auth/api/authApi';
 import { authSlice } from '/src/features/Auth/store/authSlice';
-import { buyApi } from '/src/features/Buy/api/buyApi';
+// Api
+import { authApi } from '/src/features/Auth/api/authApi';
+import { ordersApi } from '/src/features/Orders/api/ordersApi';
+import { searchApi } from '/src/features/Search';
+import { favoritesApi } from '/src/features/Favorites/api/FavoritesApi';
+import { productsApi } from '../../pages/ProductsPage/api/productApi';
+import { concettiDiLussoApi } from '/src/shared/api/concettiDiLussoApi';
 
 const cartPersisConfig = {
   key: 'carts',
@@ -66,17 +68,17 @@ export const store = configureStore({
     [cartSlice.name]: persistedCartReducer,
     [favoritesSlice.name]: persistedFavoritesReducer,
     // Auth
+    // Session Storage
     [authSlice.name]: persistedAuthReducer,
 
     // Api
+    [concettiDiLussoApi.reducerPath]: concettiDiLussoApi.reducer,
     // Auth
     [authApi.reducerPath]: authApi.reducer,
     // Buy
-    [buyApi.reducerPath]: buyApi.reducer,
+    [ordersApi.reducerPath]: ordersApi.reducer,
     // Searching
     [searchApi.reducerPath]: searchApi.reducer,
-    // Cart
-    [cartApi.reducerPath]: cartApi.reducer,
     // Favorites
     [favoritesApi.reducerPath]: favoritesApi.reducer,
     // Products
@@ -88,10 +90,10 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     })
+      .concat(concettiDiLussoApi.middleware)
       .concat(authApi.middleware)
-      .concat(buyApi.middleware)
+      .concat(ordersApi.middleware)
       .concat(searchApi.middleware)
-      .concat(cartApi.middleware)
       .concat(favoritesApi.middleware)
       .concat(productsApi.middleware),
 });
