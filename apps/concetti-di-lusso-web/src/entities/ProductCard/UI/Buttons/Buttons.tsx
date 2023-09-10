@@ -1,7 +1,5 @@
 import { Box, Group, MediaQuery } from '@mantine/core';
-import React from 'react';
-import { MantineButton } from '/src/shared/UI/MantineButton';
-import { CardVariants } from '../../ProductCard';
+import { CardVariants } from '/src/entities/ProductCard/types';
 
 export const Buttons = ({
   addToCart,

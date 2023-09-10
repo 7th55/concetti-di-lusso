@@ -9,6 +9,7 @@ export const Image = ({ src, alt }: { src: StaticImageData; alt: string }) => {
         sx={{
           position: 'relative',
           maxWidth: 300,
+          width: '100%',
           height: 190,
           backgroundColor: 'white',
           borderRadius: 15,

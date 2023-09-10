@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '/src/shared/types';
-import { OrdersData } from '../types';
+import { OrdersData } from '/src/features/Orders/types';
 
-export const buyApi = createApi({
-  reducerPath: 'buyApi',
+export const ordersApi = createApi({
+  reducerPath: 'ordersApi',
+  tagTypes: ['Orders'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:2244/',
     prepareHeaders: (headers, { getState }) => {
@@ -20,16 +21,18 @@ export const buyApi = createApi({
       query: (id) => ({
         url: `/440/orders/${id}`,
       }),
+      providesTags: (result) => [{ type: 'Orders', id: result?.id }],
     }),
     createOrdersStore: builder.mutation<any, any>({
-      query: (form) => ({
+      query: (body) => ({
         url: '/660/orders',
         headers: {
           'content-type': 'application/json',
         },
         method: 'POST',
-        body: form,
+        body,
       }),
+      invalidatesTags: (body) => [{ type: 'Orders', id: body.id }],
     }),
     order: builder.mutation<any, any>({
       query: (body) => ({
@@ -40,9 +43,13 @@ export const buyApi = createApi({
         method: 'PUT',
         body,
       }),
+      invalidatesTags: (body) => [{ type: 'Orders', id: body.id }],
     }),
   }),
 });
 
-export const { useGetOrdersQuery, useCreateOrdersStoreMutation, useOrderMutation } =
-  buyApi;
+export const {
+  useGetOrdersQuery,
+  useCreateOrdersStoreMutation,
+  useOrderMutation,
+} = ordersApi;

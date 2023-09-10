@@ -22,7 +22,7 @@ export const FeaturedProduct = () => {
           <div className="featuredProduct__products">
             {productsData.map((product) => (
               <div key={product.name} className="featuredProduct__product">
-                <ProductCard {...product} />
+                <ProductCard variant="shoppingCard" {...product} />
               </div>
             ))}
           </div>
