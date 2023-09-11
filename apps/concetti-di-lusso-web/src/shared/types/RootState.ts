@@ -1,20 +1,24 @@
 export type RootState = {
   auth: {
-    user: {
-      email: string | null;
-      id: number | null;
-      accessToken: string | null;
-    };
+    user: UserData;
   };
   search: {
     searching: boolean;
     value: string;
   };
-  cart: {
-    items: Array<ProductFromCart>;
-    totalPrice: number;
-  };
+  cart: Cart;
   favorites: FavoritesProducts;
+};
+
+export type UserData = {
+  email: string | null;
+  id: number | null;
+  accessToken: string | null;
+};
+
+export type Cart = {
+  items: Array<ProductFromCart>;
+  totalPrice: number;
 };
 
 export type ProductFromCart = {

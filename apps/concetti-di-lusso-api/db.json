@@ -60,8 +60,60 @@
   "orders": [
     {
       "id": 1,
-      "email": "olivier@mail.com",
-      "orders": []
+      "orders": [
+        {
+          "orderInfo": {
+            "time": "2:48:10",
+            "date": "12.9.2023"
+          },
+          "products": [
+            {
+              "name": "Bathroome Set Two",
+              "count": 22,
+              "price": 6600
+            }
+          ],
+          "totalPrice": 6600
+        },
+        {
+          "orderInfo": {
+            "time": "3:15:53",
+            "date": "12.9.2023"
+          },
+          "products": [
+            {
+              "name": "Towel One",
+              "count": 5,
+              "price": 500
+            },
+            {
+              "name": "Towel Three",
+              "count": 1,
+              "price": 100
+            }
+          ],
+          "totalPrice": 600
+        },
+        {
+          "orderInfo": {
+            "time": "3:15:54",
+            "date": "12.9.2023"
+          },
+          "products": [
+            {
+              "name": "Towel One",
+              "count": 5,
+              "price": 500
+            },
+            {
+              "name": "Towel Three",
+              "count": 1,
+              "price": 100
+            }
+          ],
+          "totalPrice": 600
+        }
+      ]
     }
   ],
   "products": [

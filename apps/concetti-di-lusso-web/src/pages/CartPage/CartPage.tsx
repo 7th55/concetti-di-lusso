@@ -12,8 +12,10 @@ export const CartPage = () => {
   const authorized = user.accessToken;
 
   const ordersProps = {
-    id: user.id,
-    email: user.email,
+    userInfo: {
+      id: user.id,
+      email: user.email,
+    },
     cart: order,
   };
   return (

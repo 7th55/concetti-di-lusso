@@ -5,23 +5,23 @@ import {
   useCreateOrdersStoreMutation,
   useGetOrdersQuery,
 } from './api/ordersApi';
-// Components
-import { Button, Box, Flex, Text, Space, Card } from '@mantine/core';
-import { ProductFromCart } from '/src/shared/types';
-import { Image } from '/src/entities/ProductCard/UI';
 import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
-import { productsByNameQuery } from '/src/shared/lib/lib';
+// Components
+import { Button, Box, Flex, Title } from '@mantine/core';
+import { ProductFromCart } from '/src/shared/types';
 import { ProductCard } from '/src/entities/ProductCard';
+import { OrdersList } from './UI/OrdersList/OrdersList';
+// Lib
+import { productsByNameQuery } from '/src/shared/lib/lib';
+// Types
+import { OrdersProps } from './types/types';
 
-export const Orders = (props: {
-  cart: {
-    items: Array<ProductFromCart>;
-    totalPrice: number;
-  };
-  id: number | null;
-  email: string | null;
-}) => {
-  const { id, email, cart } = props;
+export const Orders = (props: OrdersProps) => {
+  const {
+    userInfo: { id, email },
+    cart,
+  } = props;
+
   const { data, isSuccess, isError } = useGetOrdersQuery(id);
   const [createOrdersStore] = useCreateOrdersStoreMutation();
   const [putOrder] = useOrderMutation();
@@ -35,97 +35,38 @@ export const Orders = (props: {
   }, [isError]);
 
   return (
-    <div>
-      {isSuccess &&
-        data.orders.map((i, index: number) => {
-          const date = i.date.date.split('.');
-          const day = date[0];
-          const month = date[1];
-          let months = [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-          ];
-          const monthString = months[+month - 1];
-          console.log(monthString);
-
-          return (
-            <div key={i.date.time}>
-              <Flex>
-                <OrderedProduct products={i.products} />
-                <Flex direction="column">
-                  <Flex
-                    direction="column"
-                    w="100px"
-                    h="100px"
-                    justify="center"
-                    align="center"
-                    sx={(theme) => ({
-                      backgroundColor: theme.colors.cultured[9],
-                    })}
-                  >
-                    <Flex h="70%" justify="center" align="center">
-                      <Text
-                        size="lg"
-                        sx={(theme) => ({
-                          color: theme.colors.maroon,
-                          fontStyle: 'bold',
-                          fontWeight: 900,
-                          fontSize: 80,
-                        })}
-                      >
-                        {day}
-                      </Text>
-                    </Flex>
-                    <Flex
-                      justify="center"
-                      w="100%"
-                      h="30%"
-                      sx={{ backgroundColor: 'maroon' }}
-                    >
-                      <Text
-                        size="lg"
-                        sx={(theme) => ({
-                          color: 'white',
-                          fontStyle: 'bold',
-                        })}
-                      >
-                        {monthString}
-                      </Text>
-                    </Flex>
-                  </Flex>
-                  <Flex justify="center">
-                    <Text size="xl">{i.date.time}</Text>
-                  </Flex>
-                  <Text size="xl">Price: {i.totalPrice}</Text>
-                </Flex>
-              </Flex>
-              <Space h="sm" />
-              <Button
-                onClick={() => {
-                  putOrder({
-                    id,
-                    email,
-                    orders: data.orders.filter(
-                      (i, ind: number) => ind !== index
-                    ),
-                  });
-                }}
-              >
-                Del Order
-              </Button>
-            </div>
-          );
+    <>
+      <Title>Orders:</Title>
+      <Flex
+        sx={(theme) => ({
+          backgroundColor: theme.colors.maroon[9],
+          color: theme.colors.cultured[0],
         })}
+      >
+        <Flex w="50%">
+          <Title order={2} size="h4">
+            Order Date:
+          </Title>
+        </Flex>
+        <Flex w="15%">
+          <Title order={2} size="h4">
+            Order Price:
+          </Title>
+        </Flex>
+        <Flex w="15%">
+          <Title order={2} size="h4">
+            Order Items:
+          </Title>
+        </Flex>
+        <Flex w="20%"></Flex>
+      </Flex>
+      {isSuccess && (
+        <OrdersList
+          orders={data.orders}
+          deleteHandler={putOrder}
+          userInfo={{ id: id as number, email: email as string }}
+        />
+      )}
       <Box mt="lg">
         <Button
           color="green"
@@ -136,7 +77,7 @@ export const Orders = (props: {
                 orders: [
                   ...data.orders,
                   {
-                    date: {
+                    orderInfo: {
                       time: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
                       date: `${new Date().getDate()}.${
                         new Date().getMonth() + 1
@@ -149,10 +90,10 @@ export const Orders = (props: {
               });
           }}
         >
-          Add Order
+          Create Order
         </Button>
       </Box>
-    </div>
+    </>
   );
 };
 
