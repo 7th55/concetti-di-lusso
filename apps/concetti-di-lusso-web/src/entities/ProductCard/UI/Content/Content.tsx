@@ -1,16 +1,16 @@
 import { Box, Title, Text, Space } from '@mantine/core';
-import { CardVariants } from '../../ProductCard';
+import { CardVariants } from '/src/entities/ProductCard/types';
 
 export const Content = ({
   title,
   description,
-  count,
+  quantity,
   totalPriceOfProduct,
   variant,
 }: {
   title: string;
   description?: string;
-  count?: number | string;
+  quantity?: number | string;
   totalPriceOfProduct?: number | string;
   variant: CardVariants;
 }) => {
@@ -26,7 +26,7 @@ export const Content = ({
       {variant === 'cartCard' && (
         <Box h="100%">
           <Text>
-            Count: {count}
+            Quantity: {quantity}
             <Space />
             Total Price: {totalPriceOfProduct}
           </Text>

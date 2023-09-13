@@ -1,20 +1,24 @@
 // Hooks
 import { useEffect } from 'react';
+import { useDisclosure } from '@mantine/hooks';
 import {
   useOrderMutation,
   useCreateOrdersStoreMutation,
   useGetOrdersQuery,
 } from './api/ordersApi';
-import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
+// import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
 // Components
-import { Button, Box, Flex, Title } from '@mantine/core';
-import { ProductFromCart } from '/src/shared/types';
-import { ProductCard } from '/src/entities/ProductCard';
-import { OrdersList } from './UI/OrdersList/OrdersList';
-// Lib
-import { productsByNameQuery } from '/src/shared/lib/lib';
+import { Button, Box, Flex, Title, Modal } from '@mantine/core';
+// import { ProductFromCart } from '/src/shared/types';
+// import { ProductCard } from '/src/entities/ProductCard';
+import { OrdersList, OrdersListHeaders } from './UI';
+import { OrderForm } from '/src/entities/OrderForm';
+// // Lib
+// import { productsByNameQuery } from '/src/shared/lib/lib';
 // Types
-import { OrdersProps } from './types/types';
+import { OrdersProps } from './types';
+import { createOrder } from './lib/lib';
+import { RecipientFormType } from '/src/entities/OrderForm';
 
 export const Orders = (props: OrdersProps) => {
   const {
@@ -26,6 +30,8 @@ export const Orders = (props: OrdersProps) => {
   const [createOrdersStore] = useCreateOrdersStoreMutation();
   const [putOrder] = useOrderMutation();
 
+  const [opened, { open, close }] = useDisclosure(false);
+
   // Если у пользователя нет стора с заказами
   // создаёт стор.
   useEffect(() => {
@@ -34,32 +40,25 @@ export const Orders = (props: OrdersProps) => {
     }
   }, [isError]);
 
+  const createOrderHandler = (buyerInfo: RecipientFormType) => {
+    if (isSuccess) {
+      const create = createOrder.bind(null, id as number, data.orders, cart);
+      putOrder(create(buyerInfo));
+      close();
+    }
+  };
+
   return (
     <>
       <Title>Orders:</Title>
-      <Flex
-        sx={(theme) => ({
-          backgroundColor: theme.colors.maroon[9],
-          color: theme.colors.cultured[0],
-        })}
-      >
-        <Flex w="50%">
-          <Title order={2} size="h4">
-            Order Date:
-          </Title>
-        </Flex>
-        <Flex w="15%">
-          <Title order={2} size="h4">
-            Order Price:
-          </Title>
-        </Flex>
-        <Flex w="15%">
-          <Title order={2} size="h4">
-            Order Items:
-          </Title>
-        </Flex>
-        <Flex w="20%"></Flex>
-      </Flex>
+      <OrdersListHeaders
+        titles={[
+          'Order Date:',
+          'Order Info:',
+          'Recipient:',
+          'Delivery Address:',
+        ]}
+      />
       {isSuccess && (
         <OrdersList
           orders={data.orders}
@@ -67,27 +66,14 @@ export const Orders = (props: OrdersProps) => {
           userInfo={{ id: id as number, email: email as string }}
         />
       )}
+      <Modal opened={opened} onClose={close} title="Order Recipient">
+        <OrderForm createOrderHandler={createOrderHandler} />
+      </Modal>
       <Box mt="lg">
         <Button
           color="green"
           onClick={() => {
-            isSuccess &&
-              putOrder({
-                id,
-                orders: [
-                  ...data.orders,
-                  {
-                    orderInfo: {
-                      time: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
-                      date: `${new Date().getDate()}.${
-                        new Date().getMonth() + 1
-                      }.${new Date().getFullYear()}`,
-                    },
-                    products: cart.items,
-                    totalPrice: cart.totalPrice,
-                  },
-                ],
-              });
+            open();
           }}
         >
           Create Order
@@ -97,25 +83,25 @@ export const Orders = (props: OrdersProps) => {
   );
 };
 
-const OrderedProduct = ({ products }: { products: Array<ProductFromCart> }) => {
-  const query = productsByNameQuery(products);
-  const { data, isSuccess } = useGetProductsByNameQuery(query);
+// const OrderedProduct = ({ products }: { products: Array<ProductFromCart> }) => {
+//   const query = productsByNameQuery(products);
+//   const { data, isSuccess } = useGetProductsByNameQuery(query);
 
-  return (
-    <>
-      <Flex
-        justify="left"
-        w="100%"
-        h="100%"
-        columnGap="xl"
-        sx={{ overflowX: 'auto' }}
-      >
-        {isSuccess
-          ? data.map((product: any) => (
-              <ProductCard key={product.name} {...product} oldPrice={false} />
-            ))
-          : 'No'}
-      </Flex>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <Flex
+//         justify="left"
+//         w="100%"
+//         h="100%"
+//         columnGap="xl"
+//         sx={{ overflowX: 'auto' }}
+//       >
+//         {isSuccess
+//           ? data.map((product: any) => (
+//               <ProductCard key={product.name} {...product} oldPrice={false} />
+//             ))
+//           : 'No'}
+//       </Flex>
+//     </>
+//   );
+// };

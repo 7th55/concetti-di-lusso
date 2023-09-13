@@ -1,3 +1,33 @@
+import { OrdersData } from '/src/features/Orders/types';
+import { Cart } from '/src/shared/types/RootState';
+
+export const createOrder = (
+  id: OrdersData['id'],
+  orders: OrdersData['orders'],
+  createOrder: Cart,
+  buyerInfo: any
+) => ({
+  id,
+  orders: [
+    {
+      orderInfo: {
+        firstName: buyerInfo.firstName,
+        lastName: buyerInfo.lastName,
+        phone: buyerInfo.phone,
+        email: buyerInfo.email,
+        address: buyerInfo.address,
+        time: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+        date: `${new Date().getDate()}.${
+          new Date().getMonth() + 1
+        }.${new Date().getFullYear()}`,
+      },
+      products: createOrder.items,
+      totalPrice: createOrder.totalPrice,
+    },
+    ...orders,
+  ],
+});
+
 export const orderDate = (date: string) => {
   const orderDate = date.split('.');
   const day = orderDate[0];
