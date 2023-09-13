@@ -1,1 +1,1 @@
-export type { OrdersData } from './types';
+export type { OrdersData, OrdersProps, OrdersListProps } from './types';

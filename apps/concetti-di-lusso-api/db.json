@@ -60,58 +60,66 @@
   "orders": [
     {
       "id": 1,
+      "email": "olivier@mail.com",
       "orders": [
         {
           "orderInfo": {
-            "time": "2:48:10",
-            "date": "12.9.2023"
+            "firstName": "Name",
+            "lastName": "Last Name",
+            "phone": "141-110-1000",
+            "email": "namelastname@email.com",
+            "address": "Country, City, Address",
+            "time": "3:1:43",
+            "date": "14.9.2023"
           },
           "products": [
+            {
+              "name": "Bathroome Set One",
+              "count": 3,
+              "price": 900
+            },
             {
               "name": "Bathroome Set Two",
-              "count": 22,
-              "price": 6600
-            }
-          ],
-          "totalPrice": 6600
-        },
-        {
-          "orderInfo": {
-            "time": "3:15:53",
-            "date": "12.9.2023"
-          },
-          "products": [
+              "count": 3,
+              "price": 900
+            },
             {
-              "name": "Towel One",
-              "count": 5,
-              "price": 500
+              "name": "Bathroome Set Three",
+              "count": 1,
+              "price": 300
+            },
+            {
+              "name": "Robe Three",
+              "count": 1,
+              "price": 250
+            },
+            {
+              "name": "Robe One",
+              "count": 1,
+              "price": 250
+            },
+            {
+              "name": "Robe Two",
+              "count": 1,
+              "price": 250
             },
             {
               "name": "Towel Three",
-              "count": 1,
-              "price": 100
-            }
-          ],
-          "totalPrice": 600
-        },
-        {
-          "orderInfo": {
-            "time": "3:15:54",
-            "date": "12.9.2023"
-          },
-          "products": [
-            {
-              "name": "Towel One",
-              "count": 5,
-              "price": 500
+              "count": 14,
+              "price": 1400
             },
             {
-              "name": "Towel Three",
-              "count": 1,
-              "price": 100
+              "name": "Towel Two",
+              "count": 8,
+              "price": 800
+            },
+            {
+              "name": "Towel One",
+              "count": 8,
+              "price": 800
             }
           ],
-          "totalPrice": 600
+          "totalPrice": 5850
         }
       ]
     }

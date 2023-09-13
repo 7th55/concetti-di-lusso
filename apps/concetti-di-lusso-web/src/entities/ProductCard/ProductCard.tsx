@@ -28,7 +28,7 @@ export const ProductCard = (props: ProductData & ProductCardProps) => {
     img,
     name,
     description,
-    count,
+    quantity,
     totalPriceOfProduct,
     price,
     oldPrice,
@@ -40,7 +40,7 @@ export const ProductCard = (props: ProductData & ProductCardProps) => {
     variant: variant,
     title: name,
     description: description,
-    count: count,
+    quantity,
     totalPriceOfProduct: totalPriceOfProduct,
   };
 

@@ -26,7 +26,7 @@ export const Cart = () => {
   const query = productsByNameQuery(productsFromCart);
   const { data, isLoading, isError, isSuccess } =
     useGetProductsByNameQuery(query);
-    console.log(data, productsFromCart)
+  console.log(data, productsFromCart);
   return (
     <section>
       {cartState.items.length !== 0 && (
@@ -56,7 +56,7 @@ export const Cart = () => {
         <SimpleGrid cols={4}>
           {isSuccess &&
             data.map((fetchedProduct: ProductData, index: number) => {
-              const count = getCount(fetchedProduct);
+              const quantity = getCount(fetchedProduct);
               const totalPriceOfProduct = getPrice(fetchedProduct);
               const priceOfProduct = fetchedProduct.price;
               return (
@@ -82,7 +82,7 @@ export const Cart = () => {
                   deleteFromCartHandler={(name) =>
                     dispatch(deleteItemFromCart({ name: name }))
                   }
-                  count={count}
+                  quantity={quantity}
                   totalPriceOfProduct={totalPriceOfProduct}
                   {...fetchedProduct}
                 />

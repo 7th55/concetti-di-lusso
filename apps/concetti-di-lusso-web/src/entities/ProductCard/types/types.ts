@@ -16,7 +16,7 @@ export type ProductData = {
 export type CardVariants = 'shoppingCard' | 'favoritesCard' | 'cartCard' | 'orderCard';
 export type ProductCardProps = {
   variant: CardVariants;
-  count?: number | string;
+  quantity?: number | string;
   totalPriceOfProduct?: number | string;
   addToCartHandler?: (name: string, price: number) => void;
   addToFavoritesHandler?: (name: string) => void;
