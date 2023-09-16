@@ -19,3 +19,9 @@ export type ProductData = {
     alt: string;
   };
 };
+
+export type IconsProps = {
+  width: string;
+  height: string;
+  fill: string;
+};

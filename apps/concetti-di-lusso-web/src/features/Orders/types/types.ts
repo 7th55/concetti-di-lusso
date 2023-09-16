@@ -3,6 +3,7 @@ import { ProductFromCart } from '/src/shared/types';
 import { Cart, UserData } from '/src/shared/types/RootState';
 
 export type OrdersProps = {
+  variant: 'create' | 'list';
   userInfo: Pick<UserData, 'id' | 'email'>;
   cart: Cart;
 };

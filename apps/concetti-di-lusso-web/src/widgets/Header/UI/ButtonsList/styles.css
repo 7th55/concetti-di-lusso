@@ -25,6 +25,9 @@
   left: 40px;
 }
 
+.buttons-list__shopping-button:nth-of-type(4) {
+  left: 60px;
+}
 .buttons-list__sign-in-button {
   position: relative;
   /* width: 137px; */

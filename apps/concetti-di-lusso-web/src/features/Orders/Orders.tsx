@@ -6,15 +6,10 @@ import {
   useCreateOrdersStoreMutation,
   useGetOrdersQuery,
 } from './api/ordersApi';
-// import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
 // Components
-import { Button, Box, Flex, Title, Modal } from '@mantine/core';
-// import { ProductFromCart } from '/src/shared/types';
-// import { ProductCard } from '/src/entities/ProductCard';
+import { Button, Box, Flex, Title, Modal, MediaQuery } from '@mantine/core';
 import { OrdersList, OrdersListHeaders } from './UI';
 import { OrderForm } from '/src/entities/OrderForm';
-// // Lib
-// import { productsByNameQuery } from '/src/shared/lib/lib';
 // Types
 import { OrdersProps } from './types';
 import { createOrder } from './lib/lib';
@@ -22,6 +17,7 @@ import { RecipientFormType } from '/src/entities/OrderForm';
 
 export const Orders = (props: OrdersProps) => {
   const {
+    variant,
     userInfo: { id, email },
     cart,
   } = props;
@@ -50,58 +46,51 @@ export const Orders = (props: OrdersProps) => {
 
   return (
     <>
-      <Title>Orders:</Title>
-      <OrdersListHeaders
-        titles={[
-          'Order Date:',
-          'Order Info:',
-          'Recipient:',
-          'Delivery Address:',
-        ]}
-      />
-      {isSuccess && (
-        <OrdersList
-          orders={data.orders}
-          deleteHandler={putOrder}
-          userInfo={{ id: id as number, email: email as string }}
-        />
+      {variant === 'list' && (
+        <>
+          <Title>Orders:</Title>
+          <OrdersListHeaders
+            titles={[
+              'Order Date:',
+              'Order Info:',
+              'Recipient:',
+              'Delivery Address:',
+            ]}
+          />
+          {isSuccess && (
+            <OrdersList
+              orders={data.orders}
+              deleteHandler={putOrder}
+              userInfo={{ id: id as number, email: email as string }}
+            />
+          )}
+        </>
       )}
-      <Modal opened={opened} onClose={close} title="Order Recipient">
-        <OrderForm createOrderHandler={createOrderHandler} />
-      </Modal>
-      <Box mt="lg">
-        <Button
-          color="green"
-          onClick={() => {
-            open();
-          }}
-        >
-          Create Order
-        </Button>
-      </Box>
+      {variant === 'create' && (
+        <>
+          <Modal opened={opened} onClose={close} title="Order Recipient">
+            <OrderForm createOrderHandler={createOrderHandler} />
+          </Modal>
+
+          <Flex justify="right">
+            <MediaQuery
+              smallerThan={1430}
+              styles={{ position: 'initial', left: 0 }}
+            >
+              <Box>
+                <Button
+                  color="green"
+                  onClick={() => {
+                    open();
+                  }}
+                >
+                  Create Order
+                </Button>
+              </Box>
+            </MediaQuery>
+          </Flex>
+        </>
+      )}
     </>
   );
 };
-
-// const OrderedProduct = ({ products }: { products: Array<ProductFromCart> }) => {
-//   const query = productsByNameQuery(products);
-//   const { data, isSuccess } = useGetProductsByNameQuery(query);
-
-//   return (
-//     <>
-//       <Flex
-//         justify="left"
-//         w="100%"
-//         h="100%"
-//         columnGap="xl"
-//         sx={{ overflowX: 'auto' }}
-//       >
-//         {isSuccess
-//           ? data.map((product: any) => (
-//               <ProductCard key={product.name} {...product} oldPrice={false} />
-//             ))
-//           : 'No'}
-//       </Flex>
-//     </>
-//   );
-// };

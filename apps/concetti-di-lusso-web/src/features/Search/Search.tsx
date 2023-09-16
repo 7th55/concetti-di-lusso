@@ -1,10 +1,13 @@
 // Components
 import Link from 'next/link';
-import { Button } from '/src/shared/UI/Button';
+import { MantineButton } from '/src/shared/UI/MantineButton';
 import { SearchInput } from './UI/SearchInput/SearchInput';
 // Hooks
 import { useSearchState } from '.';
 import { useRouter } from 'next/router';
+// Icons
+import searchIcon from './assets/search.svg';
+import searchIconActive from './assets/search-active.svg';
 // Styles
 import './styles.css';
 
@@ -17,7 +20,11 @@ export const Search = () => {
     <div className="search">
       <div className="search__button">
         <Link href={linkPath}>
-          <Button buttonStyle="search" />
+          <MantineButton
+            variant="square"
+            icon={searchIcon.src}
+            activeIcon={searchIconActive.src}
+          />
         </Link>
       </div>
       {searching && (
