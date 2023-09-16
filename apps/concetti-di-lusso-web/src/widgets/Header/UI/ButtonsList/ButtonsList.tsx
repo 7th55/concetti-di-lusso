@@ -4,13 +4,12 @@ import Link from 'next/link';
 import { Auth } from '/src/features/Auth';
 import { Badge } from '/src/shared/UI/Badge';
 import { Search } from '/src/features/Search';
-import { Button as Button, Box, MediaQuery } from '@mantine/core';
+import { Button as Button, Box, MediaQuery, ActionIcon } from '@mantine/core';
 import { MantineButton } from '/src/shared/UI/MantineButton';
 // Hooks
 import {
   useAuth,
   authorized as logOut,
-  authorized,
 } from '/src/features/Auth/store/authSlice';
 import { useFavorites } from '/src/features/Favorites/store/favoritesSlice';
 import { useCart } from '/src/features/Cart/store/cartSlice';
@@ -28,6 +27,7 @@ import './styles.css';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { UserInfo } from '/src/entities/UserInfo';
+import { QuestionMark, X } from 'tabler-icons-react';
 
 export const ButtonsList = () => {
   const [openedAuth, setOpenedAuth] = useState(false);
@@ -76,10 +76,10 @@ export const ButtonsList = () => {
     <div className="buttons-list">
       <MediaQuery
         smallerThan={1430}
-        styles={{ left: isAuthorized ? '10px' : 'null' }}
+        styles={{ left: isAuthorized ? '50px' : 'null' }}
       >
         <Box
-          sx={{ position: 'relative', left: isAuthorized ? '-40px' : 'null' }}
+          sx={{ position: 'relative', left: isAuthorized ? '20px' : 'null' }}
         >
           <div className="buttons-list__shopping-buttons">
             {buttons.map((button, index) => (
@@ -94,75 +94,84 @@ export const ButtonsList = () => {
             ))}
             {isAuthorized && (
               <div className="buttons-list__shopping-button">
-                <MantineButton
-                  variant="square"
-                  icon={orders.src}
-                  activeIcon={ordersActive.src}
-                />
+                <Link href="/orders">
+                  <MantineButton
+                    variant="square"
+                    icon={orders.src}
+                    activeIcon={ordersActive.src}
+                  />
+                </Link>
               </div>
             )}
           </div>
         </Box>
       </MediaQuery>
-      <div className="buttons-list__sign-in-button">
-        <Box sx={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
-          <MantineButton
-            onClickHandler={() => setOpenedAuth(!openedAuth)}
-            variant="signIn"
-          >
-            Sign In
-          </MantineButton>
-        </Box>
+      <MediaQuery
+        smallerThan={1430}
+        styles={{ left: isAuthorized ? '34px' : 0 }}
+      >
+        <Box
+          sx={{ position: 'relative', left: isAuthorized ? '34px' : '-28px' }}
+        >
+          <Box sx={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
+            <MantineButton
+              onClickHandler={() => setOpenedAuth(!openedAuth)}
+              variant="signIn"
+            >
+              Sign In
+            </MantineButton>
+          </Box>
 
-        {isAuthorized && (
-          <>
-            <Button
-              variant="filled"
-              color="error"
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 66,
-                height: 49,
-                width: 62,
-              }}
-              radius="xs"
-              onClick={() => {
-                dispatch(
-                  logOut({
-                    user: { email: null, id: null, accessToken: null },
-                  })
-                );
-              }}
-            >
-              Out
-            </Button>
-            <Button
-              variant="filled"
-              color="lime"
-              sx={{
-                position: 'absolute',
-                top: 0,
-                right: 62,
-                height: 49,
-                width: 62,
-              }}
-              radius="xs"
-              onClick={() => {
-                setOpenedInfo(!openedInfo);
-              }}
-            >
-              Info
-            </Button>
-          </>
-        )}
-        <Box sx={{ position: 'absolute', top: 55, left: -178 }}>
-          <Auth opened={openedAuth} />
+          {isAuthorized && (
+            <>
+              <ActionIcon
+                variant="filled"
+                color="error"
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 66,
+                  height: 49,
+                  width: 49,
+                }}
+                radius="xs"
+                onClick={() => {
+                  dispatch(
+                    logOut({
+                      user: { email: null, id: null, accessToken: null },
+                    })
+                  );
+                }}
+              >
+                <X size="24px" />
+              </ActionIcon>
+              <ActionIcon
+                variant="filled"
+                color="lime"
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  right: 62,
+                  height: 49,
+                  width: 49,
+                }}
+                radius="xs"
+                onClick={() => {
+                  setOpenedInfo(!openedInfo);
+                }}
+              >
+                <QuestionMark size="24px" />
+              </ActionIcon>
+            </>
+          )}
+          <Box sx={{ position: 'absolute', top: 55, left: -178 }}>
+            <Auth opened={openedAuth} />
+          </Box>
+          <Box sx={{ position: 'absolute', top: 55, left: -213 }}>
+            <UserInfo email={userInfo.user.email} opened={openedInfo} />
+          </Box>
         </Box>
-        <Box sx={{ position: 'absolute', top: 55, left: -213 }}>
-          <UserInfo email={userInfo.user.email} opened={openedInfo} />
-        </Box>
-      </div>
+      </MediaQuery>
     </div>
   );
 };

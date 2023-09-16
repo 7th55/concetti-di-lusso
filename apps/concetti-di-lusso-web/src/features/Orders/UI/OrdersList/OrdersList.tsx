@@ -13,38 +13,36 @@ export const OrdersList = ({
 }: OrdersListProps) => {
   const { id, email } = userInfo;
   return (
-    <Box mah={320} sx={{ overflowY: 'auto' }}>
-      <Stack spacing="xs" maw={1380}>
-        {orders.map((order, index: number) => {
-          const orderInfo = order.orderInfo;
-          const date = orderDate(orderInfo.date);
-          const time = orderTime(orderInfo.time, ':');
+    <Stack spacing="xs">
+      {orders.map((order, index: number) => {
+        const orderInfo = order.orderInfo;
+        const date = orderDate(orderInfo.date);
+        const time = orderTime(orderInfo.time, ':');
 
-          const recipienInfo = {
-            firstName: orderInfo.firstName,
-            lastName: orderInfo.lastName,
-            phone: orderInfo.phone,
-            email: orderInfo.email,
-            address: orderInfo.address,
-          };
+        const recipienInfo = {
+          firstName: orderInfo.firstName,
+          lastName: orderInfo.lastName,
+          phone: orderInfo.phone,
+          email: orderInfo.email,
+          address: orderInfo.address,
+        };
 
-          const orderCardProps = {
-            ...recipienInfo,
-            date,
-            time,
-            totalPrice: order.totalPrice,
-            items: order.products.reduce((q, ite) => q + ite.count, 0),
-            deleteHandler: () =>
-              deleteHandler({
-                id,
-                email,
-                orders: orders.filter((order, ind: number) => ind !== index),
-              }),
-          };
+        const orderCardProps = {
+          ...recipienInfo,
+          date,
+          time,
+          totalPrice: order.totalPrice,
+          items: order.products.reduce((q, ite) => q + ite.count, 0),
+          deleteHandler: () =>
+            deleteHandler({
+              id,
+              email,
+              orders: orders.filter((order, ind: number) => ind !== index),
+            }),
+        };
 
-          return <OrderCard key={order.orderInfo.time} {...orderCardProps} />;
-        })}
-      </Stack>
-    </Box>
+        return <OrderCard key={order.orderInfo.time} {...orderCardProps} />;
+      })}
+    </Stack>
   );
 };

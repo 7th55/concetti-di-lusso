@@ -68,25 +68,10 @@
             "phone": "141-110-1000",
             "email": "namelastname@email.com",
             "address": "Country, City, Address",
-            "time": "4:54:32",
-            "date": "15.9.2023"
+            "time": "7:19:32",
+            "date": "16.9.2023"
           },
           "products": [
-            {
-              "name": "Bathroome Set One",
-              "count": 3,
-              "price": 900
-            },
-            {
-              "name": "Bathroome Set Two",
-              "count": 3,
-              "price": 900
-            },
-            {
-              "name": "Bathroome Set Three",
-              "count": 1,
-              "price": 300
-            },
             {
               "name": "Robe Three",
               "count": 1,
@@ -103,22 +88,22 @@
               "price": 250
             },
             {
-              "name": "Towel Three",
-              "count": 14,
-              "price": 1400
-            },
-            {
-              "name": "Towel Two",
-              "count": 8,
-              "price": 800
-            },
-            {
               "name": "Towel One",
               "count": 8,
               "price": 800
+            },
+            {
+              "name": "Towel Two",
+              "count": 1,
+              "price": 100
+            },
+            {
+              "name": "Bathroome Set Three",
+              "count": 1,
+              "price": 300
             }
           ],
-          "totalPrice": 5850
+          "totalPrice": 1950
         },
         {
           "orderInfo": {
@@ -127,7 +112,7 @@
             "phone": "141-110-1000",
             "email": "namelastname@email.com",
             "address": "Country, City, Address",
-            "time": "4:54:24",
+            "time": "4:54:32",
             "date": "15.9.2023"
           },
           "products": [
@@ -364,65 +349,6 @@
             "email": "namelastname@email.com",
             "address": "Country, City, Address",
             "time": "4:54:0",
-            "date": "15.9.2023"
-          },
-          "products": [
-            {
-              "name": "Bathroome Set One",
-              "count": 3,
-              "price": 900
-            },
-            {
-              "name": "Bathroome Set Two",
-              "count": 3,
-              "price": 900
-            },
-            {
-              "name": "Bathroome Set Three",
-              "count": 1,
-              "price": 300
-            },
-            {
-              "name": "Robe Three",
-              "count": 1,
-              "price": 250
-            },
-            {
-              "name": "Robe One",
-              "count": 1,
-              "price": 250
-            },
-            {
-              "name": "Robe Two",
-              "count": 1,
-              "price": 250
-            },
-            {
-              "name": "Towel Three",
-              "count": 14,
-              "price": 1400
-            },
-            {
-              "name": "Towel Two",
-              "count": 8,
-              "price": 800
-            },
-            {
-              "name": "Towel One",
-              "count": 8,
-              "price": 800
-            }
-          ],
-          "totalPrice": 5850
-        },
-        {
-          "orderInfo": {
-            "firstName": "Name",
-            "lastName": "Last Name",
-            "phone": "141-110-1000",
-            "email": "namelastname@email.com",
-            "address": "Country, City, Address",
-            "time": "4:53:58",
             "date": "15.9.2023"
           },
           "products": [

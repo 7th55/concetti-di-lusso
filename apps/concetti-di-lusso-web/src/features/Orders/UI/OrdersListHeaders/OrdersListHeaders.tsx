@@ -3,7 +3,6 @@ import { Flex, Title } from '@mantine/core';
 export const OrdersListHeaders = ({ titles }: { titles: Array<string> }) => {
   return (
     <Flex
-      maw={1380}
       sx={(theme) => ({
         backgroundColor: theme.colors.maroon[9],
         color: theme.colors.cultured[0],
