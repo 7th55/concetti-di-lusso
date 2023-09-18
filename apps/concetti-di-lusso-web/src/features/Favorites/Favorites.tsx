@@ -4,24 +4,10 @@ import { useGetProductsByNameQuery } from './api/FavoritesApi';
 import { SimpleGrid, Container, Text, Title, Box } from '@mantine/core';
 import { ProductCard, ProductData } from '/src/entities/ProductCard';
 // Types
-import {
-  addToFavorites,
-  removeFromFavorites,
-  useFavorites,
-} from './store/favoritesSlice';
+import { removeFromFavorites, useFavorites } from './store/favoritesSlice';
 import { useDispatch } from 'react-redux';
-
-const searchByNameFormatter = (
-  product: string,
-  index: number,
-  array: Array<any>
-) => {
-  const searchBy = index !== 0 ? 'name=' : '=';
-  const lastItem = array.length !== index + 1 ? '&' : '';
-  const replace = product.replace(/ /g, '%20');
-  const result = searchBy + replace + lastItem;
-  return result;
-};
+// Lib
+import { searchByNameFormatter } from './lib/functions';
 
 export const Favorites = () => {
   const dispatch = useDispatch();
@@ -33,7 +19,8 @@ export const Favorites = () => {
   const productNames = products.map(getNames);
 
   const query = productNames.map(searchByNameFormatter).join('');
-  const { data, isLoading, isError } = useGetProductsByNameQuery(query);
+  const { data, isLoading, isError, isSuccess } =
+    useGetProductsByNameQuery(query);
 
   return (
     <Container size={1440}>
@@ -49,18 +36,19 @@ export const Favorites = () => {
         </Box>
       ) : (
         <SimpleGrid cols={4}>
-          {data.map((product: ProductData, index: number) => {
-            return (
-              <ProductCard
-                variant="favoritesCard"
-                key={product.id}
-                removeFromFavoritesHandler={(name) =>
-                  dispatch(removeFromFavorites({ name: name }))
-                }
-                {...product}
-              />
-            );
-          })}
+          {isSuccess &&
+            data.map((product: ProductData, index: number) => {
+              return (
+                <ProductCard
+                  variant="favoritesCard"
+                  key={product.id}
+                  removeFromFavoritesHandler={(name) =>
+                    dispatch(removeFromFavorites({ name: name }))
+                  }
+                  {...product}
+                />
+              );
+            })}
         </SimpleGrid>
       )}
     </Container>

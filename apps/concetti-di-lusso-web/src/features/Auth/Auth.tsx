@@ -9,9 +9,8 @@ import { authorized, useAuth } from './store/authSlice';
 
 export const Auth = ({ opened }: { opened: boolean }) => {
   // Api
-  const [signIn, { isLoading, error: signInError }] = useSignInMutation();
-  const [attemptAccess, { data, error, isLoading: isLoadingProtected }] =
-    useProtectedMutation();
+  const [signIn] = useSignInMutation();
+  const [attemptAccess, { data }] = useProtectedMutation();
   // Cart Api
 
   const dispatch = useDispatch();
@@ -30,30 +29,31 @@ export const Auth = ({ opened }: { opened: boolean }) => {
 
   const onSubmitHandler = form.onSubmit(async (values) => {
     try {
-      const req: any = await signIn(JSON.stringify(values, null, 2));
-      const res = req.data;
+      const req = await signIn(JSON.stringify(values, null, 2));
 
-      res === undefined &&
+      const res = req;
+
+      // Field Errors
+      if ('error' in res && 'data' in res.error) {
         form.setErrors({
           email: true,
-          password: `${req.error.data}`,
+          password: `${res.error.data}`,
         });
+      }
 
-      if (res) {
+      if ('data' in res) {
         // Log Out
         if (auth.user.accessToken !== null) {
           dispatch(
             authorized({ user: { email: null, id: null, accessToken: null } })
           );
-
-          console.log(auth.user.id);
           return;
         }
 
         // Sign In
         dispatch(
           authorized({
-            user: { ...res.user, accessToken: req.data.accessToken },
+            user: { ...res.data.user, accessToken: res.data.accessToken },
           })
         );
       }

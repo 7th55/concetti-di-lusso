@@ -15,7 +15,16 @@ export const authApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    signIn: builder.mutation<any, any>({
+    signIn: builder.mutation<
+      {
+        user: {
+          id: number;
+          email: string;
+        };
+        accessToken: string;
+      },
+      string
+    >({
       query: (form) => ({
         url: '/signin',
         headers: {

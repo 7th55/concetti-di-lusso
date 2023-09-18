@@ -11,3 +11,15 @@ export const stringForQuery = (string: string): string => {
 
   return result;
 };
+
+export const searchByNameFormatter =<T> (
+  product: string,
+  index: number,
+  array: Array<T>
+) => {
+  const searchBy = index !== 0 ? 'name=' : '=';
+  const lastItem = array.length !== index + 1 ? '&' : '';
+  const replace = product.replace(/ /g, '%20');
+  const result = searchBy + replace + lastItem;
+  return result;
+};

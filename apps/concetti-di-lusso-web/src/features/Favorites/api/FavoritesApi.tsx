@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { ProductData } from '/src/shared/types';
 
 // Define a service using a base URL and expected endpoints
 export const favoritesApi = createApi({
   reducerPath: 'favoritesApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:2244/' }),
   endpoints: (builder) => ({
-    getProductsByName: builder.query<any, string>({
+    getProductsByName: builder.query<Array<ProductData>, string>({
       query: (products) => `products?name${products}`,
     }),
   }),

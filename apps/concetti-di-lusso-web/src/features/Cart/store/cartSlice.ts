@@ -88,7 +88,6 @@ export const cartSlice = createSlice({
       state.items = state.items.filter((item) => item.name !== name);
 
       state.totalPrice = getTotalPrice(state.items);
-      console.log(state.items, name);
     },
   },
 });

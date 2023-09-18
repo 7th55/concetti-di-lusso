@@ -24,7 +24,7 @@ import { authApi } from '/src/features/Auth/api/authApi';
 import { ordersApi } from '/src/features/Orders/api/ordersApi';
 import { searchApi } from '/src/features/Search';
 import { favoritesApi } from '/src/features/Favorites/api/FavoritesApi';
-import { productsApi } from '../../pages/ProductsPage/api/productApi';
+// import { productsApi } from '../../pages/ProductsPage/api/productApi';
 import { concettiDiLussoApi } from '/src/shared/api/concettiDiLussoApi';
 
 const cartPersisConfig = {
@@ -82,7 +82,7 @@ export const store = configureStore({
     // Favorites
     [favoritesApi.reducerPath]: favoritesApi.reducer,
     // Products
-    [productsApi.reducerPath]: productsApi.reducer,
+    // [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -95,7 +95,7 @@ export const store = configureStore({
       .concat(ordersApi.middleware)
       .concat(searchApi.middleware)
       .concat(favoritesApi.middleware)
-      .concat(productsApi.middleware),
+      // .concat(productsApi.middleware),
 });
 
 export let persistor = persistStore(store);

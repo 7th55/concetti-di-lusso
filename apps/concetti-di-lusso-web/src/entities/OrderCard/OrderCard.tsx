@@ -1,7 +1,11 @@
-import { ActionIcon, Button, Flex, Text } from '@mantine/core';
-import { Cross, CrossOff, X } from 'tabler-icons-react';
+// Components
+import { ActionIcon, Flex, Text } from '@mantine/core';
+// Icons
+import { X } from 'tabler-icons-react';
+import { OrderCardProps } from './types';
+// Types
 
-export const OrderCard = (props: any) => {
+export const OrderCard = (props: OrderCardProps) => {
   const {
     firstName,
     lastName,
