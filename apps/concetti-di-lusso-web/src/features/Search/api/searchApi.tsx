@@ -5,7 +5,7 @@ export const searchApi = createApi({
   reducerPath: 'searchApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:2244/' }),
   endpoints: (builder) => ({
-    getSearchProducts: builder.query<any, string>({
+    getSearchProducts: builder.query<string, string>({
       query: (products) => `products?q=${products}`,
     }),
   }),

@@ -1,9 +1,11 @@
 // Components
 import { Box, Button, Group, TextInput } from '@mantine/core';
 // Hooks
-import { hasLength, isEmail, isNotEmpty, useForm } from '@mantine/form';
+import { hasLength, isEmail, useForm } from '@mantine/form';
+// Types
+import { OrderFormProps } from './types/types';
 
-export const OrderForm = (props: any) => {
+export const OrderForm = (props: OrderFormProps) => {
   const { createOrderHandler } = props;
 
   const form = useForm({

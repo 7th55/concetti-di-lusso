@@ -1,3 +1,4 @@
+import { RecipientFormType } from '/src/entities/OrderForm';
 import { OrdersData } from '/src/features/Orders/types';
 import { Cart } from '/src/shared/types/RootState';
 
@@ -5,7 +6,7 @@ export const createOrder = (
   id: OrdersData['id'],
   orders: OrdersData['orders'],
   createOrder: Cart,
-  buyerInfo: any
+  buyerInfo: RecipientFormType
 ) => ({
   id,
   orders: [

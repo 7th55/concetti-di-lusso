@@ -1,8 +1,12 @@
 // Components
-import { useGetProductsQuery } from '../../../src/pages/ProductsPage/api/productApi';
+import { useGetProductsQuery } from '/src/shared/api/concettiDiLussoApi';
 import { ProductsPage } from '/src/pages/ProductsPage';
 
 export default function Page() {
-  const { data, isError, isLoading } = useGetProductsQuery('robes');
-  return <ProductsPage data={data} isError={isError} isLoading={isLoading} />;
+  const { data, isError, isLoading, isSuccess } = useGetProductsQuery('robes');
+  return (
+    isSuccess && (
+      <ProductsPage data={data} isError={isError} isLoading={isLoading} />
+    )
+  );
 }

@@ -1,9 +1,9 @@
 import { ProductFromCart } from '/src/shared/types';
 
-export const searchByNameQueryStringFormatter = (
+export const searchByNameQueryStringFormatter = <T>(
   product: string,
   index: number,
-  array: Array<any>
+  array: Array<T>
 ) => {
   const searchBy = index !== 0 ? 'name=' : '=';
   const lastItem = array.length !== index + 1 ? '&' : '';
