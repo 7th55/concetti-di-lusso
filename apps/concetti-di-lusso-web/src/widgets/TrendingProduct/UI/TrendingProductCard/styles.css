@@ -28,7 +28,7 @@
   font-size: var(--font-size-sixth);
   font-weight: var(--font-weight-fourth);
   white-space: break-spaces;
-  color: var(--text-color-second);
+  color: var(--first-color);
 }
 
 .trendingProductCard__description {
@@ -36,7 +36,7 @@
   font-size: var(--font-size-fourth);
   line-height: 2;
   white-space: break-spaces;
-  color: var(--text-color-sixth);
+  color: var(--ninth-color);
 }
 
 @media (max-width: 1430px) {

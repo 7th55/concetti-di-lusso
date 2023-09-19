@@ -1,25 +1,18 @@
 import { Button } from '@mantine/core';
 // Styles
-import { useStyles } from './styles';
+import classes from './styles.module.scss';
 
 export const MantineButton = ({
   children,
   variant,
   onClickHandler,
   icon,
-  activeIcon,
 }: {
   children?: string | React.ReactNode;
   variant: string;
   icon?: string;
-  activeIcon?: string;
   onClickHandler?: () => void;
 }) => {
-  const { classes } = useStyles({
-    icon,
-    activeIcon,
-  });
-
   let buttonClass;
   switch (variant) {
     case 'addCart':
@@ -33,8 +26,10 @@ export const MantineButton = ({
       break;
   }
 
+  const iconClass = icon ? classes[icon] : null;
+
   return (
-    <Button onClick={onClickHandler} className={buttonClass}>
+    <Button onClick={onClickHandler} className={`${buttonClass} ${iconClass}`}>
       {children}
     </Button>
   );

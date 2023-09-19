@@ -1,0 +1,21 @@
+.prices {
+  position: relative;
+  left: -3px;
+
+  @media (max-width: 1430px) {
+    justify-content: flex-start;
+    width: 50%;
+    left: 0;
+  }
+}
+
+.oldPrice {
+  position: relative;
+  top: 4px;
+  left: -10px;
+
+  @media (max-width: 1430px) {
+    top: -3px;
+    left: 2px;
+  }
+}

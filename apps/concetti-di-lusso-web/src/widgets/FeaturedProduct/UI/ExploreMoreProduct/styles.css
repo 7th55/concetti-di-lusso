@@ -16,7 +16,7 @@
   letter-spacing: -0.5px;
   font-weight: var(--font-weight-second);
   line-height: 1.2;
-  color: var(--text-color-fifth);
+  color: var(--fifth-color);
 }
 
 @media (max-width: 1430px) {

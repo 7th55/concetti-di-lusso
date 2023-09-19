@@ -1,5 +1,5 @@
 .promotion {
-  color: var(--text-color-second);
+  color: var(--first-color);
   font-size: var(--font-size-fifth);
   font-weight: 600;
 }

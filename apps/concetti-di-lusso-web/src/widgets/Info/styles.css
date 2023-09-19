@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100%;
   height: 56px;
-  background-color: var(--bg-color-first);
+  background-color: var(--seventh-color);
 }
 
 .info__content-wrapper {
@@ -24,7 +24,7 @@
 }
 
 .info__text {
-  color: var(--text-color-first);
+  color: var(--second-color);
   margin-left: 15px;
   font-size: 14px;
   font-weight: 400;

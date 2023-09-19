@@ -60,37 +60,8 @@
   "orders": [
     {
       "id": 1,
-      "orders": [
-        {
-          "orderInfo": {
-            "firstName": "Name",
-            "lastName": "Last Name",
-            "phone": "141-110-1000",
-            "email": "namelastname@email.com",
-            "address": "Country, City, Address",
-            "time": "4:34:7",
-            "date": "18.9.2023"
-          },
-          "products": [
-            {
-              "name": "Robe Three",
-              "count": 1,
-              "price": 250
-            },
-            {
-              "name": "Towel One",
-              "count": 8,
-              "price": 800
-            },
-            {
-              "name": "Towel Two",
-              "count": 1,
-              "price": 100
-            }
-          ],
-          "totalPrice": 1150
-        }
-      ]
+      "email": "olivier@mail.com",
+      "orders": []
     }
   ],
   "products": [

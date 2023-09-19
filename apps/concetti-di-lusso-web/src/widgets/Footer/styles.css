@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   height: 383px;
-  background-color: var(--bg-color-second);
+  background-color: var(--third-color);
 
   overflow: hidden;
 }

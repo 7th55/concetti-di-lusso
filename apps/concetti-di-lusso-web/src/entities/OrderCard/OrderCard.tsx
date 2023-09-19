@@ -1,7 +1,7 @@
 // Components
-import { ActionIcon, Flex, Text } from '@mantine/core';
+import { ActionIcon, Flex, Space, Text } from '@mantine/core';
 // Icons
-import { X } from 'tabler-icons-react';
+import { QuestionMark, X } from 'tabler-icons-react';
 import { OrderCardProps } from './types';
 // Types
 
@@ -30,6 +30,7 @@ export const OrderCard = (props: OrderCardProps) => {
           sx={(theme) => ({
             backgroundColor:
               theme.colorScheme === 'light'
+              // var(--third-color)
                 ? theme.colors.cultured[9]
                 : theme.colors.dark[4],
           })}
@@ -80,6 +81,10 @@ export const OrderCard = (props: OrderCardProps) => {
           </Text>
         </Flex>
         <Flex w="15%" justify="end" align="center">
+          <ActionIcon variant="filled" color="blue" onClick={deleteHandler}>
+            <QuestionMark />
+          </ActionIcon>
+          <Space w={5} />
           <ActionIcon variant="filled" color="error" onClick={deleteHandler}>
             <X />
           </ActionIcon>
