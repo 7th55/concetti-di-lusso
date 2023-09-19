@@ -30,8 +30,8 @@ export const OrderCard = (props: OrderCardProps) => {
           sx={(theme) => ({
             backgroundColor:
               theme.colorScheme === 'light'
-              // var(--third-color)
-                ? theme.colors.cultured[9]
+                ? // var(--third-color)
+                  theme.colors.cultured[9]
                 : theme.colors.dark[4],
           })}
         >
@@ -81,7 +81,7 @@ export const OrderCard = (props: OrderCardProps) => {
           </Text>
         </Flex>
         <Flex w="15%" justify="end" align="center">
-          <ActionIcon variant="filled" color="blue" onClick={deleteHandler}>
+          <ActionIcon variant="filled" color="blue">
             <QuestionMark />
           </ActionIcon>
           <Space w={5} />
