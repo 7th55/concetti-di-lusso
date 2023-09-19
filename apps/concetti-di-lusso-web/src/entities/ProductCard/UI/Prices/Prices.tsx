@@ -1,5 +1,7 @@
 // Components
 import { Box, Flex, MediaQuery } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
 // Types
 import { CardVariants } from '/src/entities/ProductCard/types';
 
@@ -11,26 +13,21 @@ export const Prices = ({
   oldPrice?: React.ReactNode;
 }) => {
   return (
-    <MediaQuery
-      smallerThan={1430}
-      styles={{ justifyContent: 'flex-start', width: '50%', left: 0 }}
+    <Flex
+      className={classes.prices}
+      w="50%"
+      justify="space-between"
+      align="center"
     >
-      <Flex
-        w="50%"
-        justify="space-between"
-        align="center"
-        sx={{ position: 'relative', left: -3 }}
-      >
-        {price}
+      {price}
 
-        {oldPrice && (
-          <MediaQuery smallerThan={1430} styles={{ top: -3, left: 2 }}>
-            <Box sx={{ position: 'relative', top: 4, left: -10 }}>
-              {oldPrice}
-            </Box>
-          </MediaQuery>
-        )}
-      </Flex>
-    </MediaQuery>
+      {oldPrice && (
+        <Box
+          className={classes.oldPrice}
+        >
+          {oldPrice}
+        </Box>
+      )}
+    </Flex>
   );
 };

@@ -1,0 +1,72 @@
+.signIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 126px;
+  height: 3.063rem;
+  font-size: var(--font-size-fifth);
+  font-weight: var(--font-weight-second);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--fifth-color);
+  background-color: var(--first-color);
+  border-radius: 5px;
+}
+
+.addCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 137px;
+  height: 2.63rem;
+  font-size: var(--font-size-third);
+  font-weight: var(--font-weight-second);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--fifth-color);
+  background-color: var(--second-color);
+  border-radius: 5px;
+
+  @media (max-width: 1430px) {
+    width: 100%;
+  }
+}
+
+.square {
+  display: block;
+  width: 49px;
+  height: 49px;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  background-color: var(--fifth-color);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search {
+  background-image: url(./assets/icons/search.svg);
+  &:active {
+    background-image: url(./assets/icons/search-active.svg);
+  }
+}
+
+.favorites {
+  background-image: url(./assets/icons/favorites.svg);
+  &:active {
+    background-image: url(./assets/icons/favorites-active.svg);
+  }
+}
+
+.shopping {
+  background-image: url(./assets/icons/shopping.svg);
+  &:active {
+    background-image: url(./assets/icons/shopping-active.svg);
+  }
+}
+
+.orders {
+  background-image: url(./assets/icons/orders.svg);
+  &:active {
+    background-image: url(./assets/icons/orders-active.svg);
+  }
+}

@@ -68,19 +68,19 @@
             "phone": "141-110-1000",
             "email": "namelastname@email.com",
             "address": "Country, City, Address",
-            "time": "4:34:7",
-            "date": "18.9.2023"
+            "time": "17:19:48",
+            "date": "19.9.2023"
           },
           "products": [
             {
               "name": "Robe Three",
-              "count": 1,
-              "price": 250
+              "count": 2,
+              "price": 500
             },
             {
               "name": "Towel One",
-              "count": 8,
-              "price": 800
+              "count": 18,
+              "price": 1800
             },
             {
               "name": "Towel Two",
@@ -88,7 +88,7 @@
               "price": 100
             }
           ],
-          "totalPrice": 1150
+          "totalPrice": 2400
         }
       ]
     }

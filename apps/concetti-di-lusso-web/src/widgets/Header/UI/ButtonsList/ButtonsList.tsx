@@ -13,14 +13,6 @@ import {
 } from '/src/features/Auth/store/authSlice';
 import { useFavorites } from '/src/features/Favorites/store/favoritesSlice';
 import { useCart } from '/src/features/Cart/store/cartSlice';
-// Icons
-import shoppingIcon from './assets/shopping.svg';
-import shoppingIconActive from './assets/shopping-active.svg';
-import favIcon from './assets/favorites.svg';
-import favIconActive from './assets/favorites-active.svg';
-import orders from './assets/orders.svg';
-import ordersActive from './assets/orders-active.svg';
-
 // Styles
 import './styles.css';
 // Types
@@ -57,19 +49,11 @@ export const ButtonsList = () => {
     <Search key="search" />,
     <React.Fragment key="favorites">
       <Badge content={badgeFavorites} />
-      <MantineButton
-        variant="square"
-        icon={favIcon.src}
-        activeIcon={favIconActive.src}
-      />
+      <MantineButton variant="square" icon={'favorites'} />
     </React.Fragment>,
     <React.Fragment key="shopping">
       <Badge content={badgeCart} />
-      <MantineButton
-        variant="square"
-        icon={shoppingIcon.src}
-        activeIcon={shoppingIconActive.src}
-      />
+      <MantineButton variant="square" icon={'shopping'} />
     </React.Fragment>,
   ];
   return (
@@ -95,11 +79,7 @@ export const ButtonsList = () => {
             {isAuthorized && (
               <div className="buttons-list__shopping-button">
                 <Link href="/orders">
-                  <MantineButton
-                    variant="square"
-                    icon={orders.src}
-                    activeIcon={ordersActive.src}
-                  />
+                  <MantineButton variant="square" icon={'orders'} />
                 </Link>
               </div>
             )}

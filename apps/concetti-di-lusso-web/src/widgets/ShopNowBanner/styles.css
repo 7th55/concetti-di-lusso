@@ -35,7 +35,7 @@
   font-weight: var(--font-weight-second);
   line-height: 1.2;
   letter-spacing: 0.5px;
-  color: var(--text-color-fifth);
+  color: var(--fifth-color);
 }
 
 .shopNowBanner__text {
@@ -46,7 +46,7 @@
   font-family: var(--font-second);
   font-size: var(--font-size-sixth);
   font-weight: var(--font-weight-first);
-  color: var(--text-color-fifth);
+  color: var(--fifth-color);
 }
 
 .shopNowBanner__shop-now {

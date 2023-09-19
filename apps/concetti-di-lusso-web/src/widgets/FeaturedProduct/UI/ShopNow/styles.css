@@ -11,7 +11,7 @@
   position: relative;
   /* width: 40%; */
   height: 84%;
-  background-color: var(--bg-color-second);
+  background-color: var(--third-color);
   border-radius: 30px;
   padding: 0 29px;
 }
@@ -26,7 +26,7 @@
   white-space: pre;
   font-size: var(--font-size-eigth);
   font-weight: var(--font-weight-fourth);
-  color: var(--text-color-second);
+  color: var(--first-color);
 }
 
 .shopNow__text {

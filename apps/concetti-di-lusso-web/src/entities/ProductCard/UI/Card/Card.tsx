@@ -11,6 +11,7 @@ export const Card = ({ children }: { children: React.ReactNode }) => {
           minWidth: 280,
           backgroundColor:
             theme.colorScheme === 'light'
+              // var(--third-color)
               ? theme.colors.cultured[9]
               : theme.colors.dark[6],
           borderRadius: 10,

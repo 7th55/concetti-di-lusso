@@ -1,32 +1,7 @@
-import { Text, createStyles } from '@mantine/core';
-
-type PriceProps = {
-  size: number | string;
-};
-
-const useStyles = createStyles((theme, { size }: PriceProps) => ({
-  price: {
-    fontSize: size,
-    fontWeight: 500,
-    LetterSpacing: 0.2,
-    color: theme.colors.maroon[9],
-  },
-  oldPrice: {
-    position: 'relative',
-    fontSize: size,
-    fontWeight: 400,
-    color: theme.colors.raisinBlack[6],
-    '&::after': {
-      content: '""',
-      width: '100%',
-      height: 1,
-      position: 'absolute',
-      top: 12,
-      left: 1,
-      backgroundColor: theme.colors.raisinBlack[6],
-    },
-  },
-}));
+// Components
+import { Text } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
 
 export const Price = ({
   value,
@@ -37,7 +12,6 @@ export const Price = ({
   variant: string;
   size?: number | string;
 }) => {
-  const { classes } = useStyles({ size });
   let priceClass;
   switch (variant) {
     case 'price':
@@ -48,5 +22,9 @@ export const Price = ({
       break;
   }
 
-  return <Text className={priceClass}>{value}</Text>;
+  return (
+    <Text className={priceClass} style={{ fontSize: size }}>
+      {value}
+    </Text>
+  );
 };

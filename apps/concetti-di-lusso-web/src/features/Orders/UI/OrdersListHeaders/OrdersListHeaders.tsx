@@ -4,7 +4,9 @@ export const OrdersListHeaders = ({ titles }: { titles: Array<string> }) => {
   return (
     <Flex
       sx={(theme) => ({
+        // var(--firts-color)
         backgroundColor: theme.colors.maroon[9],
+        // var(--fifth-color)
         color: theme.colors.cultured[0],
       })}
     >

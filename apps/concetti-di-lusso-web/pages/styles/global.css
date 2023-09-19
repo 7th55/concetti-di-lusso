@@ -4,28 +4,15 @@
 
 :root {
   /* Palette */
-  --bg-color-first: #f6f6f6;
-  --bg-color-second: #f3f5f6;
+  --first-color: #9e3040;
+  --second-color: #232323;
+  --third-color: #f3f5f6;
+  --fourth-color: #686868;
+  --fifth-color: #ffffff;
+  --sixth-color: #696969;
+  --seventh-color: #f6f6f6;
+  --ninth-color: #303030;
 
-  --text-color-first: #232323;
-  --text-color-second: #9e3040;
-  --text-color-third: #686868;
-  --text-color-fourth: #232323;
-  --text-color-fifth: #ffff;
-  --text-color-sixth: #303030;
-
-  --button-color-first: #ffffff;
-  --button-color-second: #9e3040;
-  --button-color-third: #232323;
-
-  --card-color-first: #ffffff;
-
-  --product-card-bg-color: #f3f5f6;
-
-  --product-card-price-color: #9e3050;
-  --product-card-old-price-color: #696969;
-
-  --testimonials-bg-color: #9e3050;
   /* Sizes */
   --max-width: 1440px;
 
