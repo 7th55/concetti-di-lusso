@@ -1,29 +1,18 @@
 import { Box, MediaQuery } from '@mantine/core';
 import NextImage, { StaticImageData } from 'next/image';
+// Styles
+import classes from './styles.module.scss';
 
 export const Image = ({ src, alt }: { src: StaticImageData; alt: string }) => {
   return (
-    <MediaQuery smallerThan={1430} styles={{ width: '100%', maxWidth: 400 }}>
-      <Box
-        mt={7}
-        sx={{
-          position: 'relative',
-          maxWidth: 300,
-          width: '100%',
-          height: 190,
-          backgroundColor: 'white',
-          borderRadius: 15,
-          overflow: 'hidden',
-        }}
-      >
-        <NextImage
-          fill={true}
-          src={src}
-          alt={alt}
-          sizes="(max-width: 1430px) 100%"
-          priority={true}
-        />
-      </Box>
-    </MediaQuery>
+    <Box mt={7} className={classes.image}>
+      <NextImage
+        fill={true}
+        src={src}
+        alt={alt}
+        sizes="(max-width: 1430px) 100%"
+        priority={true}
+      />
+    </Box>
   );
 };

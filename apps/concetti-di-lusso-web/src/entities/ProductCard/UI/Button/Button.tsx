@@ -1,5 +1,5 @@
 import { ActionIcon } from '@mantine/core';
-import React from 'react';
+// Icons
 import { HeartOff, Minus, Plus, ShoppingCartOff } from 'tabler-icons-react';
 
 export const Button = ({
@@ -14,6 +14,7 @@ export const Button = ({
     color: string;
   };
   let icon;
+
   switch (variant) {
     case 'increase':
       icon = <Plus size={48} strokeWidth={2} />;

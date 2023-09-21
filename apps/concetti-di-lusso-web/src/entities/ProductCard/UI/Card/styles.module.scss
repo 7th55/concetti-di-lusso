@@ -1,0 +1,13 @@
+.card {
+  width: 329px;
+  height: 418px;
+  max-width: 329px;
+  min-width: 280px;
+  background-color: var(--third-color);
+  border-radius: 10px;
+
+  @media (max-width: 1430px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}

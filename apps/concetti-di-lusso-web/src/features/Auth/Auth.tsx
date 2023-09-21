@@ -6,6 +6,8 @@ import { useProtectedMutation, useSignInMutation } from './api/authApi';
 import { useDispatch } from 'react-redux';
 // Store
 import { authorized, useAuth } from './store/authSlice';
+// Styles
+import classes from './styles.module.scss';
 
 export const Auth = ({ opened }: { opened: boolean }) => {
   // Api
@@ -81,17 +83,17 @@ export const Auth = ({ opened }: { opened: boolean }) => {
         <Menu.Item component="div">
           <form onSubmit={onSubmitHandler}>
             <TextInput
+              className={classes.emailInput}
               placeholder="E-mail"
               {...form.getInputProps('email')}
-              sx={{ height: 40 }}
             />
             <PasswordInput
+              className={classes.passwordInput}
               {...form.getInputProps('password')}
-              sx={{ height: 42 }}
             />
             <Button
+              className={classes.logInLogOutButton}
               color={authorizedUser && 'blue'}
-              sx={{ width: 88 }}
               type="submit"
               mt="md"
             >
@@ -99,9 +101,9 @@ export const Auth = ({ opened }: { opened: boolean }) => {
             </Button>
 
             <Button
+              className={classes.attemptButton}
               color={data !== undefined ? 'green' : 'dark'}
               onClick={onClickHandler}
-              sx={{ width: 185 }}
             >
               {`Attempt: ${data === undefined ? 'Unauthorized' : 'Authorized'}`}
             </Button>

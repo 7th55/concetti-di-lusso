@@ -1,5 +1,7 @@
 // Components
 import { ActionIcon, Flex, Space, Text } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
 // Icons
 import { QuestionMark, X } from 'tabler-icons-react';
 import { OrderCardProps } from './types';
@@ -23,46 +25,25 @@ export const OrderCard = (props: OrderCardProps) => {
     <Flex h="100px" align="center" justify="center">
       <Flex h="100%" w="100%">
         <Flex
+          className={classes.dateAndTime}
           h="100%"
           w="20%"
           justify="start"
           align="center"
-          sx={(theme) => ({
-            backgroundColor:
-              theme.colorScheme === 'light'
-                ? // var(--third-color)
-                  theme.colors.cultured[9]
-                : theme.colors.dark[4],
-          })}
         >
-          <Text
-            size="lg"
-            sx={{
-              fontStyle: 'bold',
-            }}
-          >
+          <Text className={classes.text} size="lg">
             {date} {time}
           </Text>
         </Flex>
         <Flex h="100%" w="20%" justify="start" align="center">
-          <Text
-            size="lg"
-            sx={{
-              fontStyle: 'bold',
-            }}
-          >
+          <Text classNames={classes.text} size="lg">
             Price: {totalPrice}
             <br />
             Items: {items}
           </Text>
         </Flex>
         <Flex h="100%" w="20%" justify="start" align="center">
-          <Text
-            size="lg"
-            sx={{
-              fontStyle: 'bold',
-            }}
-          >
+          <Text className={classes.text} size="lg">
             {firstName} {lastName}
             <br />
             {phone}
@@ -71,12 +52,7 @@ export const OrderCard = (props: OrderCardProps) => {
           </Text>
         </Flex>
         <Flex h="100%" w="20%" justify="start" align="center">
-          <Text
-            size="lg"
-            sx={{
-              fontStyle: 'bold',
-            }}
-          >
+          <Text className={classes.text} size="lg">
             {address}
           </Text>
         </Flex>

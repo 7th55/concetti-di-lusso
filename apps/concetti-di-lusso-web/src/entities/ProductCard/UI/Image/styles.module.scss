@@ -1,0 +1,14 @@
+.image {
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+  height: 190px;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+
+  @media (max-width: 1430px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
