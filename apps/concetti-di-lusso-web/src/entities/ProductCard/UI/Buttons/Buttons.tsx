@@ -1,4 +1,7 @@
-import { Box, Group, MediaQuery } from '@mantine/core';
+import { Box, Group } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
+// Types
 import { CardVariants } from '/src/entities/ProductCard/types';
 
 export const Buttons = ({
@@ -19,22 +22,14 @@ export const Buttons = ({
   variants: CardVariants;
 }) => {
   return (
-    <Box sx={{ position: 'relative', left: -10 }}>
+    <Box className={classes.buttonsBox}>
       {variants === 'shoppingCard' && (
         <>
-          <MediaQuery smallerThan={1430} styles={{ width: '40%' }}>
-            {addToCart}
-          </MediaQuery>
+          {addToCart}
           {addToFavorites}
         </>
       )}
-      {variants === 'favoritesCard' && (
-        <>
-          <MediaQuery smallerThan={1430} styles={{ width: '40%' }}>
-            {removeFromFavorites}
-          </MediaQuery>
-        </>
-      )}
+      {variants === 'favoritesCard' && <>{removeFromFavorites}</>}
       {variants === 'cartCard' && (
         <Group>
           {increase}

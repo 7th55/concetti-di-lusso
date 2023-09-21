@@ -1,4 +1,7 @@
 import { Box, Title, Text, Space } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
+// Types
 import { CardVariants } from '/src/entities/ProductCard/types';
 
 export const Content = ({
@@ -16,11 +19,7 @@ export const Content = ({
 }) => {
   return (
     <>
-      <Title
-        order={4}
-        size="1rem"
-        sx={{ fontFamily: 'Open Sans, sans-serif', lineHeight: 1.9 }}
-      >
+      <Title order={4} size="1rem" className={classes.title}>
         {title}
       </Title>
       {variant === 'cartCard' && (

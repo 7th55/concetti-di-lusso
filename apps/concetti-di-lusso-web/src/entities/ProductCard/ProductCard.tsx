@@ -11,6 +11,8 @@ import {
   Prices,
 } from './UI';
 import { MantineButton } from '/src/shared/UI/MantineButton';
+// Styles
+import classes from './styles.module.css';
 // Types
 import { ProductCardProps, ProductData } from './types';
 
@@ -113,7 +115,7 @@ export const ProductCard = (props: ProductData & ProductCardProps) => {
           w="100%"
           justify="space-between"
           align="center"
-          sx={{ position: 'relative' }}
+          className={classes.pricesAndButtons}
         >
           <Prices {...pricesProps} />
 
