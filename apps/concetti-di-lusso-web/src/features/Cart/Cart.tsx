@@ -9,6 +9,8 @@ import {
 import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
 // Components
 import { SimpleGrid, Text, Box } from '@mantine/core';
+// Styles
+import classes from './styles.module.scss';
 // Types
 import { ProductCard, ProductData } from '/src/entities/ProductCard';
 import { productsByNameQuery } from '/src/shared/lib/lib';
@@ -30,9 +32,9 @@ export const Cart = () => {
   return (
     <section>
       {isLoading ? (
-        <Box sx={{ width: '100%' }}>Loading</Box>
+        <Box className={classes.isLoading}>Loading</Box>
       ) : isError ? (
-        <Box sx={{ width: '100%' }}>
+        <Box className={classes.error}>
           <Text>Error</Text>
         </Box>
       ) : (
