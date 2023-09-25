@@ -5,6 +5,8 @@ import { Cart } from '/src/features/Cart';
 // Hooks
 import { useAuth } from '/src/features/Auth/store/authSlice';
 import { useCart } from '/src/features/Cart/store/cartSlice';
+// Styles
+import classes from './styles.module.scss';
 
 export const CartPage = () => {
   const user = useAuth().user;
@@ -31,15 +33,7 @@ export const CartPage = () => {
         </>
       )}
       {cartState.items.length === 0 && (
-        <Box
-          sx={{
-            boxSizing: 'border-box',
-            padding: 2,
-            width: '100%',
-            backgroundColor: 'secondary.main',
-            borderRadius: '10px',
-          }}
-        >
+        <Box className={classes.addProductsToCartTitle}>
           <Title order={2}>Add Products to Cart</Title>
         </Box>
       )}
