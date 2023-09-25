@@ -57,7 +57,8 @@ export const OrderCard = (props: OrderCardProps) => {
           </Text>
         </Flex>
         <Flex w="15%" justify="end" align="center">
-          <ActionIcon variant="filled" color="blue">
+          {/* TODO: Info logic */}
+          <ActionIcon disabled variant="filled" color="blue">
             <QuestionMark />
           </ActionIcon>
           <Space w={5} />
