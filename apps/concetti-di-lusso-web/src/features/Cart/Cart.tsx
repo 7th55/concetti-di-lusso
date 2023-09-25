@@ -8,12 +8,12 @@ import {
 } from './store/cartSlice';
 import { useGetProductsByNameQuery } from '/src/shared/api/concettiDiLussoApi';
 // Components
-import { SimpleGrid, Text, Box } from '@mantine/core';
-// Styles
-import classes from './styles.module.scss';
+import { SimpleGrid } from '@mantine/core';
+import { Error } from '/src/shared/UI/Error';
 // Types
 import { ProductCard, ProductData } from '/src/entities/ProductCard';
 import { productsByNameQuery } from '/src/shared/lib/lib';
+import { Loading } from '/src/shared/UI/Loading';
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -26,17 +26,15 @@ export const Cart = () => {
     productsFromCart.find((i) => i.name === fetchedProduct.name)?.price;
 
   const query = productsByNameQuery(productsFromCart);
-  const { data, isLoading, isError, isSuccess } =
+  const { data, isLoading, isError, isSuccess, error } =
     useGetProductsByNameQuery(query);
 
   return (
     <section>
       {isLoading ? (
-        <Box className={classes.isLoading}>Loading</Box>
+        <Loading />
       ) : isError ? (
-        <Box className={classes.error}>
-          <Text>Error</Text>
-        </Box>
+        <Error message="Error" />
       ) : (
         <SimpleGrid cols={4}>
           {isSuccess &&

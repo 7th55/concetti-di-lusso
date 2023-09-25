@@ -1,8 +1,10 @@
 // Hooks
 import { useGetProductsByNameQuery } from './api/FavoritesApi';
 // Components
-import { SimpleGrid, Container, Text, Title, Box } from '@mantine/core';
+import { SimpleGrid, Container, Title } from '@mantine/core';
 import { ProductCard, ProductData } from '/src/entities/ProductCard';
+import { Loading } from '/src/shared/UI/Loading';
+import { Error } from '/src/shared/UI/Error';
 // Types
 import { removeFromFavorites, useFavorites } from './store/favoritesSlice';
 import { useDispatch } from 'react-redux';
@@ -29,11 +31,9 @@ export const Favorites = () => {
       )}
 
       {isLoading ? (
-        <Box sx={{ width: '100%' }}>Loading</Box>
+        <Loading />
       ) : isError ? (
-        <Box sx={{ width: '100%' }}>
-          <Text>Error</Text>
-        </Box>
+        <Error message="Error" />
       ) : (
         <SimpleGrid cols={4}>
           {isSuccess &&
