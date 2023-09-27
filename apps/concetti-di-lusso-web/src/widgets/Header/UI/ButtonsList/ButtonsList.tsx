@@ -14,7 +14,9 @@ import {
 import { useFavorites } from '/src/features/Favorites/store/favoritesSlice';
 import { useCart } from '/src/features/Cart/store/cartSlice';
 // Styles
+// TODO: Remove styles.css
 import './styles.css';
+import classes from './styles.module.scss';
 // Types
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -58,12 +60,13 @@ export const ButtonsList = () => {
   ];
   return (
     <div className="buttons-list">
+      {/* TODO: Remove MediaQuery */}
       <MediaQuery
         smallerThan={1430}
         styles={{ left: isAuthorized ? '50px' : 'null' }}
       >
         <Box
-          sx={{ position: 'relative', left: isAuthorized ? '20px' : 'null' }}
+          style={{ position: 'relative', left: isAuthorized ? '20px' : 'null' }}
         >
           <div className="buttons-list__shopping-buttons">
             {buttons.map((button, index) => (
@@ -91,9 +94,12 @@ export const ButtonsList = () => {
         styles={{ left: isAuthorized ? '34px' : 0 }}
       >
         <Box
-          sx={{ position: 'relative', left: isAuthorized ? '34px' : '-28px' }}
+          style={{
+            position: 'relative',
+            left: isAuthorized ? '34px' : '-28px',
+          }}
         >
-          <Box sx={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
+          <Box style={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
             <MantineButton
               onClickHandler={() => setOpenedAuth(!openedAuth)}
               variant="signIn"
@@ -105,15 +111,9 @@ export const ButtonsList = () => {
           {isAuthorized && (
             <>
               <ActionIcon
+                className={classes.logOut}
                 variant="filled"
                 color="error"
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 66,
-                  height: 49,
-                  width: 49,
-                }}
                 radius="xs"
                 onClick={() => {
                   dispatch(
@@ -126,15 +126,9 @@ export const ButtonsList = () => {
                 <X size="24px" />
               </ActionIcon>
               <ActionIcon
+                className={classes.userInfoButton}
                 variant="filled"
                 color="lime"
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 62,
-                  height: 49,
-                  width: 49,
-                }}
                 radius="xs"
                 onClick={() => {
                   setOpenedInfo(!openedInfo);
@@ -144,10 +138,10 @@ export const ButtonsList = () => {
               </ActionIcon>
             </>
           )}
-          <Box sx={{ position: 'absolute', top: 55, left: -178 }}>
+          <Box className={classes.authBox}>
             <Auth opened={openedAuth} />
           </Box>
-          <Box sx={{ position: 'absolute', top: 55, left: -213 }}>
+          <Box className={classes.userBox}>
             <UserInfo email={userInfo.user.email} opened={openedInfo} />
           </Box>
         </Box>
