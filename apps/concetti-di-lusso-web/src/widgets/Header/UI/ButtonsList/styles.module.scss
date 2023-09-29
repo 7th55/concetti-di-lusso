@@ -1,3 +1,17 @@
+.shoppingButtonsBox_authorized {
+  position: relative;
+  left: 20px;
+}
+
+.signInButtonBox_authorized {
+  position: relative;
+  left: 34px;
+}
+.signInButtonBox {
+  position: relative;
+  left: -28px;
+}
+
 .logOut {
   position: absolute;
   top: 0px;
@@ -24,4 +38,14 @@
   position: absolute;
   top: 55px;
   left: -213px;
+}
+
+@media (max-width: 1430px) {
+  .shoppingButtonsBox_authorized {
+    position: relative;
+    left: 50px;
+  }
+  .signInButtonBox {
+    left: 0;
+  }
 }
