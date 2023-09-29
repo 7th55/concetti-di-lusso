@@ -1,4 +1,4 @@
-import { Box, MediaQuery } from '@mantine/core';
+import { Box } from '@mantine/core';
 import NextImage, { StaticImageData } from 'next/image';
 // Styles
 import classes from './styles.module.scss';

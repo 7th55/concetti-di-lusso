@@ -7,9 +7,11 @@ import {
   useGetOrdersQuery,
 } from './api/ordersApi';
 // Components
-import { Button, Box, Flex, Title, Modal, MediaQuery } from '@mantine/core';
+import { Button, Box, Flex, Title, Modal } from '@mantine/core';
 import { OrdersList, OrdersListHeaders } from './UI';
 import { OrderForm } from '/src/entities/OrderForm';
+// Styles
+import classes from './styles.module.scss';
 // Types
 import { OrdersProps } from './types';
 import { createOrder } from './lib/lib';
@@ -77,21 +79,16 @@ export const Orders = (props: OrdersProps) => {
           </Modal>
 
           <Flex justify="right">
-            <MediaQuery
-              smallerThan={1430}
-              styles={{ position: 'initial', left: 0 }}
-            >
-              <Box>
-                <Button
-                  color="green"
-                  onClick={() => {
-                    open();
-                  }}
-                >
-                  Create Order
-                </Button>
-              </Box>
-            </MediaQuery>
+            <Box className={classes.createOrderBox}>
+              <Button
+                color="green"
+                onClick={() => {
+                  open();
+                }}
+              >
+                Create Order
+              </Button>
+            </Box>
           </Flex>
         </>
       )}

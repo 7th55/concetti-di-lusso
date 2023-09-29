@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Auth } from '/src/features/Auth';
 import { Badge } from '/src/shared/UI/Badge';
 import { Search } from '/src/features/Search';
-import { Button as Button, Box, MediaQuery, ActionIcon } from '@mantine/core';
+import { Box, ActionIcon } from '@mantine/core';
 import { MantineButton } from '/src/shared/UI/MantineButton';
 // Hooks
 import {
@@ -60,92 +60,82 @@ export const ButtonsList = () => {
   ];
   return (
     <div className="buttons-list">
-      {/* TODO: Remove MediaQuery */}
-      <MediaQuery
-        smallerThan={1430}
-        styles={{ left: isAuthorized ? '50px' : 'null' }}
+      <Box
+        className={isAuthorized ? classes.shoppingButtonsBox_authorized : ''}
       >
-        <Box
-          style={{ position: 'relative', left: isAuthorized ? '20px' : 'null' }}
-        >
-          <div className="buttons-list__shopping-buttons">
-            {buttons.map((button, index) => (
-              <div key={index} className="buttons-list__shopping-button">
-                {index !== 0 ? (
-                  <Link href={linkPaths[index]}>{button}</Link>
-                ) : (
-                  // У Search кнопки логика отличается
-                  button
-                )}
-              </div>
-            ))}
-            {isAuthorized && (
-              <div className="buttons-list__shopping-button">
-                <Link href="/orders">
-                  <MantineButton variant="square" icon={'orders'} />
-                </Link>
-              </div>
-            )}
-          </div>
-        </Box>
-      </MediaQuery>
-      <MediaQuery
-        smallerThan={1430}
-        styles={{ left: isAuthorized ? '34px' : 0 }}
-      >
-        <Box
-          style={{
-            position: 'relative',
-            left: isAuthorized ? '34px' : '-28px',
-          }}
-        >
-          <Box style={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
-            <MantineButton
-              onClickHandler={() => setOpenedAuth(!openedAuth)}
-              variant="signIn"
-            >
-              Sign In
-            </MantineButton>
-          </Box>
-
+        <div className="buttons-list__shopping-buttons">
+          {buttons.map((button, index) => (
+            <div key={index} className="buttons-list__shopping-button">
+              {index !== 0 ? (
+                <Link href={linkPaths[index]}>{button}</Link>
+              ) : (
+                // У Search кнопки логика отличается
+                button
+              )}
+            </div>
+          ))}
           {isAuthorized && (
-            <>
-              <ActionIcon
-                className={classes.logOut}
-                variant="filled"
-                color="error"
-                radius="xs"
-                onClick={() => {
-                  dispatch(
-                    logOut({
-                      user: { email: null, id: null, accessToken: null },
-                    })
-                  );
-                }}
-              >
-                <X size="24px" />
-              </ActionIcon>
-              <ActionIcon
-                className={classes.userInfoButton}
-                variant="filled"
-                color="lime"
-                radius="xs"
-                onClick={() => {
-                  setOpenedInfo(!openedInfo);
-                }}
-              >
-                <QuestionMark size="24px" />
-              </ActionIcon>
-            </>
+            <div className="buttons-list__shopping-button">
+              <Link href="/orders">
+                <MantineButton variant="square" icon={'orders'} />
+              </Link>
+            </div>
           )}
-          <Box className={classes.authBox}>
-            <Auth opened={openedAuth} />
-          </Box>
-          <Box className={classes.userBox}>
-            <UserInfo email={userInfo.user.email} opened={openedInfo} />
-          </Box>
+        </div>
+      </Box>
+      <Box
+        className={
+          isAuthorized
+            ? classes.signInButtonBox_authorized
+            : classes.signInButtonBox
+        }
+      >
+        <Box style={{ visibility: isAuthorized ? 'hidden' : 'visible' }}>
+          <MantineButton
+            onClickHandler={() => setOpenedAuth(!openedAuth)}
+            variant="signIn"
+          >
+            Sign In
+          </MantineButton>
         </Box>
-      </MediaQuery>
+
+        {isAuthorized && (
+          <>
+            <ActionIcon
+              className={classes.logOut}
+              variant="filled"
+              color="error"
+              radius="xs"
+              onClick={() => {
+                dispatch(
+                  logOut({
+                    user: { email: null, id: null, accessToken: null },
+                  })
+                );
+              }}
+            >
+              <X size="24px" />
+            </ActionIcon>
+            <ActionIcon
+              className={classes.userInfoButton}
+              variant="filled"
+              color="lime"
+              radius="xs"
+              onClick={() => {
+                setOpenedInfo(!openedInfo);
+              }}
+            >
+              <QuestionMark size="24px" />
+            </ActionIcon>
+          </>
+        )}
+        <Box className={classes.authBox}>
+          <Auth opened={openedAuth} />
+        </Box>
+        <Box className={classes.userBox}>
+          <UserInfo email={userInfo.user.email} opened={openedInfo} />
+        </Box>
+      </Box>
     </div>
   );
 };
