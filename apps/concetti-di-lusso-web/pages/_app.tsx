@@ -1,6 +1,8 @@
-import { Hind_Siliguri } from 'next/font/google';
 import type { AppProps } from 'next/app';
-import { ColorScheme, MantineProvider } from '@mantine/core';
+import {
+  // ColorScheme,
+  MantineProvider,
+} from '@mantine/core';
 // Redux
 import { Provider } from 'react-redux';
 import { persistor, store } from '/src/app/store/store';
@@ -8,29 +10,32 @@ import { PersistGate } from 'redux-persist/integration/react';
 // Components
 import Layout from './layout';
 // Hooks
-import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+// import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+// Mantine Styles
+import '@mantine/core/styles.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: 'light',
-    getInitialValueInEffect: true,
-  });
+  // TODO: Сделать тему
+  // const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+  //   key: 'mantine-color-scheme',
+  //   defaultValue: 'light',
+  //   getInitialValueInEffect: true,
+  // });
 
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  // const toggleColorScheme = (value?: ColorScheme) =>
+  //   setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
-  useHotkeys([['mod+J', () => toggleColorScheme()]]);
+  // useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
   return (
     <Provider store={store}>
       <PersistGate loading={'ANIME'} persistor={persistor}>
         <MantineProvider
-          withCSSVariables
-          withGlobalStyles
+          // withCSSVariables
+          // withGlobalStyles
           // withNormalizeCSS
           theme={{
-            colorScheme,
+            // colorScheme,
             colors: {
               maroon: [
                 '#f5eaec',

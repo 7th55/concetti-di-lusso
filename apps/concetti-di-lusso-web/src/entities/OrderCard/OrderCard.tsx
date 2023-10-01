@@ -36,7 +36,7 @@ export const OrderCard = (props: OrderCardProps) => {
           </Text>
         </Flex>
         <Flex h="100%" w="20%" justify="start" align="center">
-          <Text classNames={classes.text} size="lg">
+          <Text className={classes.text} size="lg">
             Price: {totalPrice}
             <br />
             Items: {items}

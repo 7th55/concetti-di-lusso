@@ -1,5 +1,5 @@
 // Components
-import { Box, Flex } from '@mantine/core';
+import { Box, Button, Flex } from '@mantine/core';
 // Styles
 import classes from './styles.module.scss';
 
@@ -18,7 +18,6 @@ export const Prices = ({
       align="center"
     >
       {price}
-
       {oldPrice && <Box className={classes.oldPrice}>{oldPrice}</Box>}
     </Flex>
   );
